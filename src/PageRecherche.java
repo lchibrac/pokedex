@@ -54,7 +54,7 @@ public class PageRecherche extends JFrame {
 		Dimension d_down = new Dimension(600,200);
 		Dimension d_right = new Dimension(50,this.getHeight());
 		Dimension d_left = new Dimension(50,this.getHeight());
-		
+		//patate
 		
 		Marge up = new Marge(getBackground(),d_up);
 		Marge down = new Marge(getBackground(),d_down);
