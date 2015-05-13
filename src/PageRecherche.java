@@ -20,7 +20,7 @@ public class PageRecherche extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private PanneauRecherche pan = new PanneauRecherche();
-	private PanneauListePokemon panel = new PanneauListePokemon(pan.liste);
+	private PanneauListePokemon listpan = new PanneauListePokemon(pan.liste);
 
 	public 	void setScrollPane (JScrollPane s, PanneauListePokemon p){
 				s = new JScrollPane(p);
@@ -43,23 +43,32 @@ public class PageRecherche extends JFrame {
 			
 		
 		pan.setBackground(c);	
-		pan.setPreferredSize(new Dimension(600,50));
+		pan.setPreferredSize(new Dimension(500,50));
 		
-		panel.setPreferredSize(new Dimension(200,pan.liste.length*120));
-				
-		JScrollPane s = new JScrollPane(panel);
-		s.setPreferredSize(new Dimension(600, 600));
+		listpan.setPreferredSize(new Dimension(300,pan.liste.length*120));
 		
-		Dimension d_up = new Dimension(600,200);
-		Dimension d_down = new Dimension(600,200);
-		Dimension d_right = new Dimension(50,this.getHeight());
-		Dimension d_left = new Dimension(50,this.getHeight());
-		//patate
+		JScrollPane s = new JScrollPane(listpan);
+		s.setPreferredSize(new Dimension(300, this.getHeight()-pan.getHeight()-40));
+		
+		
+		
+		Dimension d_up = new Dimension(600,20);
+		Dimension d_down = new Dimension(600,20);
+		Dimension d_right = new Dimension(10,this.getHeight());
+		Dimension d_left = new Dimension(10,this.getHeight());
+		
+		
 		
 		Marge up = new Marge(getBackground(),d_up);
 		Marge down = new Marge(getBackground(),d_down);
 		Marge left = new Marge(getBackground(),d_left);
 		Marge right = new Marge(getBackground(),d_right);
+		up.setPreferredSize(up.getDimension());
+		down.setPreferredSize(down.getDimension());
+		right.setPreferredSize(right.getDimension());
+		left.setPreferredSize(left.getDimension());
+		
+		
 		
 		JPanel jp = new JPanel();
 		jp.add(pan,BorderLayout.NORTH);
