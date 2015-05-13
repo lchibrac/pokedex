@@ -9,6 +9,7 @@ public class Marge extends JPanel {
 	public Marge(Color c, Dimension d){
 		_d = (Dimension)d.clone();
 		setForeground(c);
+		setBackground(c);
 	}
 	
 	public Dimension getDimension(){

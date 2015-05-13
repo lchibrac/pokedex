@@ -78,12 +78,14 @@ public class PageRecherche extends JFrame {
 		
 		
 		Container pane = getContentPane();
+		pane.setBackground(c);
 		pane.add(up,BorderLayout.NORTH);
 		pane.add(down,BorderLayout.SOUTH);
 		pane.add(right,BorderLayout.EAST);
 		pane.add(left,BorderLayout.WEST);
 		pane.add(jp,BorderLayout.CENTER);
 		setContentPane(pane);
+		
 	}
 	
 //	public void paintComponent(Graphics g) {
