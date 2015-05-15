@@ -79,6 +79,17 @@ public class Pokemon {
 		return new String(this._numero +" "+this._nom.toString()+" "+this._type.toString()+" "+this._stats.toString()+" "+this._nbevolution+" "+this._estuneevolution+" "+this._talents.toString());		
 	}
 	
+	public String numeroToString(){
+		String s;
+		if ( _numero < 10 )
+			s = new String("00"+_numero);
+		else if ( 10 < _numero && _numero < 100)
+			s = new String("0"+_numero);
+		else
+			s = new String(""+_numero);
+		return s;
+	}
+	
 	public String[] getNom(){
 		return new String[] {new String(_nom[0]),new String(_nom[1])};
 	}

@@ -23,7 +23,7 @@ public class PanneauListePokemon extends JPanel {
 	}
 	
 	public void addPokeBouton(final Pokemon p, final JPanel jp){
-		JButton j = new JButton("#"+p._numero + " " +p.getFrenchNom().toString()+" / "+ p.getEnglishNom());
+		JButton j = new JButton("#"+p.numeroToString() + " " +p.getFrenchNom().toString()+" / "+ p.getEnglishNom());
 			
 		class Charger2 implements ActionListener{
 			public void actionPerformed (ActionEvent e){
