@@ -4,8 +4,12 @@ import java.awt.Graphics;
 
 
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -19,48 +23,53 @@ public class PanPokemon extends JPanel{
 	public PanPokemon(Pokemon p,JFrame f){
 		_f = f;
 		tmp = p.clone();
-		setLayout(new GridLayout(10, 1));
+		setBackground(Color.WHITE);
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		
 		PanPresentation pp = new PanPresentation(tmp);
-		pp.setSize(new Dimension(f.getWidth(),250));
+		pp.setPreferredSize(new Dimension(570,200));
 		add(pp);
 		
-		Line pl1 = new Line(f);
-		pl1.setSize(new Dimension(f.getWidth(),3));
+		Line pl1 = new Line(600);
+		pl1.setPreferredSize(new Dimension(f.getWidth(),13));
 		add(pl1);
 		
 		PanTitle pt1 = new PanTitle("Affinite des Types",f);
-		pt1.setSize(new Dimension(f.getWidth(),30));
+		pt1.setPreferredSize(new Dimension(f.getWidth(),40));
 		add(pt1);
 		
 		PanTableDesTypes ptdt = new PanTableDesTypes(p);
-		ptdt.setSize(new Dimension(f.getWidth(),100));
+		ptdt.setPreferredSize(new Dimension(f.getWidth(),150));
 		add(ptdt);
 				
-		Line pl2 = new Line(f);
-		pl2.setSize(new Dimension(f.getWidth(),3));
+		Line pl2 = new Line(600);
+		pl2.setPreferredSize(new Dimension(f.getWidth(),13));
 		add(pl2);
 		
 		PanTitle pt2 = new PanTitle("Statistiques", f);
-		pt2.setSize(new Dimension(f.getWidth(),30));
+		pt2.setPreferredSize(new Dimension(f.getWidth(),40));
 		add(pt2);
 		
 		PanStats ps = new PanStats(p);
-		ps.setSize(f.getWidth(), 150);
+		ps.setPreferredSize(new Dimension(f.getWidth(), 150));
 		add(ps);
 		
-		Line pl3 = new Line(f);
-		pl3.setSize(new Dimension(f.getWidth(),3));
+		Line pl3 = new Line(600);
+		pl3.setPreferredSize(new Dimension(f.getWidth(),13));
 		add(pl3);
 		
 		PanTitle pt3 = new PanTitle("Talents",f);
-		pt3.setSize(new Dimension(f.getWidth(),30));
+		pt3.setPreferredSize(new Dimension(f.getWidth(),40));
 		add(pt3);
 		
 		PanTalents ptalent = new PanTalents(p);
-		ptalent.setSize(600, 30);
+		ptalent.setPreferredSize(new Dimension(600, 150));
 		add(ptalent);
+	}
+
+	public static void main(String[] args){
+		new PokedexPage(Pokemon2G.leuphorie);
 	}
 
 }

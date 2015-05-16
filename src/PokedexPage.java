@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -13,15 +14,18 @@ public class PokedexPage extends JFrame{
 	public PokedexPage(Pokemon p){
 		
 		super();
-		setResizable(true);
+
+		setResizable(false);
+		
+		setSize(new Dimension(600,1000));
 		PanPokemon pan = new PanPokemon(p,this);
-		pan.setSize(600, pan.HEIGHT);
+		pan.setSize(600,1000);
 		JScrollPane scroll = new JScrollPane(pan);
 		add(scroll);
-		//setContentPane(pan);
+
 		String s = new String("#"+p.numeroToString()+" "+p.getFrenchNom()+" / "+p.getEnglishNom());
 		setTitle(s);
-		setSize(600,1000);
+		
 		Image icone = Toolkit.getDefaultToolkit().getImage("images/dex.gif");
 		setIconImage(icone);
 		setVisible(true);
@@ -36,7 +40,7 @@ public class PokedexPage extends JFrame{
 
 		
 	}
-	
+
 	public static void main(String[] args){
 		new PokedexPage(Pokemon4G.chimpenfeu);
 	}
