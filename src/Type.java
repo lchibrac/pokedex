@@ -15,7 +15,6 @@ public class Type {
 		try {
 			_image = ImageIO.read(image);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -73,7 +72,7 @@ public class Type {
 		table[0][14] = 1;
 		table[0][15] = 1;
 		table[0][16] = 0.5;
-		table[0][17] = 0;
+		table[0][17] = 1;
 		table[1][0] = 1;
 		table[1][1] = 0.5;
 		table[1][2] = 0.5;
@@ -130,7 +129,7 @@ public class Type {
 		table[3][17] = 1;
 		table[4][0] = 1;
 		table[4][1] = 0.5;
-		table[4][2] = 1;
+		table[4][2] = 2;
 		table[4][3] = 1;
 		table[4][4] = 0.5;
 		table[4][5] = 1;
@@ -162,7 +161,7 @@ public class Type {
 		table[5][13] = 1;
 		table[5][14] = 2;
 		table[5][15] = 1;
-		table[5][16] = 1;
+		table[5][16] = 0.5;
 		table[5][17] = 1;
 		table[6][0] = 2;
 		table[6][1] = 1;
@@ -382,6 +381,12 @@ public class Type {
 		table[17][17] = 1;
 		return table;
 	}
+	
+	// cible 	eau *2 par plante
+			//			acier *2 glace
+					//	fee	*1 normal
+					//	
+			//
 	
 	public static void afficherTableau2D( double[][] t ){
 		for (int i = 0 ; i < t.length ; ++i){

@@ -1,44 +1,57 @@
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.GridLayout;
+
+import java.awt.Color;
+
+
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
+
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 
-public class PanneauListePokemon extends JPanel {
-	
-	class ButtonPanel extends JPanel{
-		public ButtonPanel(final Pokemon p){
-			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			
-			JButton j = new JButton("#"+p.numeroToString() 
-					+ " " + p.getFrenchNom().toString()
-					+ " / " + p.getEnglishNom());
-			
-			class Charger2 implements ActionListener{
-				public void actionPerformed (ActionEvent e){
-					new PokedexPage(p);
-				}
-			}
 
-			j.addActionListener(new Charger2());
-			j.setPreferredSize(new Dimension(400, 40));
-			add(new PanImagePokemon(p));
-			add(j);
+public class PanneauListePokemon extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+
+	public void addPokeBouton(final Pokemon p, final JPanel jp, int i){
+		String s = null;
+		if( i < 6 ){
+			s = new String(Stat.getIdStat()[i]);
 		}
-	}
-	
-	public PanneauListePokemon(Pokemon[] liste){
-		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		for (int i = 0; i < liste.length; ++i) {
-			add(new ButtonPanel(liste[i]));
-		}	
+		else{
+			s = new String("#"+p.numeroToString());
+		}
+		JButton j = new JButton(	p.getFrenchNom()+
+				" / "+p.getEnglishNom()+
+				"   "+s,
+				new ImageIcon(p._image.getScaledInstance(60, 60, Image.SCALE_DEFAULT)));
+
+		
+		class Charger2 implements ActionListener{
+			public void actionPerformed (ActionEvent e){
+				new PokedexPage(p);
+			}
+		}
+		j.addActionListener(new Charger2());
+		jp.add(j);
+
 	}	
+
+	public PanneauListePokemon(Pokemon[] liste, int affichage){	
+
+		setBackground(Color.white);
+		JPanel jp = new JPanel();
+		jp.setLayout(new BoxLayout(jp, BoxLayout.Y_AXIS));
+		
+		for(int i = 0 ; i < 20 /*liste.length*/ ; ++i ){
+			addPokeBouton(liste[i], jp, affichage);			
+		}
+
+
+	}	
+
 }

@@ -69,9 +69,9 @@ public class Stat {
 		String[] s = new String[6];
 		s[0] = new String("Points de Vie");
 		s[1] = new String("Attaque");
-		s[2] = new String("Défense");
-		s[3] = new String("Attaque Spéciale");
-		s[4] = new String("Défense Spéciale");
+		s[2] = new String("Defense");
+		s[3] = new String("Attaque Speciale");
+		s[4] = new String("Defense Speciale");
 		s[5] = new String("Vitesse");
 		return s;
 	}

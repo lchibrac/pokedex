@@ -1,13 +1,5 @@
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
-
-
-
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.Insets;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -16,6 +8,7 @@ import javax.swing.JPanel;
 
 public class PanPokemon extends JPanel{
 
+	private static final long serialVersionUID = 1L;
 	
 	public Pokemon tmp;
 	public JFrame _f;

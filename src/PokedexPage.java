@@ -11,6 +11,8 @@ import javax.swing.JScrollPane;
 
 public class PokedexPage extends JFrame{
 
+	private static final long serialVersionUID = 1L;
+	
 	public PokedexPage(Pokemon p){
 		
 		super();
@@ -42,7 +44,7 @@ public class PokedexPage extends JFrame{
 	}
 
 	public static void main(String[] args){
-		new PokedexPage(Pokemon4G.chimpenfeu);
+		new PokedexPage(Pokemon5G.clamiral);
 	}
 	
 
