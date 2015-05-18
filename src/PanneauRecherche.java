@@ -10,12 +10,13 @@ public class PanneauRecherche extends JPanel {
 	private JComboBox<String> all1 = new JComboBox<String>();
 	private JComboBox<String> all2 = new JComboBox<String>();
 	
+	
 	public PanneauRecherche(final JTabbedPane onglets) {
 		
 		setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 		setSize(600,1000);
-		all1.setSize(new Dimension(100, 20));
-		all2.setSize(100,20);
+		all1.setMaximumSize(new Dimension(500, 40));
+		all2.setMaximumSize(new Dimension(500,40));
 
 		for (int i = 0; i < poke.length; ++i) {
 			all1.addItem(poke[i].getFrenchNom());
@@ -35,15 +36,17 @@ public class PanneauRecherche extends JPanel {
 		class Trier implements ActionListener{
 			public void actionPerformed(ActionEvent e){
 				int index = all2.getSelectedIndex();
-				JScrollPane scroll = new JScrollPane();
-				scroll.setSize(600,1000);
 				onglets.remove(1);
 				if(index < 6){
-					scroll.add(new PanneauListePokemon(TriPokemon.triRapide(liste, index),index));
+					PanneauListePokemon plp = new PanneauListePokemon(TriPokemon.inverserTableau(TriPokemon.triRapide(liste, index)),index);
+					JScrollPane scroll = new JScrollPane(plp);
+					scroll.setPreferredSize(new Dimension(500,900));
 					onglets.addTab("Liste des Pokemons par "+Stat.getIdStat()[index].toString(), scroll );
 				}
 				else{
-					scroll.add(new PanneauListePokemon(PageRecherche.copie(),index));
+					PanneauListePokemon plp = new PanneauListePokemon(PageRecherche.copie(),7);
+					JScrollPane scroll = new JScrollPane(plp);
+					scroll.setPreferredSize(new Dimension(500,900));
 					onglets.addTab("Liste des Pokemons", scroll );
 				}				
 			}

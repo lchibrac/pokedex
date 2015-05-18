@@ -7,14 +7,13 @@ public class TriPokemon {
 		t[j] = k.clone();
 	}
 	
-	public static void inverserTableau ( Pokemon[] t ){
-		int i = 0;
-		int j = t.length;
-		while ( i <j ){
-			echanger(t,i,j);
-			++i;
-			--j;
+	public static Pokemon[] inverserTableau ( Pokemon[] t ){
+		int l = t.length;
+		Pokemon[] tab = new Pokemon[l];
+		for(int i = 0 ; i < l ; ++i ){
+			tab[i] = t[l-i-1];
 		}
+		return tab;
 	}
 	
 	public static Pokemon[] triRapide(Pokemon[] poke, int s){

@@ -16,14 +16,13 @@ public class PanTalents extends JPanel {
 		Font font = new Font("Dialog",Font.BOLD,14);
 		
 		JTextArea label1 = new JTextArea();
-		label1.setForeground(Color.BLACK);
 		label1.setText(p.getTalent()[0].toString());
 		label1.setEnabled(false);
 		label1.setLineWrap(true);
 		label1.setSize(570,50);
 		label1.setWrapStyleWord(false);
 		label1.setFont(font);
-
+		label1.setDisabledTextColor(Color.BLACK);
 		
 		JTextArea label2 = new JTextArea();
 		label2.setForeground(Color.BLACK);
@@ -33,15 +32,17 @@ public class PanTalents extends JPanel {
 		label2.setSize(570, 50);
 		label2.setWrapStyleWord(false);
 		label2.setFont(font);
+		label2.setDisabledTextColor(Color.BLACK);
 		
 		JTextArea label3 = new JTextArea();
 		label3.setForeground(Color.BLACK);
-		label3.setText(p.getTalent()[2].toString());
+		label3.setText("(DreamWorld) "+p.getTalent()[2].toString());
 		label3.setEnabled(false);
 		label3.setLineWrap(true);
 		label3.setSize(570, 50);
 		label3.setWrapStyleWord(false);
 		label3.setFont(font);
+		label3.setDisabledTextColor(Color.BLACK);
 
 		add(label1);
 		add(label2);
