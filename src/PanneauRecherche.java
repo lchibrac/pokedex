@@ -41,12 +41,14 @@ public class PanneauRecherche extends JPanel {
 					PanneauListePokemon plp = new PanneauListePokemon(TriPokemon.inverserTableau(TriPokemon.triRapide(liste, index)),index);
 					JScrollPane scroll = new JScrollPane(plp);
 					scroll.setPreferredSize(new Dimension(500,900));
+					scroll.getVerticalScrollBar().setUnitIncrement(40);
 					onglets.addTab("Liste des Pokemons par "+Stat.getIdStat()[index].toString(), scroll );
 				}
 				else{
 					PanneauListePokemon plp = new PanneauListePokemon(PageRecherche.copie(),7);
 					JScrollPane scroll = new JScrollPane(plp);
 					scroll.setPreferredSize(new Dimension(500,900));
+					scroll.getVerticalScrollBar().setUnitIncrement(40);
 					onglets.addTab("Liste des Pokemons", scroll );
 				}				
 			}

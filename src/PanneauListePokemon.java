@@ -25,7 +25,7 @@ public class PanneauListePokemon extends JPanel {
 		JButton j = new JButton(p.getFrenchNom()+
 				" / "+p.getEnglishNom()+
 				"   "+s,
-				new ImageIcon(p._image.getScaledInstance(60, 60, Image.SCALE_DEFAULT)));
+				new ImageIcon(p._image.getScaledInstance(120, 120, Image.SCALE_DEFAULT)));
 		class Charger2 implements ActionListener{
 			public void actionPerformed (ActionEvent e){
 				new PokedexPage(p);

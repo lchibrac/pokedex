@@ -45,6 +45,7 @@ public class PageRecherche extends JFrame {
 
 		JScrollPane scroll2 = new JScrollPane(plp);
 		scroll2.setPreferredSize(new Dimension(500,900));
+		scroll2.getVerticalScrollBar().setUnitIncrement(40);
 		onglets.addTab("Liste des Pokemons",scroll2);
 
 		onglets.setOpaque(true);
