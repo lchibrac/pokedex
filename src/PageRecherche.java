@@ -33,18 +33,18 @@ public class PageRecherche extends JFrame {
 		JPanel jp = new JPanel();
 		
 		JTabbedPane onglets = new JTabbedPane(SwingConstants.TOP);
-		onglets.setSize(600, 1000);
+		onglets.setSize(getWidth(), getHeight());
 		
 		PanneauRecherche pr = new PanneauRecherche(onglets);
-		pr.setSize(600, 1000);
+		pr.setSize(getWidth(), getHeight());
 		JScrollPane scroll1 = new JScrollPane(pr);
-		scroll1.setSize(600,1000);
+		scroll1.setSize(getWidth(),getHeight());
 		onglets.addTab("Recherche", scroll1);
 		
 		PanneauListePokemon plp = new PanneauListePokemon(copie(),7);
 		plp.setSize(new Dimension(600,1000));
 		JScrollPane scroll2 = new JScrollPane();
-		scroll2.setSize(new Dimension(600,1000));
+		scroll2.setSize(new Dimension(getWidth(),getHeight()));
 		scroll2.add(plp);
 		onglets.addTab("Liste des Pokemons",scroll2);
 		
