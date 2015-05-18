@@ -34,10 +34,8 @@ public class PageAccueil extends JFrame implements ActionListener {
 		
 		Panneau pan = new Panneau();
 		setContentPane(pan);
-		setLayout(new BoxLayout(pan, BoxLayout.Y_AXIS));
 		setBackground(Color.white);
-		
-		bouton.setBounds(200,220,200,50); 
+
 		bouton.addActionListener(this); 
 		pan.add(bouton); 
 		

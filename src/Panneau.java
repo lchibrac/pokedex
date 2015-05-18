@@ -24,7 +24,7 @@ public class Panneau extends JPanel{
 		
 	    try {
 	        Image img = ImageIO.read(new File("images/logo.jpg"));
-	        g.drawImage(img, 300 - (img.getWidth(null)/2), 10, this);
+	        g.drawImage(img, 300 - (img.getWidth(null)/2), 100, this);
 	      } catch (IOException e) {
 	        e.printStackTrace();
 	      }
