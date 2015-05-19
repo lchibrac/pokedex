@@ -36,7 +36,7 @@ public class PanneauRecherche extends JPanel {
 		class Trier implements ActionListener{
 			public void actionPerformed(ActionEvent e){
 				int index = all2.getSelectedIndex();
-				onglets.remove(1);
+				onglets.remove(2);
 				if(index < 6){
 					PanneauListePokemon plp = new PanneauListePokemon(TriPokemon.inverserTableau(TriPokemon.triRapide(liste, index)),index);
 					JScrollPane scroll = new JScrollPane(plp);
