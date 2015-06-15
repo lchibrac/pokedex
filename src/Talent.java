@@ -27,7 +27,7 @@ public class Talent {
     public static Talent absorbeau = new Talent ( new String[] {"Absorb Eau","Water Absorb","Les attaques de type eau recues par le Pokemon regenerent 1/4 de ses PV."} );
     public static Talent absorbvolt = new Talent ( new String[] {"Absorb Volt","Volt Absorb","Les attaques de type electrique recues par le Pokemon regenerent 1/4 de ses PV."} );
     public static Talent agitation = new Talent ( new String[] {"Agitation","Hustle","Augmente l'attaque de 50% mais baisse la precision de 20%.  Augmente de 50% les chances de rencontrer un Pokemon sauvage de haut niveau."} );
-    public static Talent airlock = new Talent ( new String[] {"Air L-ock","Air Lock","Annule les effets du climat."} );
+    public static Talent airlock = new Talent ( new String[] {"Air Lock","Air Lock","Annule les effets du climat."} );
     public static Talent antibruit = new Talent ( new String[] {"Anti-Bruit","Soundproof","Annule les effets dus a une attaque sonore."} );
     public static Talent armumagma = new Talent ( new String[] {"Armumagma","Magma Armor","Immunise contre le gel. Divise par deux le nombre de pas necessaire a l'eclosion d'un oeuf."} );
     public static Talent armurbaston = new Talent ( new String[] {"Armurbaston","Battle Armor","Annule les chances de coups critiques du Pokemon ennemi."} );
