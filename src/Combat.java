@@ -15,5 +15,4 @@ public class Combat {
 	
 	public Equipe _j1;
 	public Equipe _j2;
-	
 }

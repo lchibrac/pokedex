@@ -399,6 +399,7 @@ public class Type {
 	
 	// Ingredients
 	public static double[][] table = maketable();
+	
 	public String _nom;
 	public int _nb;
 	public Image _image;
@@ -423,6 +424,7 @@ public class Type {
 	public static Type tenebres = new Type ("T�n�bres", 15 , new File ("images/types/15.png"));
 	public static Type acier = new Type ("Acier", 16 , new File ("images/types/16.png"));
 	public static Type fee = new Type ("F�e", 17 , new File ("images/types/17.png"));
+	
 	public static Type[] alltypes = {normal,feu,eau,electrique,plante,glace,combat,poison,sol,vol,psy,insecte,roche,spectre,dragon,tenebres,acier,fee};
 	public static Type zero = new Type("-",-1,new File("images/mimetex.gif"));
 	//Retourne le type d'un pokemon
