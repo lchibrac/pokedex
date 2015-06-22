@@ -14,6 +14,10 @@ public class GestionDesStats {
 		public int _plus;
 		public int _moins;
 		
+		public String toString(){
+			return new String(_fname +" / "+_ename);
+		}
+		
 		public static Nature assure = new Nature("Assure","Bold",2,1);
 		public static Nature bizarre = new Nature("Bizarre","Quirky",0,0);
 		public static Nature brave = new Nature("Brave","Brave",1,5);
@@ -39,6 +43,9 @@ public class GestionDesStats {
 		public static Nature serieux = new Nature("Serieux","Serious",0,0);
 		public static Nature solo = new Nature("Solo","Lonely",1,2);
 		public static Nature timide = new Nature("Timide","Timid",5,1);
+		
+		public static Nature[] allNatures = new Nature[] {assure,bizarre,brave,calme,discret,docile,doux,foufou,gentil,hardi,jovial,lache,malin,malpoli,mauvais,modeste,naif,presse,prudent,pudique,relax,rigide,serieux,solo,timide};
+		
 	}
 	
 	public int nature;	
@@ -51,7 +58,7 @@ public class GestionDesStats {
 	
 	public static int statCalculator(int baseStat, int ev, int iv, Nature nat,int niveau, int numero){
 		int res = 0;
-		res = ent(2*baseStat + iv + (ev/4))*(niveau/100);
+		res = (ent(2*baseStat + iv + (ev/4))*niveau)/100;
 		if(numero > 0){
 			res += 5;
 			if(nat._plus == numero){
@@ -67,5 +74,9 @@ public class GestionDesStats {
 		return res;
 	}
 	
+	public static void main(String[] argv){
+		int x = statCalculator(50, 0, 31, Nature.serieux, 50, 0);
+		System.out.println(x);
+	}
 
 }
