@@ -215,7 +215,7 @@ public class PanGestionDesStats extends JPanel {
 	public static void main(String[] argv){
 		
 		JFrame f = new JFrame();
-		PanGestionDesStats pgs = new PanGestionDesStats(Pokemon1G.psykokwak,f);
+		PanGestionDesStats pgs = new PanGestionDesStats(Pokemon1G.papilusion,f);
 		f.setContentPane(pgs);
 		f.setSize(500, 300);
 		f.setVisible(true);
