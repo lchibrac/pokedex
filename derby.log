@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Fri Jun 19 15:59:51 CEST 2015:
+Amorçage de Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546) : instance a816c00e-014e-0c1e-541f-000006cc9018 
+dans le répertoire de base de données /autofs/netapp/account/cremi/bfaltrep/L3/pokedex/pokedex/db/pokedexdb avec le chargeur de classe sun.misc.Launcher$AppClassLoader@2f78743b
+Chargé de file:/autofs/netapp/account/cremi/bfaltrep/L3/pokedex/db-derby-10.11.1.1-bin/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_79-b15
+user.dir=/autofs/netapp/account/cremi/bfaltrep/L3/pokedex/pokedex
+os.name=Linux
+os.arch=amd64
+os.version=3.16.0-4-amd64
+derby.system.home=null
+Chargeur de classe de la base de données démarré - derby.database.classpath = ''
