@@ -1,4 +1,3 @@
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -128,7 +127,8 @@ public class PanGestionDesStats extends JPanel {
 		
 		class Refresh implements ActionListener{
 			public void actionPerformed(ActionEvent e){
-				
+				int largeur = f.getWidth();
+				int hauteur = f.getHeight();
 				int niv = Integer.parseInt(niveau.getText());
 				
 				jp.removeAll();
@@ -156,8 +156,10 @@ public class PanGestionDesStats extends JPanel {
 				fourth.repaint();
 				
 				jp.add(fourth);
+				
 				f.setSize(501,301);
 				f.setSize(500,300);
+
 			}
 		}
 
@@ -190,8 +192,10 @@ public class PanGestionDesStats extends JPanel {
 				fourth.repaint();
 				
 				jp.add(fourth);
+
 				f.setSize(501,301);
 				f.setSize(500,300);
+
 						
 			}
 		}

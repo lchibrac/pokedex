@@ -1,4 +1,3 @@
-
 public abstract class Attaque {
 	
 	public Attaque(String nom, Type t, PokemonEnCombat lanceur, PokemonEnCombat cible, int precision){
