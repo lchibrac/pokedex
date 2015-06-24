@@ -31,14 +31,16 @@ public class Probabilite {
 	public static double degats(AttaqueDegat a, PokemonEnCombat lanceur, PokemonEnCombat cible){
 		
 		double num = 2*lanceur._niveau+10;
-		System.out.println(num);
-		double den = 250*lanceur._stats[2+(2*a._categorie)];
-		System.out.println(den);
-		double num2 = (num*lanceur._stats[1+(2*a._categorie)]);
-		System.out.println(num2);
-		double modifier = cible.getSensibilites()[a._t._nb]*(random(85, 100)/100);
-		System.out.println(modifier);
-		return(((((num2*a._puissance)/den)+2)*modifier));
+		double den = 250*lanceur._choosedStats[2+(2*a._categorie)];
+		double num2 = (num*lanceur._choosedStats[1+(2*a._categorie)]);
+		double modifier = cible.getSensibilites()[a._t._nb]*(random(85, 100)*0.01);
+		
+		DecimalFormat df = new DecimalFormat("#");
+		df.setRoundingMode(RoundingMode.HALF_EVEN);
+		
+		String i = df.format(((((num2*a._puissance)/den)+2)*modifier)).toString();
+		int res = Integer.valueOf(i);
+		return res;
 	}
 	
 	public static void main(String[] argv){

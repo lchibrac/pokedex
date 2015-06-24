@@ -1,3 +1,7 @@
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 
 
 public class PokemonEnCombat extends Pokemon {
@@ -5,14 +9,27 @@ public class PokemonEnCombat extends Pokemon {
 	
 	
 	public PokemonEnCombat(Pokemon p, Attaque[] listeDesAttaques, int talentChoisi, int[] stats,int niveau){
-		_p = p.clone();
+		_numero = p._numero;
+		_nom[0] = p.getFrenchNom();
+		_nom[1] = p.getEnglishNom();
+		_type[0] = p.getType()[0];
+		_type[1] = p.getType()[1];
+		_stats = p.getStat().clone();		
+		_image = p._image;
+		_nbevolution = p._nbevolution;
+		_estuneevolution = p._estuneevolution;
+		_talents = p.getTalent().clone();
+		_famille = new int[p._famille.length];
+		for ( int i = 0 ; i < p._famille.length ; ++i ){
+			_famille[i] = p._famille[i];
+		}
 		for (int i = 0 ; i < 4 ; ++i){
 			_listeDesAttaques[i] = listeDesAttaques[i];
 		}		
 		_talentChoisi = talentChoisi;
 		_pvActuels = stats[0];
 		for (int j = 0 ; j < 6 ; ++j){
-			_stats[j] = stats[j];
+			_choosedStats[j] = stats[j];
 		}
 		_statut = 0;
 		_precision = 0;
@@ -24,7 +41,7 @@ public class PokemonEnCombat extends Pokemon {
 	public Attaque[] _listeDesAttaques = new Attaque[] {null,null,null,null};
 	public int _talentChoisi;
 	public int _pvActuels;
-	public int[] _stats = new int[] {0,0,0,0,0,0};
+	public int[] _choosedStats = new int[] {0,0,0,0,0,0};
 	public int _statut; 
 	public int[] _changementDesStats = new int[] {0,0,0,0,0,0};
 	public int _precision;
@@ -48,6 +65,14 @@ public class PokemonEnCombat extends Pokemon {
 	
 	public void setStatut(int statut){
 		_statut = statut;
+		switch(_statut){
+		case 1: this._choosedStats[1] /= 2;
+				break;
+		case 2: this._choosedStats[5] /= 4;
+				break;
+		default: 
+				break;		
+		}
 	}
 	
 	public String getStatut(){
@@ -58,7 +83,7 @@ public class PokemonEnCombat extends Pokemon {
 		case 3: return new String("Poison");
 		case 4: return new String("Gel");
 		case 5: return new String("Sommeil");
-		default:return new String("");
+		default:return new String("None");
 		}
 	}
 	
@@ -104,9 +129,9 @@ public class PokemonEnCombat extends Pokemon {
 		
 		bf.append(this._p.getFrenchNom()+" : ");
 		bf.append(" ");
-		bf.append(_stats[0] -(_stats[0]-_pvActuels) +" ");
+		bf.append(_choosedStats[0] -(_choosedStats[0]-_pvActuels) +" ");
 		for(int i = 1 ; i < 6 ; ++i){
-			bf.append(_stats[i]*(1 + 0.5*_changementDesStats[i]));
+			bf.append(_choosedStats[i]*(1 + 0.5*_changementDesStats[i]));
 			bf.append(" ");
 		}
 		bf.append(" ");

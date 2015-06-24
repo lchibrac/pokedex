@@ -39,10 +39,6 @@ public class Type {
 		return new Type(new String(_nom),_nb,_image);
 	}
 	
-	public String toString(){
-		return this._nom + " " + this._nb + " " + this._image;
-	}
-	
 	public static double[] sensibilites ( Type type ){
 		if ( type._nb == -1 )
 			return new double[] {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
@@ -51,6 +47,10 @@ public class Type {
 			tmp[i] = table[i][type._nb];
 		}
 		return tmp;
+	}
+	
+	public String toString(){
+		return this._nom;
 	}
 	
 	public static double[][] maketable (){
