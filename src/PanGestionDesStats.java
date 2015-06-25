@@ -127,8 +127,6 @@ public class PanGestionDesStats extends JPanel {
 		
 		class Refresh implements ActionListener{
 			public void actionPerformed(ActionEvent e){
-				int largeur = f.getWidth();
-				int hauteur = f.getHeight();
 				int niv = Integer.parseInt(niveau.getText());
 				
 				jp.removeAll();
