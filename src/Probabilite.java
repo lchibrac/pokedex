@@ -28,7 +28,7 @@ public class Probabilite {
 		return p <= a._effet;
 	}
 	
-	public static double degats(AttaqueDegat a, PokemonEnCombat lanceur, PokemonEnCombat cible){
+	public static int degats(AttaqueDegat a, PokemonEnCombat lanceur, PokemonEnCombat cible){
 		
 		double num = 2*lanceur._niveau+10;
 		double den = 250*lanceur._choosedStats[2+(2*a._categorie)];

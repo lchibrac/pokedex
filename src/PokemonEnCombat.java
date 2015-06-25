@@ -1,12 +1,38 @@
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-
-
 
 public class PokemonEnCombat extends Pokemon {
 	
 	
+	
+	public PokemonEnCombat(Pokemon p, Attaque[] listeDesAttaques, int talentChoisi, int[] stats,int niveau, int pvs){
+		_numero = p._numero;
+		_nom[0] = p.getFrenchNom();
+		_nom[1] = p.getEnglishNom();
+		_type[0] = p.getType()[0];
+		_type[1] = p.getType()[1];
+		_stats = p.getStat().clone();		
+		_image = p._image;
+		_nbevolution = p._nbevolution;
+		_estuneevolution = p._estuneevolution;
+		_talents = p.getTalent().clone();
+		_famille = new int[p._famille.length];
+		for ( int i = 0 ; i < p._famille.length ; ++i ){
+			_famille[i] = p._famille[i];
+		}
+		for (int i = 0 ; i < 4 ; ++i){
+			_listeDesAttaques[i] = listeDesAttaques[i];
+		}		
+		_talentChoisi = talentChoisi;
+		_pvActuels = pvs;
+		for (int j = 0 ; j < 6 ; ++j){
+			_choosedStats[j] = stats[j];
+		}
+		_statut = 0;
+		_precision = 0;
+		_esquive = 0;
+		_niveau = niveau;
+		peutAttaquer = true;
+		peutChanger = true;
+	}
 	
 	public PokemonEnCombat(Pokemon p, Attaque[] listeDesAttaques, int talentChoisi, int[] stats,int niveau){
 		_numero = p._numero;
@@ -35,6 +61,8 @@ public class PokemonEnCombat extends Pokemon {
 		_precision = 0;
 		_esquive = 0;
 		_niveau = niveau;
+		peutAttaquer = true;
+		peutChanger = true;
 	}
 	
 	public Pokemon _p;
@@ -47,6 +75,8 @@ public class PokemonEnCombat extends Pokemon {
 	public int _precision;
 	public int _esquive;
 	public int _niveau;
+	public boolean peutAttaquer;
+	public boolean peutChanger;
 	
 	public void setChangementDeStat (int statAChanger , int nombreDAlteration){
 		if( -4 >= _changementDesStats[statAChanger]+nombreDAlteration){ 
@@ -70,6 +100,10 @@ public class PokemonEnCombat extends Pokemon {
 				break;
 		case 2: this._choosedStats[5] /= 4;
 				break;
+		case 4 :
+		case 5 :
+			this.peutAttaquer = false;
+			break;
 		default: 
 				break;		
 		}
@@ -85,6 +119,25 @@ public class PokemonEnCombat extends Pokemon {
 		case 5: return new String("Sommeil");
 		default:return new String("None");
 		}
+	}
+	
+	public static void attaque(Attaque a, PokemonEnCombat lanceur, PokemonEnCombat cible){
+		if(cible.getSensibilites()[a._t._nb] != 0){
+			a.effet(lanceur, cible);
+			if(a instanceof AttaqueDegat){
+				int degats = Probabilite.degats((AttaqueDegat)a, lanceur, cible);
+				cible._pvActuels -= degats;
+				if(cible._pvActuels <= 0){
+					cible._pvActuels = 0;
+				}
+			}
+		}
+		else{
+			System.out.println("Wesh pas bonne idee !");
+		}
+		System.out.println(cible);
+		System.out.println("-----------------------");
+		System.out.println(lanceur);
 	}
 	
 	
@@ -125,28 +178,13 @@ public class PokemonEnCombat extends Pokemon {
 	
 	
 	public String toString(){
-		StringBuffer bf = new StringBuffer();
-		
-		bf.append(this._p.getFrenchNom()+" : ");
-		bf.append(" ");
-		bf.append(_choosedStats[0] -(_choosedStats[0]-_pvActuels) +" ");
-		for(int i = 1 ; i < 6 ; ++i){
-			bf.append(_choosedStats[i]*(1 + 0.5*_changementDesStats[i]));
-			bf.append(" ");
-		}
-		bf.append(" ");
-		bf.append(getStatut());
-		return bf.toString();
+		return new String (getFrenchNom()+"   "+_pvActuels+" / "+_choosedStats[0]+"   "+getStatut());
 	}
 	
 	public static void main(String[] argv){
-		PokemonEnCombat papilusionc = new PokemonEnCombat(Pokemon1G.papilusion, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},100);
-		papilusionc.setStatut(1);
-		papilusionc.setChangementDeStat(3, 2);
-		papilusionc.setChangementDeStat(4, 2);
-		papilusionc.setChangementDeStat(5, 2);
-		
-		System.out.println(papilusionc);
+		//PokemonEnCombat papilusionc = new PokemonEnCombat(Pokemon1G.papilusion, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},100);
+
+
 	}
 	
 	

@@ -2,7 +2,7 @@
 public class Equipe {
 	
 	public Equipe(Pokemon[] team, int joueur){
-		for(int i = 0 ; i < 6 ; ++i){
+		for(int i = 0 ; i < team.length ; ++i){
 			_team[i] = team[i].clone();
 		}
 		_joueur = joueur;

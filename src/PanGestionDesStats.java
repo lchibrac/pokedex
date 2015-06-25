@@ -219,7 +219,7 @@ public class PanGestionDesStats extends JPanel {
 	public static void main(String[] argv){
 		
 		JFrame f = new JFrame();
-		PanGestionDesStats pgs = new PanGestionDesStats(Pokemon6G.prismillon,f);
+		PanGestionDesStats pgs = new PanGestionDesStats(Pokemon1G.smogogo,f);
 		f.setContentPane(pgs);
 		f.setSize(500, 300);
 		f.setVisible(true);
