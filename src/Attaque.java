@@ -8,6 +8,8 @@ public class Attaque {
 		_priorite = priorite;
 	}
 	
+	
+	
 	public Attaque(String nom, Type t, int precision, int pp){
 		_nom = new String(nom);
 		_t = t.clone();
