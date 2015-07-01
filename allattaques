@@ -1,385 +1,609 @@
-public static AttaqueDegat abime = new AttaqueDegat ("Abime" ,Type.sol ,0 ,500 ,30 ,5, 100 );
-public static AttaqueDegat acide = new AttaqueDegat ("Acide" ,Type.poison ,40 ,100 ,30, 100 );
-public static AttaqueDegat balayage = new AttaqueDegat ("Balayage" ,Type.combat ,0 ,— , ,100 ,20, 100 );
-public static AttaqueDegat becvrille = new AttaqueDegat ("Bec Vrille" ,Type.vol ,0 ,80 ,100 ,20, 100 );
-public static AttaqueDegat belier = new AttaqueDegat ("Belier" ,Type.normal ,0 ,90 ,85 ,20, 100 );
-public static AttaqueDegat blizzard = new AttaqueDegat ("Blizzard" ,Type.glace ,120 ,70 ,5, 10 );
-public static AttaqueDegat bomboeuf = new AttaqueDegat ("Bomb'Œuf" ,Type.normal ,0 ,100 ,75 ,10, 100 );
-public static AttaqueDegat bullesdo = new AttaqueDegat ("Bulles d'O" ,Type.eau ,65 ,100 ,20, 10 );
-public static AttaqueDegat cascade = new AttaqueDegat ("Cascade" ,Type.eau ,0 ,80 ,100 ,15, 20 );
-public static AttaqueDegat charge= new AttaqueDegat ("Charge" ,Type.normal ,0 ,50 ,100 ,30, 100 );
-public static AttaqueDegat chocmental = new AttaqueDegat ("Choc Mental" ,Type.psy ,50 ,100 ,25, 10 );
-public static AttaqueDegat claquoir = new AttaqueDegat ("Claquoir" ,Type.eau ,0 ,35 ,85 ,10, 100 );
-public static AttaqueDegat combogriife= new AttaqueDegat ("Combo-Griffe" ,Type.normal ,0 ,18 ,80 ,15, 100 );
-public static AttaqueDegat constriction= new AttaqueDegat ("Constriction" ,Type.normal ,0 ,10 ,100 ,35, 100 );
-public static AttaqueDegat coupdboule = new AttaqueDegat ("Coup d'Boule" ,Type.normal ,0 ,70 ,100 ,15, 30 );
-public static AttaqueDegat coupe = new AttaqueDegat ("Coupe" ,Type.normal ,0 ,50 ,95 ,30, 100 );
-public static AttaqueDegat coupevent= new AttaqueDegat ("Coupe-Vent" ,Type.normal ,80 ,100 ,10, 100 );
-public static AttaqueDegat crocdemort= new AttaqueDegat ("Croc de Mort" ,Type.normal ,0 ,80 ,90 ,15, 10 );
-public static AttaqueDegat crocfatal= new AttaqueDegat ("Croc Fatal" ,Type.normal ,0 ,— ,90 ,10, 100 );
-public static AttaqueDegat cruaile= new AttaqueDegat ("Cru-Aile" ,Type.vol ,0 ,60 ,100 ,35, 100 );
-public static AttaqueDegat eboulement= new AttaqueDegat ("Éboulement" ,Type.roche ,0 ,75 ,90 ,10, 30 );
-public static AttaqueDegat eclair= new AttaqueDegat ("Éclair" ,Type.electrique ,40 ,100 ,30, 10 );
-public static AttaqueDegat ecrasement= new AttaqueDegat ("Écrasement" ,Type.normal ,0 ,65 ,100 ,20, 30 );
-public static AttaqueDegat ecrasface= new AttaqueDegat ("Écras'Face" ,Type.normal ,0 ,40 ,100 ,35, 100 );
-public static AttaqueDegat ecume= new AttaqueDegat ("Écume" ,Type.eau ,20 ,100 ,30, 10 );
-public static AttaqueDegat empalkorne= new AttaqueDegat ("Empal'Korne" ,Type.normal ,0 ,500 ,500 ,5, 100 );
-public static AttaqueDegat explosion= new AttaqueDegat ("Explosion" ,Type.normal ,0 ,250 ,100 ,5, 100 );
-public static AttaqueDegat poingkarate= new AttaqueDegat ("Poing-Karate" ,Type.combat ,0 ,50 ,100 ,25, 100 );
-public static AttaqueDegat torgnoles= new AttaqueDegat ("Torgnoles" ,Type.normal ,0 ,15 ,85 ,10, 100 );
-public static AttaqueDegat poingcomete= new AttaqueDegat ("Poing Comete" ,Type.normal ,0 ,18 ,85 ,15, 100 );
-public static AttaqueDegat ultimapoing= new AttaqueDegat ("Ultimapoing" ,Type.normal ,0 ,80 ,85 ,20, 100 );
-public static AttaqueDegat jackpot= new AttaqueDegat ("Jackpot" ,Type.normal ,0 ,40 ,100 ,20, 100 );
-public static AttaqueDegat poingdefeu= new AttaqueDegat ("Poing de Feu" ,Type.feu ,0 ,75 ,100 ,15, 15 );
-public static AttaqueDegat poingglace= new AttaqueDegat ("Poing Glace" ,Type.glace ,0 ,75 ,100 ,15, 10 );
-public static AttaqueDegat poingeclair= new AttaqueDegat ("Poing-Éclair" ,Type.electrique ,0 ,75 ,100 ,15, 10 );
-public static AttaqueDegat griffe= new AttaqueDegat ("Griffe" ,Type.normal ,0 ,40 ,100 ,35, 100 );
-public static AttaqueDegat forcepoigne= new AttaqueDegat ("Force Poigne" ,Type.normal ,0 ,55 ,100 ,30, 100 );
-public static AttaqueDegat guillotine= new AttaqueDegat ("Guillotine" ,Type.normal ,0 ,500 ,— ,5, 100 );
-public static AttaqueDegat tornade= new AttaqueDegat ("Tornade" ,Type.vol ,40 ,100 ,35, 100 );
-public static AttaqueDegat vol= new AttaqueDegat ("Vol" ,Type.vol ,0 ,90 ,95 ,15, 100 );
-public static AttaqueDegat etreinte= new AttaqueDegat ("Étreinte" ,Type.normal ,0 ,15 ,85 ,20, 100 );
-public static AttaqueDegat souplesse= new AttaqueDegat ("Souplesse" ,Type.normal ,0 ,80 ,75 ,20, 100 );
-public static AttaqueDegat fouetlianes= new AttaqueDegat ("Fouet Lianes" ,Type.plante ,0 ,35 ,100 ,15, 100 );
-public static AttaqueDegat doublepied= new AttaqueDegat ("Double-Pied" ,Type.combat ,0 ,30 ,(x2) ,100 ,30, 100 );
-public static AttaqueDegat ultimawashi= new AttaqueDegat ("Ultimawashi" ,Type.normal ,0 ,120 ,75 ,5, 100 );
-public static AttaqueDegat piedsaute= new AttaqueDegat ("Pied Saute" ,Type.combat ,0 ,100 ,95 ,10, 100 );
-public static AttaqueDegat mawashigeri= new AttaqueDegat ("Mawashi Geri" ,Type.combat ,0 ,60 ,85 ,15, 30 );
-public static AttaqueDegat koudkorne= new AttaqueDegat ("Koud'Korne" ,Type.normal ,0 ,65 ,100 ,25, 100 );
-public static AttaqueDegat furie= new AttaqueDegat ("Furie" ,Type.normal ,0 ,15 ,85 ,20, 100 );
-public static AttaqueDegat plaquage= new AttaqueDegat ("Plaquage" ,Type.normal ,0 ,85 ,100 ,15, 30 );
-public static AttaqueDegat ligotage= new AttaqueDegat ("Ligotage" ,Type.normal ,0 ,15 ,90 ,20, 100 );
-public static AttaqueDegat mania= new AttaqueDegat ("Mania" ,Type.normal ,0 ,120 ,100 ,10, 100 );
-public static AttaqueDegat damocles= new AttaqueDegat ("Damocles" ,Type.normal ,0 ,120 ,100 ,15, 100 );
-public static AttaqueDegat dardvenin= new AttaqueDegat ("Dard-Venin" ,Type.poison ,0 ,15 ,100 ,35, 30 );
-public static AttaqueDegat doubledard= new AttaqueDegat ("Double-Dard" ,Type.insecte ,0 ,25 ,100 ,20, 20 );
-public static AttaqueDegat dardnuee= new AttaqueDegat ("Dard-Nuee" ,Type.insecte ,0 ,14 ,85 ,20, 100 );
-public static AttaqueDegat morsure= new AttaqueDegat ("Morsure" ,Type.tenebres ,0 ,60 ,100 ,25, 30 );
-public static AttaqueDegat sonicboom= new AttaqueDegat ("Sonicboom" ,Type.normal ,— ,90 ,20, 100 );
-public static AttaqueDegat flammeche= new AttaqueDegat ("Flammeche" ,Type.feu ,40 ,100 ,25, 10 );
-public static AttaqueDegat lanceflamme= new AttaqueDegat ("Lance-Flamme" ,Type.feu ,95 ,100 ,15, 10 );
-public static AttaqueDegat pistoletao= new AttaqueDegat ("Pistolet a O" ,Type.eau ,40 ,100 ,25, 100 );
-public static AttaqueDegat hydrocanon= new AttaqueDegat ("Hydrocanon" ,Type.eau ,120 ,80 ,5, 100 );
-public static AttaqueDegat surf= new AttaqueDegat ("Surf" ,Type.eau ,95 ,100 ,15, 100 );
-public static AttaqueDegat laserglace= new AttaqueDegat ("Laser Glace" ,Type.glace ,95 ,100 ,10, 10 );
-public static AttaqueDegat rafalepsy= new AttaqueDegat ("Rafale Psy" ,Type.psy ,65 ,100 ,20, 10 );
-public static AttaqueDegat ondeboreale= new AttaqueDegat ("Onde Boreale" ,Type.glace ,65 ,100 ,20, 10 );
-public static AttaqueDegat ultralaser= new AttaqueDegat ("Ultralaser" ,Type.normal ,150 ,90 ,5, 100 );
-public static AttaqueDegat picpic= new AttaqueDegat ("Picpic" ,Type.vol ,0 ,35 ,100 ,35, 100 );
-public static AttaqueDegat sacrifice= new AttaqueDegat ("Sacrifice" ,Type.combat ,0 ,80 ,80 ,25, 100 );
-public static AttaqueDegat riposte= new AttaqueDegat ("Riposte" ,Type.combat ,0 ,— ,100 ,20, 100 );
-public static AttaqueDegat frappeatlas= new AttaqueDegat ("Frappe Atlas" ,Type.combat ,0 ,— ,100 ,20, 100 );
-public static AttaqueDegat force= new AttaqueDegat ("Force" ,Type.normal ,0 ,80 ,100 ,15, 100 );
-public static AttaqueDegat volvie= new AttaqueDegat ("Vol-Vie" ,Type.plante ,20 ,100 ,25, 100 );
-public static AttaqueDegat megasangsue= new AttaqueDegat ("Mega-Sangsue" ,Type.plante ,40 ,100 ,15, 100 );
-public static AttaqueDegat tranchherbe= new AttaqueDegat ("Tranch'Herbe" ,Type.plante ,0 ,55 ,95 ,25, 100 );
-public static AttaqueDegat lancesoleil= new AttaqueDegat ("Lance-Soleil" ,Type.plante ,120 ,100 ,10, 100 );
-public static AttaqueDegat dansefleur= new AttaqueDegat ("Danse-Fleur" ,Type.plante ,120 ,100 ,10, 100 );
-public static AttaqueDegat dracorage= new AttaqueDegat ("Draco-Rage" ,Type.dragon ,— ,100 ,10, 100 );
-public static AttaqueDegat danseflamme= new AttaqueDegat ("Danseflamme" ,Type.feu ,35 ,85 ,15, 100 );
-public static AttaqueDegat tonnerre= new AttaqueDegat ("Tonnerre" ,Type.electrique ,95 ,100 ,15, 10 );
-public static AttaqueDegat fatalfoudre= new AttaqueDegat ("Fatal-Foudre" ,Type.electrique ,120 ,70 ,10, 100 );
-public static AttaqueDegat jetpierres= new AttaqueDegat ("Jet-Pierres" ,Type.roche ,0 ,50 ,90 ,15, 100 );
-public static AttaqueDegat seisme= new AttaqueDegat ("Seisme" ,Type.sol ,0 ,100 ,100 ,10, 100 );
-public static AttaqueDegat tunnel= new AttaqueDegat ("Tunnel" ,Type.sol ,0 ,80 ,100 ,10, 100 );
-public static AttaqueDegat psyko= new AttaqueDegat ("Psyko" ,Type.psy ,90 ,100 ,10, 10 );
-public static AttaqueDegat viveattaque= new AttaqueDegat ("Vive-AttaqueDegat" ,Type.normal ,0 ,40 ,100 ,30, 100 );
-public static AttaqueDegat frenesie= new AttaqueDegat ("Frenesie" ,Type.normal ,0 ,20 ,100 ,20, 100 );
-public static AttaqueDegat ombrenocturne= new AttaqueDegat ("Ombre Nocturne" ,Type.spectre ,— ,100 ,15, 100 );
-public static AttaqueDegat patience= new AttaqueDegat ("Patience" ,Type.normal ,0 ,— ,100 ,10, 100 );
-public static AttaqueDegat destruction= new AttaqueDegat ("Destruction" ,Type.normal ,0 ,200 ,100 ,5, 100 );
-public static AttaqueDegat lechouille= new AttaqueDegat ("Lechouille" ,Type.spectre ,0 ,20 ,100 ,30, 30 );
-public static AttaqueDegat puredpois= new AttaqueDegat ("Puredpois" ,Type.poison ,20 ,70 ,20, 40 );
-public static AttaqueDegat detritus= new AttaqueDegat ("Detritus" ,Type.poison ,65 ,100 ,20, 30 );
-public static AttaqueDegat massdos= new AttaqueDegat ("Massd'Os" ,Type.sol ,0 ,65 ,85 ,20, 100 );
-public static AttaqueDegat deflagration= new AttaqueDegat ("Deflagration" ,Type.feu ,120 ,85 ,5, 100 );
-public static AttaqueDegat meteores= new AttaqueDegat ("Meteores" ,Type.normal ,60 ,— ,20, 100 );
-public static AttaqueDegat coudkrane= new AttaqueDegat ("Coud'Krâne" ,Type.normal ,0 ,100 ,100 ,15, 100 );
-public static AttaqueDegat picanon= new AttaqueDegat ("Picanon" ,Type.normal ,0 ,20 ,100 ,15, 100 );
-public static AttaqueDegat piedvoltige= new AttaqueDegat ("Pied Voltige" ,Type.combat ,0 ,130 ,90 ,10, 100 );
-public static AttaqueDegat devoreve= new AttaqueDegat ("Devoreve" ,Type.psy ,100 ,100 ,15, 100 );
-public static AttaqueDegat pilonnage= new AttaqueDegat ("Pilonnage" ,Type.normal ,0 ,15 ,85 ,20, 100 );
-public static AttaqueDegat vampirisme= new AttaqueDegat ("Vampirisme" ,Type.insecte ,0 ,20 ,100 ,15, 100 );
-public static AttaqueDegat pique= new AttaqueDegat ("Pique" ,Type.vol ,0 ,140 ,90 ,5, 100 );
-public static AttaqueDegat uppercut= new AttaqueDegat ("Uppercut" ,Type.normal ,0 ,70 ,100 ,10, 20 );
-public static AttaqueDegat vaguepsy= new AttaqueDegat ("Vague ,Psy" ,Type.psy ,— ,80 ,15, 100 );
-public static AttaqueDegat pincemasse= new AttaqueDegat ("Pince-Masse" ,Type.eau ,0 ,90 ,90 ,10, 100 );
-public static AttaqueDegat osmerang= new AttaqueDegat ("Osmerang" ,Type.sol ,0 ,50 ,(x ,2) ,90 ,10, 100 );
-public static AttaqueDegat triplattaque= new AttaqueDegat ("Triplattaque" ,Type.normal ,80 ,100 ,10, 20 );
-public static AttaqueDegat tranche= new AttaqueDegat ("Tranche" ,Type.normal ,0 ,70 ,100 ,20, 100 );
-public static AttaqueDegat lutte= new AttaqueDegat ("Lutte" ,Type.normal ,0 ,50 ,100 ,—, 100 );
-public static AttaqueDegat triplepied= new AttaqueDegat ("Triple Pied" ,Type.combat ,0 ,10 ,90 ,10, 100 );
-public static AttaqueDegat larcin= new AttaqueDegat ("Larcin" ,Type.tenebres ,0 ,40 ,100 ,10, 100 );
-public static AttaqueDegat rouedefeu= new AttaqueDegat ("Roue de Feu" ,Type.feu ,0 ,60 ,100 ,25, 10 );
-public static AttaqueDegat ronflement= new AttaqueDegat ("Ronflement" ,Type.normal ,40 ,100 ,15, 100 );
-public static AttaqueDegat fleau= new AttaqueDegat ("Fleau" ,Type.normal ,0 ,— ,100 ,15, 100 );
-public static AttaqueDegat aeroblast= new AttaqueDegat ("Aeroblast" ,Type.vol ,100 ,95 ,5, 100 );
-public static AttaqueDegat contre= new AttaqueDegat ("Contre" ,Type.combat ,0 ,— ,100 ,15, 100 );
-public static AttaqueDegat poudreuse= new AttaqueDegat ("Poudreuse" ,Type.glace ,40 ,100 ,25, 10 );
-public static AttaqueDegat machpunch= new AttaqueDegat ("Mach Punch" ,Type.combat ,0 ,40 ,100 ,30, 100 );
-public static AttaqueDegat feinte= new AttaqueDegat ("Feinte" ,Type.tenebres ,0 ,60 ,— ,20, 100 );
-public static AttaqueDegat bombbeurk= new AttaqueDegat ("Bomb-Beurk" ,Type.poison ,90 ,100 ,10, 30 );
-public static AttaqueDegat coudboue= new AttaqueDegat ("Coud'Boue" ,Type.sol ,20 ,100 ,10, 100 );
-public static AttaqueDegat octazooka= new AttaqueDegat ("Octazooka" ,Type.eau ,65 ,85 ,10, 50 );
-public static AttaqueDegat elecanon= new AttaqueDegat ("Élecanon" ,Type.electrique ,120 ,50 ,5, 100 );
-public static AttaqueDegat ventglace= new AttaqueDegat ("Vent Glace" ,Type.glace ,55 ,95 ,15, 100 );
-public static AttaqueDegat chargeos= new AttaqueDegat ("Charge-Os" ,Type.sol ,0 ,25 ,90 ,10, 100 );
-public static AttaqueDegat colere= new AttaqueDegat ("Colere" ,Type.dragon ,0 ,120 ,100 ,15, 100 );
-public static AttaqueDegat gigasangsue= new AttaqueDegat ("Giga-Sangsue" ,Type.plante ,75 ,100 ,10, 100 );
-public static AttaqueDegat roulade= new AttaqueDegat ("Roulade" ,Type.roche ,0 ,30 ,90 ,20, 100 );
-public static AttaqueDegat fauxchage= new AttaqueDegat ("Faux-Chage" ,Type.normal ,0 ,40 ,100 ,40, 100 );
-public static AttaqueDegat etincelle= new AttaqueDegat ("Étincelle" ,Type.electrique ,0 ,65 ,100 ,20, 30 );
-public static AttaqueDegat taillade= new AttaqueDegat ("Taillade" ,Type.insecte ,0 ,20 ,95 ,20, 100 );
-public static AttaqueDegat ailedacier= new AttaqueDegat ("Aile d'Acier" ,Type.acier ,0 ,70 ,90 ,25, 10 );
-public static AttaqueDegat retour= new AttaqueDegat ("Retour" ,Type.normal ,0 ,— ,100 ,20, 100 );
-public static AttaqueDegat cadeau= new AttaqueDegat ("Cadeau" ,Type.normal ,0 ,— ,90 ,15, 100 );
-public static AttaqueDegat frustration= new AttaqueDegat ("Frustration" ,Type.normal ,0 ,— ,100 ,20, 100 );
-public static AttaqueDegat feusacre= new AttaqueDegat ("Feu Sacre" ,Type.feu ,0 ,100 ,95 ,5, 50 );
-public static AttaqueDegat ampleur= new AttaqueDegat ("Ampleur" ,Type.sol ,0 ,— ,100 ,30, 100 );
-public static AttaqueDegat dynamopoing= new AttaqueDegat ("Dynamopoing" ,Type.combat ,0 ,100 ,50 ,5, 100 );
-public static AttaqueDegat megacorne= new AttaqueDegat ("Megacorne" ,Type.insecte ,0 ,120 ,85 ,10, 100 );
-public static AttaqueDegat dracosouffle= new AttaqueDegat ("Dracosouffle" ,Type.dragon ,60 ,100 ,20, 30 );
-public static AttaqueDegat poursuite= new AttaqueDegat ("Poursuite" ,Type.tenebres ,0 ,40 ,100 ,20, 100 );
-public static AttaqueDegat tourrapide= new AttaqueDegat ("Tour Rapide" ,Type.normal ,0 ,40 ,100 ,20, 100 );
-public static AttaqueDegat queuedefer= new AttaqueDegat ("Queue de Fer" ,Type.acier ,0 ,100 ,75 ,15, 10 );
-public static AttaqueDegat griffeacier= new AttaqueDegat ("Griffe Acier" ,Type.acier ,0 ,50 ,95 ,35, 100 );
-public static AttaqueDegat corpsperdu= new AttaqueDegat ("Corps Perdu" ,Type.combat ,0 ,70 ,100 ,10, 100 );
-public static AttaqueDegat puisscachee= new AttaqueDegat ("Puiss. Cachee" ,Type.normal ,— ,100 ,15, 100 );
-public static AttaqueDegat coupcroix= new AttaqueDegat ("Coup-Croix" ,Type.combat ,0 ,100 ,80 ,5, 100 );
-public static AttaqueDegat ouragan= new AttaqueDegat ("Ouragan" ,Type.dragon ,40 ,100 ,20, 100 );
-public static AttaqueDegat machouille= new AttaqueDegat ("Mâchouille" ,Type.tenebres ,0 ,80 ,100 ,15, 100 );
-public static AttaqueDegat voilemiroir= new AttaqueDegat ("Voile Miroir" ,Type.psy ,— ,100 ,20, 100 );
-public static AttaqueDegat vitextreme= new AttaqueDegat ("Vit.Extreme" ,Type.normal ,0 ,80 ,100 ,5, 100 );
-public static AttaqueDegat pouvoirantique= new AttaqueDegat ("Pouvoir Antique" ,Type.roche ,60 ,100 ,5, 10 );
-public static AttaqueDegat ballombr= new AttaqueDegat ("Ball'Ombre" ,Type.spectre ,80 ,100 ,15, 100 );
-public static AttaqueDegat prescience= new AttaqueDegat ("Prescience" ,Type.psy ,100 ,100 ,10, 100 );
-public static AttaqueDegat eclateroc= new AttaqueDegat ("Éclate-Roc" ,Type.combat ,0 ,40 ,100 ,15, 100 );
-public static AttaqueDegat siphon= new AttaqueDegat ("Siphon" ,Type.eau ,35 ,85 ,15, 100 );
-public static AttaqueDegat baston= new AttaqueDegat ("Baston" ,Type.tenebres ,0 ,— ,100 ,10, 100 );
-public static AttaqueDegat bluff= new AttaqueDegat ("Bluff" ,Type.normal ,0 ,40 ,100 ,10, 100 );
-public static AttaqueDegat brouhaha= new AttaqueDegat ("Brouhaha" ,Type.normal ,90 ,100 ,10, 100 );
-public static AttaqueDegat relache= new AttaqueDegat ("Relâche" ,Type.normal ,— ,100 ,10, 100 );
-public static AttaqueDegat canicule= new AttaqueDegat ("Canicule" ,Type.feu ,100 ,90 ,10, 15 );
-public static AttaqueDegat facade= new AttaqueDegat ("Facade" ,Type.normal ,0 ,70 ,100 ,20, 100 );
-public static AttaqueDegat mitrapoing= new AttaqueDegat ("Mitra-Poing" ,Type.combat ,0 ,150 ,100 ,20, 100 );
-public static AttaqueDegat stimulant= new AttaqueDegat ("Stimulant" ,Type.normal ,0 ,60 ,100 ,10, 100 );
-public static AttaqueDegat surpuissance= new AttaqueDegat ("Surpuissance" ,Type.combat ,0 ,120 ,100 ,5, 100 );
-public static AttaqueDegat vendetta= new AttaqueDegat ("Vendetta" ,Type.combat ,0 ,60 ,100 ,10, 100 );
-public static AttaqueDegat cassebrique= new AttaqueDegat ("Casse-Brique" ,Type.combat ,0 ,75 ,100 ,15, 100 );
-public static AttaqueDegat sabotage= new AttaqueDegat ("Sabotage" ,Type.tenebres ,0 ,20 ,100 ,20, 100 );
-public static AttaqueDegat effort= new AttaqueDegat ("Effort" ,Type.normal ,0 ,— ,100 ,5, 100 );
-public static AttaqueDegat eruption= new AttaqueDegat ("Éruption" ,Type.feu ,150 ,100 ,5, 100 );
-public static AttaqueDegat forcecachee= new AttaqueDegat ("Force Cachee" ,Type.normal ,0 ,70 ,100 ,20, 100 );
-public static AttaqueDegat plongee= new AttaqueDegat ("Plongee" ,Type.eau ,0 ,80 ,100 ,10, 100 );
-public static AttaqueDegat cogne= new AttaqueDegat ("Cogne" ,Type.combat ,0 ,15 ,100 ,20, 100 );
-public static AttaqueDegat lumieclat= new AttaqueDegat ("Lumi-Éclat" ,Type.psy ,70 ,100 ,5, 50 );
-public static AttaqueDegat ballbrume= new AttaqueDegat ("Ball'Brume" ,Type.psy ,70 ,100 ,5, 50 );
-public static AttaqueDegat ballglace= new AttaqueDegat ("Ball'Glace" ,Type.glace ,0 ,30 ,90 ,20, 100 );
-public static AttaqueDegat poingdard= new AttaqueDegat ("Poing Dard" ,Type.plante ,0 ,60 ,100 ,15, 30 );
-public static AttaqueDegat peidbruleur = new AttaqueDegat ("Pied Brûleur", Type.feu,0 ,60, 100 ,15 ,15);
-public static AttaqueDegat megaphone= new AttaqueDegat ("Megaphone" ,Type.normal ,90 ,100 ,10, 100 );
-public static AttaqueDegat crochetvenin= new AttaqueDegat ("Crochetvenin" ,Type.poison ,0 ,50 ,100 ,15, 30 );
-public static AttaqueDegat eclategriffe= new AttaqueDegat ("Éclategriffe" ,Type.normal ,0 ,75 ,95 ,10, 50 );
-public static AttaqueDegat rafalefeu= new AttaqueDegat ("Rafale Feu" ,Type.feu ,150 ,90 ,5, 100 );
-public static AttaqueDegat hydroblast= new AttaqueDegat ("Hydroblast" ,Type.eau ,150 ,90 ,5, 100 );
-public static AttaqueDegat poingmeteor= new AttaqueDegat ("Poing Meteor" ,Type.acier ,0 ,100 ,85 ,10, 20 );
-public static AttaqueDegat etonnement= new AttaqueDegat ("Étonnement" ,Type.spectre ,0 ,30 ,100 ,15, 30 );
-public static AttaqueDegat ballmeteo= new AttaqueDegat ("Ball'Meteo" ,Type.normal ,50 ,100 ,10, 100 );
-public static AttaqueDegat tranchair= new AttaqueDegat ("Tranch'Air" ,Type.vol ,55 ,95 ,25, 100 );
-public static AttaqueDegat surchauffe= new AttaqueDegat ("Surchauffe" ,Type.feu ,140 ,90 ,5, 100 );
-public static AttaqueDegat tomberoche= new AttaqueDegat ("Tomberoche" ,Type.roche ,0 ,50 ,80 ,10, 100 );
-public static AttaqueDegat ventargente= new AttaqueDegat ("Vent Argente" ,Type.insecte ,60 ,100 ,5, 10 );
-public static AttaqueDegat gicledo= new AttaqueDegat ("Gicledo" ,Type.eau ,— ,100 ,5, 100 );
-public static AttaqueDegat rayonsignal= new AttaqueDegat ("Rayon Signal" ,Type.insecte ,75 ,100 ,15, 10 );
-public static AttaqueDegat poingombre= new AttaqueDegat ("Poing Ombre" ,Type.spectre ,0 ,60 ,— ,20, 100 );
-public static AttaqueDegat extrasenseur= new AttaqueDegat ("Extrasenseur" ,Type.psy ,80 ,100 ,30, 10 );
-public static AttaqueDegat stratopercut= new AttaqueDegat ("Stratopercut" ,Type.combat ,0 ,85 ,90 ,15, 100 );
-public static AttaqueDegat tourbisable= new AttaqueDegat ("Tourbi-Sable" ,Type.sol ,0 ,35 ,85 ,15, 100 );
-public static AttaqueDegat glaciation= new AttaqueDegat ("Glaciation" ,Type.glace ,500 ,— ,5, 100 );
-public static AttaqueDegat ocroupi= new AttaqueDegat ("Ocroupi" ,Type.eau ,95 ,85 ,10, 30 );
-public static AttaqueDegat ballegraine= new AttaqueDegat ("Balle Graine" ,Type.plante ,0 ,25 ,100 ,30, 100 );
-public static AttaqueDegat aeropique= new AttaqueDegat ("Aeropique" ,Type.vol ,0 ,60 ,— ,20, 100 );
-public static AttaqueDegat stalagtite= new AttaqueDegat ("Stalagtite" ,Type.glace ,0 ,25 ,100 ,30, 100 );
-public static AttaqueDegat dracogriffe= new AttaqueDegat ("Dracogriffe" ,Type.dragon ,0 ,80 ,100 ,15, 100 );
-public static AttaqueDegat vegeattak= new AttaqueDegat ("Vege-Attak" ,Type.plante ,150 ,90 ,5, 100 );
-public static AttaqueDegat rebond= new AttaqueDegat ("Rebond" ,Type.vol ,0 ,85 ,85 ,5, 30 );
-public static AttaqueDegat tirdeboue= new AttaqueDegat ("Tir de Boue" ,Type.sol ,55 ,95 ,15, 100 );
-public static AttaqueDegat queuepoison= new AttaqueDegat ("Queue-Poison" ,Type.poison ,0 ,50 ,100 ,25, 10 );
-public static AttaqueDegat implore= new AttaqueDegat ("Implore" ,Type.normal ,0 ,60 ,100 ,40, 100 );
-public static AttaqueDegat electacle= new AttaqueDegat ("Électacle" ,Type.electrique ,0 ,120 ,100 ,15, 100 );
-public static AttaqueDegat feuillemagik= new AttaqueDegat ("Feuille Magik" ,Type.plante ,60 ,— ,20, 100 );
-public static AttaqueDegat lamefeuille= new AttaqueDegat ("Lame-Feuille" ,Type.plante ,0 ,90 ,100 ,15, 100 );
-public static AttaqueDegat bouleroc= new AttaqueDegat ("Boule Roc" ,Type.roche ,0 ,25 ,90 ,10, 100 );
-public static AttaqueDegat ondedechoc= new AttaqueDegat ("Onde de Choc" ,Type.electrique ,60 ,— ,20, 100 );
-public static AttaqueDegat vibraqua= new AttaqueDegat ("Vibraqua" ,Type.eau ,60 ,100 ,20, 20 );
-public static AttaqueDegat carnareket= new AttaqueDegat ("Carnareket" ,Type.acier ,140 ,100 ,5, 100 );
-public static AttaqueDegat psychoboost= new AttaqueDegat ("Psycho Boost" ,Type.psy ,140 ,90 ,5, 100 );
-public static AttaqueDegat reveilforce= new AttaqueDegat ("Reveil Force" ,Type.combat ,0 ,60 ,100 ,10, 100 );
-public static AttaqueDegat martopoing= new AttaqueDegat ("Marto-Poing" ,Type.combat ,0 ,100 ,90 ,10, 100 );
-public static AttaqueDegat gyroballe= new AttaqueDegat ("Gyroballe" ,Type.acier ,0 ,— ,100 ,5, 100 );
-public static AttaqueDegat saumure= new AttaqueDegat ("Saumure" ,Type.eau ,65 ,100 ,10, 100 );
-public static AttaqueDegat donnaturel= new AttaqueDegat ("Don Naturel" ,Type.normal ,0 ,— ,100 ,15, 100 );
-public static AttaqueDegat ruse= new AttaqueDegat ("Ruse" ,Type.normal ,0 ,30 ,100 ,10, 100 );
-public static AttaqueDegat picore= new AttaqueDegat ("Picore" ,Type.vol ,0 ,60 ,100 ,20, 100 );
-public static AttaqueDegat fulmifer= new AttaqueDegat ("Fulmifer" ,Type.acier ,0 ,— ,100 ,10, 100 );
-public static AttaqueDegat demitour= new AttaqueDegat ("Demi-Tour" ,Type.insecte ,0 ,70 ,100 ,20, 100 );
-public static AttaqueDegat closecombat= new AttaqueDegat ("Close Combat" ,Type.combat ,0 ,120 ,100 ,5, 100 );
-public static AttaqueDegat represailles= new AttaqueDegat ("Represailles" ,Type.tenebres ,0 ,50 ,100 ,10, 100 );
-public static AttaqueDegat assurance= new AttaqueDegat ("Assurance" ,Type.tenebres ,0 ,50 ,100 ,10, 100 );
-public static AttaqueDegat degommage= new AttaqueDegat ("Degommage" ,Type.tenebres ,0 ,— ,100 ,10, 100 );
-public static AttaqueDegat atout= new AttaqueDegat ("Atout" ,Type.normal ,— ,5, 100 );
-public static AttaqueDegat punition= new AttaqueDegat ("Punition" ,Type.tenebres ,0 ,— ,100 ,5, 100 );
-public static AttaqueDegat dernierecour= new AttaqueDegat ("Dernierecour" ,Type.normal ,0 ,140 ,100 ,5, 100 );
-public static AttaqueDegat coupbas= new AttaqueDegat ("Coup Bas" ,Type.tenebres ,0 ,80 ,100 ,5, 100 );
-public static AttaqueDegat essorage= new AttaqueDegat ("Essorage" ,Type.normal ,— ,100 ,5, 100 );
-public static AttaqueDegat boutefeu= new AttaqueDegat ("Boutefeu" ,Type.feu ,0 ,120 ,100 ,15, 10 );
-public static AttaqueDegat fortepaume= new AttaqueDegat ("Forte-Paume" ,Type.combat ,0 ,60 ,100 ,10, 30 );
-public static AttaqueDegat aurasphere= new AttaqueDegat ("Aurasphere" ,Type.combat ,90 ,— ,20, 100 );
-public static AttaqueDegat directtoxik= new AttaqueDegat ("Direct Toxik" ,Type.poison ,0 ,80 ,100 ,20, 30 );
-public static AttaqueDegat vibroscur= new AttaqueDegat ("Vibrobscur" ,Type.tenebres ,80 ,100 ,15, 20 );
-public static AttaqueDegat tranchenuit= new AttaqueDegat ("Tranche-Nuit" ,Type.tenebres ,0 ,70 ,100 ,15, 100 );
-public static AttaqueDegat hydroqueue= new AttaqueDegat ("Hydroqueue" ,Type.eau ,0 ,90 ,90 ,10, 100 );
-public static AttaqueDegat canongraine= new AttaqueDegat ("Canon Graine" ,Type.plante ,0 ,80 ,100 ,15, 100 );
-public static AttaqueDegat lamedair= new AttaqueDegat ("Lame d'Air" ,Type.vol ,75 ,95 ,20, 30 );
-public static AttaqueDegat plaiecroix= new AttaqueDegat ("Plaie-Croix" ,Type.insecte ,0 ,80 ,100 ,15, 100 );
-public static AttaqueDegat bourdon= new AttaqueDegat ("Bourdon" ,Type.insecte ,90 ,100 ,10, 10 );
-public static AttaqueDegat dracochoc= new AttaqueDegat ("Dracochoc" ,Type.dragon ,90 ,100 ,10, 100 );
-public static AttaqueDegat dracocharge= new AttaqueDegat ("Dracocharge" ,Type.dragon ,0 ,100 ,75 ,10, 20 );
-public static AttaqueDegat rayongemme= new AttaqueDegat ("Rayon Gemme" ,Type.roche ,70 ,100 ,20, 100 );
-public static AttaqueDegat vampipoing= new AttaqueDegat ("Vampipoing" ,Type.combat ,0 ,75 ,100 ,10, 100 );
-public static AttaqueDegat ondevide= new AttaqueDegat ("Onde Vide" ,Type.combat ,40 ,100 ,30, 100 );
-public static AttaqueDegat exploforce= new AttaqueDegat ("Exploforce" ,Type.combat ,120 ,70 ,5, 20 );
-public static AttaqueDegat ecosphere= new AttaqueDegat ("Éco-Sphere" ,Type.plante ,80 ,100 ,10, 100 );
-public static AttaqueDegat rapace= new AttaqueDegat ("Rapace" ,Type.vol ,0 ,120 ,100 ,15, 100 );
-public static AttaqueDegat telluriforce= new AttaqueDegat ("Telluriforce" ,Type.sol ,90 ,100 ,10, 10 );
-public static AttaqueDegat gigaimpact= new AttaqueDegat ("Giga Impact" ,Type.normal ,0 ,150 ,90 ,5, 100 );
-public static AttaqueDegat pistopoing= new AttaqueDegat ("Pisto-Poing" ,Type.acier ,0 ,40 ,100 ,30, 100 );
-public static AttaqueDegat avalanche= new AttaqueDegat ("Avalanche" ,Type.glace ,0 ,60 ,100 ,10, 100 );
-public static AttaqueDegat eclatsglace= new AttaqueDegat ("Éclats Glace" ,Type.glace ,0 ,40 ,100 ,30, 100 );
-public static AttaqueDegat griffeombre= new AttaqueDegat ("Griffe Ombre" ,Type.spectre ,0 ,70 ,100 ,15, 100 );
-public static AttaqueDegat crocseclair= new AttaqueDegat ("Crocs Éclair" ,Type.electrique ,0 ,65 ,95 ,15, 10 );
-public static AttaqueDegat crocsgivre= new AttaqueDegat ("Crocs Givre" ,Type.glace ,0 ,65 ,95 ,15, 10 );
-public static AttaqueDegat crocsfeu= new AttaqueDegat ("Crocs Feu" ,Type.feu ,0 ,65 ,95 ,15, 10 );
-public static AttaqueDegat ombreportee= new AttaqueDegat ("Ombre Portee" ,Type.spectre ,0 ,40 ,100 ,30, 100 );
-public static AttaqueDegat bouebombe= new AttaqueDegat ("Boue-Bombe" ,Type.sol ,65 ,85 ,10, 100 );
-public static AttaqueDegat coupepsycho= new AttaqueDegat ("Coupe Psycho" ,Type.psy ,0 ,70 ,100 ,20, 100 );
-public static AttaqueDegat psykoudboul= new AttaqueDegat ("Psykoud'Boul" ,Type.psy ,0 ,80 ,90 ,15, 20 );
-public static AttaqueDegat miroirtir= new AttaqueDegat ("Miroi-Tir" ,Type.acier ,65 ,85 ,10, 100 );
-public static AttaqueDegat luminocanon= new AttaqueDegat ("Luminocanon" ,Type.acier ,80 ,100 ,10, 10 );
-public static AttaqueDegat escalade= new AttaqueDegat ("Escalade" ,Type.normal ,0 ,90 ,85 ,20, 100 );
-public static AttaqueDegat dracometeor= new AttaqueDegat ("Draco Meteor" ,Type.dragon ,140 ,90 ,5, 100 );
-public static AttaqueDegat coupdjus= new AttaqueDegat ("Coup d'Jus" ,Type.electrique ,80 ,100 ,15, 30 );
-public static AttaqueDegat ebullilave= new AttaqueDegat ("Ébullilave" ,Type.feu ,80 ,100 ,15, 30 );
-public static AttaqueDegat tempeteverte= new AttaqueDegat ("Tempeteverte" ,Type.plante ,140 ,90 ,5, 100 );
-public static AttaqueDegat megafouet= new AttaqueDegat ("Megafouet" ,Type.plante ,0 ,120 ,85 ,10, 100 );
-public static AttaqueDegat rocboulet= new AttaqueDegat ("Roc-Boulet" ,Type.roche ,0 ,150 ,90 ,5, 100 );
-public static AttaqueDegat poisoncroix= new AttaqueDegat ("Poison-Croix" ,Type.poison ,0 ,70 ,100 ,20, 10 );
-public static AttaqueDegat detricanon= new AttaqueDegat ("Detricanon" ,Type.poison ,0 ,120 ,70 ,5, 30 );
-public static AttaqueDegat tetedefer= new AttaqueDegat ("Tete de Fer" ,Type.acier ,0 ,80 ,100 ,15, 80 );
-public static AttaqueDegat bombaimant= new AttaqueDegat ("Bombaimant" ,Type.acier ,0 ,60 ,— ,20, 100 );
-public static AttaqueDegat lamederoc= new AttaqueDegat ("Lame de Roc" ,Type.roche ,0 ,100 ,80 ,5, 100 );
-public static AttaqueDegat noeudherbe= new AttaqueDegat ("Noeud Herbe" ,Type.plante ,— ,100 ,20, 100 );
-public static AttaqueDegat babil= new AttaqueDegat ("Babil" ,Type.vol ,60 ,100 ,20, 100 );
-public static AttaqueDegat jugement= new AttaqueDegat ("Jugement" ,Type.normal ,100 ,100 ,10, 100 );
-public static AttaqueDegat piqure= new AttaqueDegat ("Piqure" ,Type.insecte ,0 ,60 ,100 ,20, 100 );
-public static AttaqueDegat rayoncharge= new AttaqueDegat ("Rayon Charge" ,Type.electrique ,50 ,90 ,10, 100 );
-public static AttaqueDegat martobois= new AttaqueDegat ("Martobois" ,Type.plante ,0 ,120 ,100 ,15, 100 );
-public static AttaqueDegat aquajet= new AttaqueDegat ("Aqua-Jet" ,Type.eau ,0 ,40 ,100 ,20, 100 );
-public static AttaqueDegat appelattak= new AttaqueDegat ("Appel Attak" ,Type.insecte ,0 ,90 ,100 ,15, 100 );
-public static AttaqueDegat fracasstete= new AttaqueDegat ("Fracass'Tete" ,Type.roche ,0 ,150 ,80 ,5, 100 );
-public static AttaqueDegat coupdouble= new AttaqueDegat ("Coup Double" ,Type.normal ,0 ,35 ,90 ,10, 100 );
-public static AttaqueDegat hurletemps= new AttaqueDegat ("Hurle-Temps" ,Type.dragon ,150 ,90 ,5, 100 );
-public static AttaqueDegat spatiorift= new AttaqueDegat ("Spatio-Rift" ,Type.dragon ,100 ,95 ,5, 100 );
-public static AttaqueDegat presse= new AttaqueDegat ("Presse" ,Type.normal ,0 ,— ,100 ,5, 100 );
-public static AttaqueDegat vortexmagma= new AttaqueDegat ("Vortex Magma" ,Type.feu ,120 ,75 ,5, 100 );
-public static AttaqueDegat fulmigraine= new AttaqueDegat ("Fulmigraine" ,Type.plante ,120 ,85 ,5, 40 );
-public static AttaqueDegat ventmauvais= new AttaqueDegat ("Vent Mauvais" ,Type.spectre ,60 ,100 ,5, 10 );
-public static AttaqueDegat revenant= new AttaqueDegat ("Revenant" ,Type.spectre ,0 ,120 ,100 ,5, 100 );
-public static AttaqueDegat chocpsy= new AttaqueDegat ("Choc Psy" ,Type.psy ,80 ,100 ,10, 100 );
-public static AttaqueDegat chocvenin= new AttaqueDegat ("Choc Venin" ,Type.poison ,65 ,100 ,10, 100 );
-public static AttaqueDegat antiair= new AttaqueDegat ("Anti-Air" ,Type.roche ,0 ,50 ,100 ,15, 100 );
-public static AttaqueDegat yamaarashi= new AttaqueDegat ("Yama Arashi" ,Type.combat ,0 ,40 ,100 ,10, 100 );
-public static AttaqueDegat rebondifeu= new AttaqueDegat ("Rebondifeu" ,Type.feu ,70 ,100 ,15, 100 );
-public static AttaqueDegat cradovague= new AttaqueDegat ("Cradovague" ,Type.poison ,95 ,100 ,10, 10 );
-public static AttaqueDegat taclelourd= new AttaqueDegat ("Tacle Lourd" ,Type.acier ,0 ,— ,100 ,10, 100 );
-public static AttaqueDegat synchropeine= new AttaqueDegat ("Synchropeine" ,Type.psy ,120 ,100 ,15, 100 );
-public static AttaqueDegat bouleelek= new AttaqueDegat ("Boule Élek" ,Type.electrique ,— ,100 ,10, 100 );
-public static AttaqueDegat nitrocharge= new AttaqueDegat ("Nitrocharge" ,Type.feu ,0 ,50 ,100 ,20, 100 );
-public static AttaqueDegat balayette= new AttaqueDegat ("Balayette" ,Type.combat ,0 ,60 ,100 ,20, 100 );
-public static AttaqueDegat bombeacide= new AttaqueDegat ("Bombe Acide" ,Type.poison ,40 ,100 ,20, 100 );
-public static AttaqueDegat tricherie= new AttaqueDegat ("Tricherie" ,Type.tenebres ,0 ,95 ,100 ,15, 100 );
-public static AttaqueDegat chantcanon= new AttaqueDegat ("Chant Canon" ,Type.normal ,60 ,100 ,15, 100 );
-public static AttaqueDegat echo= new AttaqueDegat ("Écho" ,Type.normal ,40 ,100 ,15, 100 );
-public static AttaqueDegat attrition= new AttaqueDegat ("Attrition" ,Type.normal ,0 ,70 ,100 ,20, 100 );
-public static AttaqueDegat baindesmog= new AttaqueDegat ("Bain de Smog" ,Type.poison ,50 ,— ,15, 100 );
-public static AttaqueDegat forceajoutee= new AttaqueDegat ("ForceAjoutee" ,Type.psy ,20 ,100 ,10, 100 );
-public static AttaqueDegat chatiment= new AttaqueDegat ("Châtiment" ,Type.spectre ,50 ,100 ,10, 100 );
-public static AttaqueDegat chutelibre= new AttaqueDegat ("Chute Libre" ,Type.vol ,0 ,60 ,100 ,10, 100 );
-public static AttaqueDegat ebullition= new AttaqueDegat ("Ébullition" ,Type.eau ,80 ,100 ,15, 100 );
-public static AttaqueDegat projection= new AttaqueDegat ("Projection" ,Type.combat ,0 ,60 ,90 ,10, 100 );
-public static AttaqueDegat calcination= new AttaqueDegat ("Calcination" ,Type.feu ,30 ,100 ,15, 100 );
-public static AttaqueDegat acrobatie= new AttaqueDegat ("Acrobatie" ,Type.vol ,0 ,55 ,100 ,15, 100 );
-public static AttaqueDegat vengeance= new AttaqueDegat ("Vengeance" ,Type.normal ,0 ,70 ,100 ,5, 100 );
-public static AttaqueDegat toutourien= new AttaqueDegat ("Tout ou Rien" ,Type.combat ,— ,100 ,5, 100 );
-public static AttaqueDegat feudenfer= new AttaqueDegat ("Feu d'Enfer" ,Type.feu ,100 ,50 ,5, 100 );
-public static AttaqueDegat airedeau= new AttaqueDegat ("Aire d'Eau" ,Type.eau ,50 ,100 ,10, 100 );
-public static AttaqueDegat airedefeu= new AttaqueDegat ("Aire de Feu" ,Type.feu ,50 ,100 ,10, 100 );
-public static AttaqueDegat airedherbe= new AttaqueDegat ("Aire d'Herbe" ,Type.plante ,50 ,100 ,10, 100 );
-public static AttaqueDegat changeeclair= new AttaqueDegat ("Change Éclair" ,Type.electrique ,70 ,100 ,20, 100 );
-public static AttaqueDegat survinsecte= new AttaqueDegat ("Survinsecte" ,Type.insecte ,30 ,100 ,20, 100 );
-public static AttaqueDegat pietisol= new AttaqueDegat ("Pietisol" ,Type.sol ,0 ,60 ,100 ,20, 100 );
-public static AttaqueDegat souffleglace= new AttaqueDegat ("Souffle Glace" ,Type.glace ,40 ,90 ,10, 100 );
-public static AttaqueDegat dracoqueue= new AttaqueDegat ("Draco-Queue" ,Type.dragon ,0 ,60 ,90 ,10, 100 );
-public static AttaqueDegat toileelek= new AttaqueDegat ("Toile Élek" ,Type.electrique ,55 ,95 ,15, 100 );
-public static AttaqueDegat eclairfou= new AttaqueDegat ("Éclair Fou" ,Type.electrique ,0 ,90 ,100 ,15, 100 );
-public static AttaqueDegat tunnelier= new AttaqueDegat ("Tunnelier" ,Type.sol ,0 ,80 ,95 ,10, 100 );
-public static AttaqueDegat doublebaffe= new AttaqueDegat ("Double Baffe" ,Type.dragon ,0 ,40 ,90 ,15, 100 );
-public static AttaqueDegat crevecoeur= new AttaqueDegat ("Crevecoeur" ,Type.psy ,0 ,60 ,100 ,25, 100 );
-public static AttaqueDegat encornebois= new AttaqueDegat ("Encornebois" ,Type.plante ,0 ,75 ,100 ,10, 100 );
-public static AttaqueDegat lamesainte= new AttaqueDegat ("Lame Sainte" ,Type.combat ,0 ,90 ,100 ,20, 100 );
-public static AttaqueDegat coquilame= new AttaqueDegat ("Coquilame" ,Type.eau ,0 ,75 ,95 ,10, 100 );
-public static AttaqueDegat taclefeu= new AttaqueDegat ("Tacle Feu" ,Type.feu ,0 ,— ,100 ,10, 100 );
-public static AttaqueDegat phytomixeur= new AttaqueDegat ("Phytomixeur" ,Type.plante ,65 ,90 ,10, 100 );
-public static AttaqueDegat bulldoboule= new AttaqueDegat ("Bulldoboule" ,Type.insecte ,0 ,65 ,100 ,20, 100 );
-public static AttaqueDegat explonuit= new AttaqueDegat ("Explonuit" ,Type.tenebres ,85 ,95 ,10, 100 );
-public static AttaqueDegat frappepsy= new AttaqueDegat ("Frappe Psy" ,Type.psy ,100 ,100 ,10, 100 );
-public static AttaqueDegat plumoqueue= new AttaqueDegat ("Plumo-Queue" ,Type.normal ,0 ,25 ,85 ,10, 100 );
-public static AttaqueDegat ventviolent= new AttaqueDegat ("Vent Violent" ,Type.vol ,120 ,70 ,10, 100 );
-public static AttaqueDegat peignee= new AttaqueDegat ("Peignee" ,Type.normal ,0 ,120 ,100 ,15, 100 );
-public static AttaqueDegat lancecrou= new AttaqueDegat ("Lancecrou" ,Type.acier ,0 ,50 ,85 ,15, 100 );
-public static AttaqueDegat incendie= new AttaqueDegat ("Incendie" ,Type.feu ,100 ,100 ,5, 100 );
-public static AttaqueDegat technobuster= new AttaqueDegat ("Techno Buster" ,Type.normal ,85 ,100 ,5, 100 );
-public static AttaqueDegat chantantique= new AttaqueDegat ("Chant Antique" ,Type.normal ,75 ,100 ,10, 100 );
-public static AttaqueDegat lameointe= new AttaqueDegat ("Lame Ointe" ,Type.combat ,85 ,100 ,10, 100 );
-public static AttaqueDegat ereglaciare= new AttaqueDegat ("Ère Glaciaire" ,Type.glace ,65 ,95 ,10, 100 );
-public static AttaqueDegat chargefoudre= new AttaqueDegat ("Charge Foudre" ,Type.electrique ,0 ,130 ,85 ,5, 100 );
-public static AttaqueDegat flammebleue= new AttaqueDegat ("Flamme Bleue" ,Type.feu ,130 ,85 ,5, 100 );
-public static AttaqueDegat dansesufeu= new AttaqueDegat ("Danse du Feu" ,Type.feu ,80 ,100 ,10, 100 );
-public static AttaqueDegat eclairgele= new AttaqueDegat ("Éclair Gele" ,Type.glace ,0 ,140 ,90 ,5, 100 );
-public static AttaqueDegat feuglace= new AttaqueDegat ("Feu Glace" ,Type.glace ,140 ,90 ,5, 100 );
-public static AttaqueDegat aboiement= new AttaqueDegat ("Aboiement" ,Type.tenebres ,55 ,95 ,15, 100 );
-public static AttaqueDegat chuteglace= new AttaqueDegat ("Chute Glace" ,Type.glace ,0 ,85 ,90 ,10, 100 );
-public static AttaqueDegat coupvictoire= new AttaqueDegat ("Coup Victoire" ,Type.feu ,0 ,180 ,95 ,5, 100 );
-public static AttaqueDegat flammecroix= new AttaqueDegat ("Flamme Croix" ,Type.feu ,100 ,100 ,5, 100 );
-public static AttaqueDegat eclaircroix= new AttaqueDegat ("Éclair Croix" ,Type.electrique ,0 ,100 ,100 ,5, 100 );
-public static AttaqueDegat poingboost= new AttaqueDegat ("Poing Boost" ,Type.combat ,0 ,40 ,100 ,20, 100 );
-public static AttaqueDegat ventfeerique= new AttaqueDegat ("Vent Feerique" ,Type.fee ,40 ,100 ,30, 100 );
-public static AttaqueDegat parabocharge= new AttaqueDegat ("Parabocharge" ,Type.electrique ,50 ,100 ,20, 100 );
-public static AttaqueDegat frottefrimousse= new AttaqueDegat ("Frotte-Frimousse" ,Type.electrique ,0 ,20 ,100 ,20, 100 );
-public static AttaqueDegat eclatmagique= new AttaqueDegat ("Éclat Magique" ,Type.fee ,80 ,100 ,10, 100 );
-public static AttaqueDegat vampibaiser= new AttaqueDegat ("Vampibaiser" ,Type.fee ,50 ,100 ,10, 100 );
-public static AttaqueDegat pouvoirlunaire= new AttaqueDegat ("Pouvoir Lunaire" ,Type.fee ,95 ,100 ,15, 100 );
-public static AttaqueDegat calinerie= new AttaqueDegat ("Câlinerie" ,Type.fee ,0 ,90 ,90 ,10, 100 );
-public static AttaqueDegat feuensorcele= new AttaqueDegat ("Feu Ensorcele" ,Type.feu ,65 ,100 ,10, 100 );
-public static AttaqueDegat voixenjoleuse= new AttaqueDegat ("Voix Enjôleuse" ,Type.fee ,40 ,— ,15, 100 );
-public static AttaqueDegat harcelement= new AttaqueDegat ("Harcelement" ,Type.insecte ,20 ,100 ,20, 100 );
-public static AttaqueDegat dardmortel= new AttaqueDegat ("Dard Mortel" ,Type.insecte ,0 ,30 ,100 ,25, 100 );
-public static AttaqueDegat hantise= new AttaqueDegat ("Hantise" ,Type.spectre ,0 ,90 ,100 ,10, 100 );
-public static AttaqueDegat sheauriken= new AttaqueDegat ("Sheauriken" ,Type.eau ,0 ,15 ,100 ,10, 100 );
-public static AttaqueDegat bangsonique= new AttaqueDegat ("Bang Sonique" ,Type.normal ,140 ,100 ,10, 100 );
-public static AttaqueDegat forcechtonienne= new AttaqueDegat ("Force Chtonienne" ,Type.sol ,0 ,90 ,100 ,10, 100 );
-public static AttaqueDegat lyophilisation= new AttaqueDegat ("Lyophilisation" ,Type.glace ,70 ,100 ,20, 100 );
-public static AttaqueDegat mortailes= new AttaqueDegat ("Mort-Ailes" ,Type.vol ,80 ,100 ,10, 100 );
-public static AttaqueDegat tempeteflorale= new AttaqueDegat ("Tempete Florale" ,Type.plante ,0 ,90 ,100 ,15, 100 );
-public static AttaqueDegat eructation= new AttaqueDegat ("Éructation" ,Type.poison ,120 ,90 ,10, 100 );
-public static AttaqueDegat flyingpress= new AttaqueDegat ("Flying Press" ,Type.combat ,0 ,85 ,95 ,10, 100 );
+  acidarmure 
+  adaptation  
+  affutage  
+  amnesie  
+  armure  
+  berceuse  
+  bouclier  
+  boularmure  
+  brouillard   
+  brume  
+  bueenoire  
+  cageeclair   
+  clonage  
+  copie   
+  croissance  
+  cyclone   
+  ecoque   
+  entrave   
+  danselames  
+  jetdesable   
+  mimiqueue   
+  grozyeux   
+  rugissement   
+  hurlement   
+  ultrason   
+  vampigraine  
+  poudretoxik   
+  paraspore   
+  poudredodo   
+  secretion  
+  toxik   
+  hypnose  
+  yoga   Yoga psy  
+  hate   Hâte psy  
+  teleport   Teleport psy  
+  grincement   Grincement normal  
+  reflet   Reflet normal  
+  soin   Soin normal  
+  lilliput   Lilliput normal  
+  ondefolie   Onde Folie spectre   
+  repli    Repli eau  
+  murlumiere   Mur Lumiere psy  
+  protection   Protection psy  
+  puissance   Puissance normal  
+  metronome   Metronome normal  
+  mimique   Mimique vol  
+  telekinesie   Telekinesie psy   
+  regardmedusant   Regard Medusant normal  
+  gaztoxik   Gaz Toxik poison   
+  grobisou   Grobisou normal   
+  morphing   Morphing normal  
+  spore   Spore plante   
+  flash   Flash normal   
+  trempette   Trempette normal  
+  repos   Repos psy  
+  gribouille   Gribouille normal  
+  toile   Toile insecte   
+  lireesprit   Lire-Esprit normal   
+  cauchemar   Cauchemar spectre   
+  malediction   Malediction spectre  
+  conversion   Conversion normal   
+  sporecoton   Spore Coton plante   
+  depit   Depit spectre   
+  abri   Abri normal  
+  grimace   Grimace normal   
+  douxbaiser   Doux Baiser normal  
+  cognobidon   Cognobidon normal  
+  picots   Picots sol  
+  clairvoyance   Clairvoyance normal  
+  prlvtdestin   Prlvt Destin spectre  
+  requiem   Requiem normal  
+  detection   Detection combat  
+  verouillage   Verrouillage normal  
+  tempetsable   Tempetesable roche  
+  tenacite   Tenacite normal  
+  charme   Charme normal  
+  vantardise   Vantardise normal  
+  laitaboire   Lait a Boire normal  
+  attraction   Attraction normal  
+  blabladodo   Blabla Dodo normal  
+  glasdesoin   Glas de Soin normal  
+  runeprotect   Rune Protect normal  
+  balance   Balance normal  
+  relais   Relais normal  
+  encore   Encore normal  
+  douxparfum   Doux Parfum normal  
+  aurore   Aurore normal  
+  synthese   Synthese plante  
+  rayonlune   Rayon Lune normal  
+  dansepluie   Danse Pluie eau  
+  zenith   Zenith feu  
+  boost   Boost normal  
+  stockage   Stockage normal  
+  avale   Avale normal  
+  grele   Grele glace  
+  tourmente   Tourmente tenebres  
+  flatterie   Flatterie tenebres  
+  feufollet   Feu Follet feu  
+  souvenir   Souvenir tenebres  
+  parici   Par Ici normal  
+  forcenature   Force-Nature normal   
+  chargeur   Chargeur electrique  
+  provoc   Provoc tenebres  
+  coupdmain   Coup d'Main normal  
+  tourmagik   Tourmagik psy  
+  imitation   Imitation psy  
+  voeu   Voeu normal  
+  assistance   Assistance normal  
+  racines   Racines plante  
+  refletmagik   Reflet Magik psy  
+  recyclage   Recyclage normal  
+  baillement   Bâillement normal  
+  echange   Échange psy  
+  possessif   Possessif psy  
+  regeneration   Regeneration normal  
+  rancune   Rancune spectre  
+  saisie   Saisie tenebres  
+  camouflage   Camouflage normal  
+  lumiqueue   Lumiqueue insecte  
+  danseplume   Danse-Plume vol  
+  dansefolle   Danse-Folle normal  
+  lanceboue   Lance-Boue sol  
+  paresse   Paresse normal  
+  aromatherapi   Aromatherapi plante  
+  crocolarme   Croco Larme tenebres  
+  flair   Flair normal  
+  stridoson   Strido-Son acier  
+  sifflherbe   Siffl'Herbe plante  
+  chatouille   Chatouille normal  
+  forcecosmik   Force Cosmik psy  
+  murdefer   Mur de Fer acier  
+  barrage   Barrage normal  
+  grondement   Grondement normal  
+  gonflette   Gonflette combat  
+  tourniquet   Tourniquet eau  
+  plenitude   Plenitude psy  
+  dansedraco   Danse Draco dragon  
+  atterissage   Atterrissage vol  
+  gravite   Gravite psy  
+  oeilmiracle   Œil Miracle psy  
+  voeusoin   Voeu Soin psy  
+  ventarriere   Vent Arriere vol  
+  acupression   Acupression normal  
+  embargo   Embargo tenebres  
+  echangepsy   Échange Psy psy  
+  antisoin   Anti-Soin psy  
+  astuceforce   Astuce Force psy  
+  sucdigestif   Suc Digestif poison  
+  airveinard   Air Veinard normal  
+  moidabord   Moi d'Abord normal  
+  photocopie   Photocopie normal  
+  permuforce   Permuforce psy  
+  permugarde   Permugarde psy  
+  soucigraine   Soucigraine plante  
+  picstoxik   Pics Toxik poison  
+  permucoeur   Permucoeur psy  
+  anneauhydro   Anneau Hydro eau  
+  volmagnetik   Vol Magnetik electrique  
+  poliroche   Poliroche roche  
+  passepasse   Passe-Passe tenebres  
+  machination   Machination tenebres  
+  antibrume   Anti-Brume vol  
+  distorsion   Distorsion psy  
+  seduction   Seduction normal  
+  piegederoc   Piege de Roc roche  
+  appeldefens   Appel Defens insecte  
+  appelsoins   Appel Soins insecte  
+  danselune   Danse-Lune psy  
+  trounoir   Trou Noir tenebres  
+  aiguisage   Aiguisage tenebres  
+  gardelarge   Garde Large roche  
+  partagegarde   PartageGarde psy  
+  partageforce   PartageForce psy  
+  zoneetrange   Zone Étrange psy  
+  allegement   Allegement acier  
+  poudrefureur   PoudreFureur insecte  
+  levikinesie   Levikinesie psy  
+  zonemagique   Zone Magique psy  
+  papillodanse   Papillodanse insecte  
+  detrempage   Detrempage eau  
+  enroulement   Enroulement poison  
+  rayonsimple   Rayon Simple normal  
+  tendanse   Ten-danse normal  
+  apresvous   Apres Vous normal  
+  prevention   Prevention combat  
+  intervesion   Interversion psy  
+  exuviation   Exuviation normal  
+  vibrasoin   Vibra Soin psy  
+  chgtvitesse   Chgt Vitesse acier  
+  alaqueue   À la Queue tenebres  
+  copietype   Copie-Type normal  
+  passecadeau   Passe-Cadeau normal  
+  rengorgement   Rengorgement normal  
+  cotogarde   Cotogarde plante  
+  electrisation   Électrisation electrique  
+  magnecontrole   Magne-Contrôle electrique  
+  delugeplasmique   DelugePlasmique electrique  
+  champelectrifie   Champ Électrifie electrique  
+  regardtouchant   Regard Touchant fee  
+  camaraderie   Camaraderie normal  
+  maleficesylvain   Malefice Sylvain plante  
+  champbrumeux   Champ Brumeux fee  
+  toilegluante   Toile Gluante insecte  
+  piegedevenin   Piege de Venin poison  
+  bouclierroyal   Bouclier Royal acier  
+  brumecapiteuse   Brume Capiteuse fee  
+  champherbu   Champ Herbu plante  
+  confidence   Confidence normal  
+  derniermot   Dernier Mot tenebres  
+  geocontrole   Geo-Contrôle fee  
+  halloween   Halloween spectre  
+  nueedepoudre   Nuee de Poudre insecte  
+  picodefense   Pico-Defense plante  
+  gardeflorale   Garde Florale fee  
+  ralemale   Râle Mâle normal  
+  renversement   Renversement tenebres  
+  tatamigaeshi   Tatamigaeshi combat  
+  fertilisation   Fertilisation sol  
+  ondesetranges   Ondes Étranges electrique  
+  verrouenchante   Verrou Enchante fee  
+  vigilance   Vigilance fee  
+  abime    Abime sol      
+  acide    Acide poison     
+  balayage    Balayage combat      
+  becvrille    Bec Vrille vol      
+  belier    Belier normal      
+  blizzard    Blizzard glace     
+  bomboeuf    Bomb'Œuf normal      
+  bullesdo    Bulles d'O eau     
+  cascade    Cascade eau      
+  charge   Charge normal      
+  chocmental    Choc Mental psy     
+  claquoir    Claquoir eau      
+  combogriife   Combo-Griffe normal      
+  constriction   Constriction normal      
+  coupdboule    Coup d'Boule normal      
+  coupe    Coupe normal      
+  coupevent   Coupe-Vent normal     
+  crocdemort   Croc de Mort normal      
+  crocfatal   Croc Fatal normal      
+  cruaile   Cru-Aile vol      
+  eboulement   Éboulement roche      
+  eclair   Éclair electrique     
+  ecrasement   Écrasement normal      
+  ecrasface   Écras'Face normal      
+  ecume   Écume eau     
+  empalkorne   Empal'Korne normal      
+  explosion   Explosion normal      
+  poingkarate   Poing-Karate combat      
+  torgnoles   Torgnoles normal      
+  poingcomete   Poing Comete normal      
+  ultimapoing   Ultimapoing normal      
+  jackpot   Jackpot normal      
+  poingdefeu   Poing de Feu feu      
+  poingglace   Poing Glace glace      
+  poingeclair   Poing-Éclair electrique      
+  griffe   Griffe normal      
+  forcepoigne   Force Poigne normal      
+  guillotine   Guillotine normal      
+  tornade   Tornade vol     
+  vol   Vol vol      
+  etreinte   Étreinte normal      
+  souplesse   Souplesse normal      
+  fouetlianes   Fouet Lianes plante      
+  doublepied   Double-Pied combat      
+  ultimawashi   Ultimawashi normal      
+  piedsaute   Pied Saute combat      
+  mawashigeri   Mawashi Geri combat      
+  koudkorne   Koud'Korne normal      
+  furie   Furie normal      
+  plaquage   Plaquage normal      
+  ligotage   Ligotage normal      
+  mania   Mania normal      
+  damocles   Damocles normal      
+  dardvenin   Dard-Venin poison      
+  doubledard   Double-Dard insecte      
+  dardnuee   Dard-Nuee insecte      
+  morsure   Morsure tenebres      
+  sonicboom   Sonicboom normal     
+  flammeche   Flammeche feu     
+  lanceflamme   Lance-Flamme feu     
+  pistoletao   Pistolet a O eau     
+  hydrocanon   Hydrocanon eau     
+  surf   Surf eau     
+  laserglace   Laser Glace glace     
+  rafalepsy   Rafale Psy psy     
+  ondeboreale   Onde Boreale glace     
+  ultralaser   Ultralaser normal     
+  picpic   Picpic vol      
+  sacrifice   Sacrifice combat      
+  riposte   Riposte combat      
+  frappeatlas   Frappe Atlas combat      
+  force   Force normal      
+  volvie   Vol-Vie plante     
+  megasangsue   Mega-Sangsue plante     
+  tranchherbe   Tranch'Herbe plante      
+  lancesoleil   Lance-Soleil plante     
+  dansefleur   Danse-Fleur plante     
+  dracorage   Draco-Rage dragon     
+  danseflamme   Danseflamme feu     
+  tonnerre   Tonnerre electrique     
+  fatalfoudre   Fatal-Foudre electrique     
+  jetpierres   Jet-Pierres roche      
+  seisme   Seisme sol      
+  tunnel   Tunnel sol      
+  psyko   Psyko psy     
+  viveattaque   Vive- normal      
+  frenesie   Frenesie normal      
+  ombrenocturne   Ombre Nocturne spectre     
+  patience   Patience normal      
+  destruction   Destruction normal      
+  lechouille   Lechouille spectre      
+  puredpois   Puredpois poison     
+  detritus   Detritus poison     
+  massdos   Massd'Os sol      
+  deflagration   Deflagration feu     
+  meteores   Meteores normal     
+  coudkrane   Coud'Krâne normal      
+  picanon   Picanon normal      
+  piedvoltige   Pied Voltige combat      
+  devoreve   Devoreve psy     
+  pilonnage   Pilonnage normal      
+  vampirisme   Vampirisme insecte      
+  pique   Pique vol      
+  uppercut   Uppercut normal      
+  vaguepsy   Vague Psy psy     
+  pincemasse   Pince-Masse eau      
+  osmerang   Osmerang sol      
+  triplattaque   Triplattaque normal     
+  tranche   Tranche normal      
+  lutte   Lutte normal      
+  triplepied   Triple Pied combat      
+  larcin   Larcin tenebres      
+  rouedefeu   Roue de Feu feu      
+  ronflement   Ronflement normal     
+  fleau   Fleau normal      
+  aeroblast   Aeroblast vol     
+  contre   Contre combat      
+  poudreuse   Poudreuse glace     
+  machpunch   Mach Punch combat      
+  feinte   Feinte tenebres      
+  bombbeurk   Bomb-Beurk poison     
+  coudboue   Coud'Boue sol     
+  octazooka   Octazooka eau     
+  elecanon   Élecanon electrique     
+  ventglace   Vent Glace glace     
+  chargeos   Charge-Os sol      
+  colere   Colere dragon      
+  gigasangsue   Giga-Sangsue plante     
+  roulade   Roulade roche      
+  fauxchage   Faux-Chage normal      
+  etincelle   Étincelle electrique      
+  taillade   Taillade insecte      
+  ailedacier   Aile d'Acier acier      
+  retour   Retour normal      
+  cadeau   Cadeau normal      
+  frustration   Frustration normal      
+  feusacre   Feu Sacre feu      
+  ampleur   Ampleur sol      
+  dynamopoing   Dynamopoing combat      
+  megacorne   Megacorne insecte      
+  dracosouffle   Dracosouffle dragon     
+  poursuite   Poursuite tenebres      
+  tourrapide   Tour Rapide normal      
+  queuedefer   Queue de Fer acier      
+  griffeacier   Griffe Acier acier      
+  corpsperdu   Corps Perdu combat      
+  puisscachee   Puiss. Cachee normal     
+  coupcroix   Coup-Croix combat      
+  ouragan   Ouragan dragon     
+  machouille   Mâchouille tenebres      
+  voilemiroir   Voile Miroir psy    
+  vitextreme   Vit.Extreme normal      
+  pouvoirantique   Pouvoir Antique roche     
+  ballombr   Ball'Ombre spectre     
+  prescience   Prescience psy     
+  eclateroc   Éclate-Roc combat      
+  siphon   Siphon eau     
+  baston   Baston tenebres      
+  bluff   Bluff normal      
+  brouhaha   Brouhaha normal     
+  relache   Relâche normal     
+  canicule   Canicule feu     
+  facade   Facade normal      
+  mitrapoing   Mitra-Poing combat      
+  stimulant   Stimulant normal      
+  surpuissance   Surpuissance combat      
+  vendetta   Vendetta combat      
+  cassebrique   Casse-Brique combat      
+  sabotage   Sabotage tenebres      
+  effort   Effort normal      
+  eruption   Éruption feu     
+  forcecachee   Force Cachee normal      
+  plongee   Plongee eau      
+  cogne   Cogne combat      
+  lumieclat   Lumi-Éclat psy     
+  ballbrume   Ball'Brume psy     
+  ballglace   Ball'Glace glace      
+  poingdard   Poing Dard plante      
+  peidbruleur    Pied Brûleur feu    
+  megaphone   Megaphone normal     
+  crochetvenin   Crochetvenin poison      
+  eclategriffe   Éclategriffe normal      
+  rafalefeu   Rafale Feu feu     
+  hydroblast   Hydroblast eau     
+  poingmeteor   Poing Meteor acier      
+  etonnement   Étonnement spectre      
+  ballmeteo   Ball'Meteo normal     
+  tranchair   Tranch'Air vol     
+  surchauffe   Surchauffe feu     
+  tomberoche   Tomberoche roche      
+  ventargente   Vent Argente insecte     
+  gicledo   Gicledo eau     
+  rayonsignal   Rayon Signal insecte     
+  poingombre   Poing Ombre spectre      
+  extrasenseur   Extrasenseur psy     
+  stratopercut   Stratopercut combat      
+  tourbisable   Tourbi-Sable sol      
+  glaciation   Glaciation glace     
+  ocroupi   Ocroupi eau     
+  ballegraine   Balle Graine plante      
+  aeropique   Aeropique vol      
+  stalagtite   Stalagtite glace      
+  dracogriffe   Dracogriffe dragon      
+  vegeattak   Vege-Attak plante     
+  rebond   Rebond vol      
+  tirdeboue   Tir de Boue sol     
+  queuepoison   Queue-Poison poison      
+  implore   Implore normal      
+  electacle   Électacle electrique      
+  feuillemagik   Feuille Magik plante     
+  lamefeuille   Lame-Feuille plante      
+  bouleroc   Boule Roc roche      
+  ondedechoc   Onde de Choc electrique     
+  vibraqua   Vibraqua eau     
+  carnareket   Carnareket acier     
+  psychoboost   Psycho Boost psy     
+  reveilforce   Reveil Force combat      
+  martopoing   Marto-Poing combat      
+  gyroballe   Gyroballe acier      
+  saumure   Saumure eau     
+  donnaturel   Don Naturel normal      
+  ruse   Ruse normal      
+  picore   Picore vol      
+  fulmifer   Fulmifer acier      
+  demitour   Demi-Tour insecte      
+  closecombat   Close Combat combat      
+  represailles   Represailles tenebres      
+  assurance   Assurance tenebres      
+  degommage   Degommage tenebres      
+  atout   Atout normal    
+  punition   Punition tenebres      
+  dernierecour   Dernierecour normal      
+  coupbas   Coup Bas tenebres      
+  essorage   Essorage normal     
+  boutefeu   Boutefeu feu      
+  fortepaume   Forte-Paume combat      
+  aurasphere   Aurasphere combat     
+  directtoxik   Direct Toxik poison      
+  vibroscur   Vibrobscur tenebres     
+  tranchenuit   Tranche-Nuit tenebres      
+  hydroqueue   Hydroqueue eau      
+  canongraine   Canon Graine plante      
+  lamedair   Lame d'Air vol     
+  plaiecroix   Plaie-Croix insecte      
+  bourdon   Bourdon insecte     
+  dracochoc   Dracochoc dragon     
+  dracocharge   Dracocharge dragon      
+  rayongemme   Rayon Gemme roche    
+  vampipoing   Vampipoing combat      
+  ondevide   Onde Vide combat     
+  exploforce   Exploforce combat     
+  ecosphere   Éco-Sphere plante     
+  rapace   Rapace vol      
+  telluriforce   Telluriforce sol     
+  gigaimpact   Giga Impact normal      
+  pistopoing   Pisto-Poing acier      
+  avalanche   Avalanche glace      
+  eclatsglace   Éclats Glace glace      
+  griffeombre   Griffe Ombre spectre      
+  crocseclair   Crocs Éclair electrique      
+  crocsgivre   Crocs Givre glace      
+  crocsfeu   Crocs Feu feu      
+  ombreportee   Ombre Portee spectre      
+  bouebombe   Boue-Bombe sol     
+  coupepsycho   Coupe Psycho psy      
+  psykoudboul   Psykoud'Boul psy      
+  miroirtir   Miroi-Tir acier     
+  luminocanon   Luminocanon acier     
+  escalade   Escalade normal      
+  dracometeor   Draco Meteor dragon     
+  coupdjus   Coup d'Jus electrique     
+  ebullilave   Ébullilave feu     
+  tempeteverte   Tempeteverte plante     
+  megafouet   Megafouet plante      
+  rocboulet   Roc-Boulet roche      
+  poisoncroix   Poison-Croix poison      
+  detricanon   Detricanon poison      
+  tetedefer   Tete de Fer acier      
+  bombaimant   Bombaimant acier      
+  lamederoc   Lame de Roc roche      
+  noeudherbe   Noeud Herbe plante     
+  babil   Babil vol     
+  jugement   Jugement normal     
+  piqure   Piqure insecte      
+  rayoncharge   Rayon Charge electrique     
+  martobois   Martobois plante      
+  aquajet   Aqua-Jet eau      
+  appelattak   Appel Attak insecte      
+  fracasstete   Fracass'Tete roche      
+  coupdouble   Coup Double normal      
+  hurletemps   Hurle-Temps dragon     
+  spatiorift   Spatio-Rift dragon     
+  presse   Presse normal      
+  vortexmagma   Vortex Magma feu     
+  fulmigraine   Fulmigraine plante     
+  ventmauvais   Vent Mauvais spectre     
+  revenant   Revenant spectre      
+  chocpsy   Choc Psy psy     
+  chocvenin   Choc Venin poison     
+  antiair   Anti-Air roche      
+  yamaarashi   Yama Arashi combat      
+  rebondifeu   Rebondifeu feu     
+  cradovague   Cradovague poison     
+  taclelourd   Tacle Lourd acier      
+  synchropeine   Synchropeine psy     
+  bouleelek   Boule Élek electrique     
+  nitrocharge   Nitrocharge feu      
+  balayette   Balayette combat      
+  bombeacide   Bombe Acide poison     
+  tricherie   Tricherie tenebres      
+  chantcanon   Chant Canon normal     
+  echo   Écho normal     
+  attrition   Attrition normal      
+  baindesmog   Bain de Smog poison     
+  forceajoutee   ForceAjoutee psy     
+  chatiment   Châtiment spectre     
+  chutelibre   Chute Libre vol      
+  ebullition   Ébullition eau     
+  projection   Projection combat      
+  calcination   Calcination feu     
+  acrobatie   Acrobatie vol      
+  vengeance   Vengeance normal      
+  toutourien   Tout ou Rien combat     
+  feudenfer   Feu d'Enfer feu     
+  airedeau   Aire d'Eau eau     
+  airedefeu   Aire de Feu feu     
+  airedherbe   Aire d'Herbe plante     
+  changeeclair   Change Éclair electrique     
+  survinsecte   Survinsecte insecte     
+  pietisol   Pietisol sol      
+  souffleglace   Souffle Glace glace     
+  dracoqueue   Draco-Queue dragon      
+  toileelek   Toile Élek electrique     
+  eclairfou   Éclair Fou electrique      
+  tunnelier   Tunnelier sol      
+  doublebaffe   Double Baffe dragon      
+  crevecoeur   Crevecoeur psy      
+  encornebois   Encornebois plante      
+  lamesainte   Lame Sainte combat      
+  coquilame   Coquilame eau      
+  taclefeu   Tacle Feu feu      
+  phytomixeur   Phytomixeur plante     
+  bulldoboule   Bulldoboule insecte      
+  explonuit   Explonuit tenebres     
+  frappepsy   Frappe Psy psy     
+  plumoqueue   Plumo-Queue normal      
+  ventviolent   Vent Violent vol     
+  peignee   Peignee normal      
+  lancecrou   Lancecrou acier      
+  incendie   Incendie feu     
+  technobuster   Techno Buster normal     
+  chantantique   Chant Antique normal     
+  lameointe   Lame Ointe combat     
+  ereglaciare   Ère Glaciaire glace     
+  chargefoudre   Charge Foudre electrique      
+  flammebleue   Flamme Bleue feu     
+  dansesufeu   Danse du Feu feu     
+  eclairgele   Éclair Gele glace      
+  feuglace   Feu Glace glace     
+  aboiement   Aboiement tenebres     
+  chuteglace   Chute Glace glace      
+  coupvictoire   Coup Victoire feu      
+  flammecroix   Flamme Croix feu     
+  eclaircroix   Éclair Croix electrique      
+  poingboost   Poing Boost combat      
+  ventfeerique   Vent Feerique fee     
+  parabocharge   Parabocharge electrique     
+  frottefrimousse   Frotte-Frimousse electrique      
+  eclatmagique   Éclat Magique fee     
+  vampibaiser   Vampibaiser fee     
+  pouvoirlunaire   Pouvoir Lunaire fee     
+  calinerie   Câlinerie fee      
+  feuensorcele   Feu Ensorcele feu     
+  voixenjoleuse   Voix Enjôleuse fee     
+  harcelement   Harcelement insecte     
+  dardmortel   Dard Mortel insecte      
+  hantise   Hantise spectre      
+  sheauriken   Sheauriken eau      
+  bangsonique   Bang Sonique normal     
+  forcechtonienne   Force Chtonienne sol      
+  lyophilisation   Lyophilisation glace     
+  mortailes   Mort-Ailes vol     
+  tempeteflorale   Tempete Florale plante      
+  eructation   Éructation poison     
+  flyingpress      
+
+
+}
