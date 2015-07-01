@@ -1,6 +1,6 @@
 
 
-public class PokemonEnCombat extends Pokemon {
+public class PokemonEnCombat{
 	
 	
 	
@@ -17,6 +17,10 @@ public class PokemonEnCombat extends Pokemon {
 		_statut = 0;
 	}
 	
+	public PokemonEnCombat clone(){
+		return new PokemonEnCombat(this._p, this._listeDesAttaques, this._talentChoisi, this._stats);
+	}
+	
 	public Pokemon _p;
 	public Attaque[] _listeDesAttaques = new Attaque[] {null,null,null,null};
 	public int _talentChoisi;
@@ -24,6 +28,10 @@ public class PokemonEnCombat extends Pokemon {
 	public int[] _stats = new int[] {0,0,0,0,0,0};
 	public int _statut; 
 	public int[] _changementDesStats = new int[] {0,0,0,0,0,0};
+	
+	public boolean estKO(){
+		return _pvActuels == 0;
+	}
 	
 	public void setChangementDeStat (int statAChanger , int nombreDAlteration){
 		if( -4 >= _changementDesStats[statAChanger]+nombreDAlteration){ 
@@ -54,7 +62,7 @@ public class PokemonEnCombat extends Pokemon {
 		default:return new String("");
 		}
 	}
-	
+		
 	public String toString(){
 		StringBuffer bf = new StringBuffer();
 		

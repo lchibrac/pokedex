@@ -16,6 +16,12 @@ public class PanImagePokemon extends JPanel {
 		g.drawRect(20, 20, _p._image.getWidth(this), _p._image.getHeight(this));
 	}
 	
+	public void paintComponent( Graphics g, int x, int y){
+		g.drawImage(_p._image,x,y,this);
+		g.drawRect(x, y, _p._image.getWidth(this)+1, _p._image.getHeight(this)+1);
+		g.drawRect(x, y, _p._image.getWidth(this), _p._image.getHeight(this));
+	}
+	
 	public Pokemon _p;
 	
 }

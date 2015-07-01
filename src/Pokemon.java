@@ -61,6 +61,7 @@ public class Pokemon {
 			_famille[i] = famille[i];
 		}
 	}
+	
 	public int _numero;
 	public String[] _nom = new String[]{".","."};
 	public Type[] _type = new Type[]{Type.zero,Type.zero};

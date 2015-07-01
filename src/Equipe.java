@@ -1,21 +1,49 @@
 
 public class Equipe {
 	
-	public Equipe(Pokemon[] team, int joueur){
-		for(int i = 0 ; i < 6 ; ++i){
+	public Equipe(PokemonEnCombat[] team, int joueur){
+		int length = team.length;
+		for(int i = 0 ; i < length ; ++i){
 			_team[i] = team[i].clone();
 		}
 		_joueur = joueur;
 	}
 	
 	public int length(){
-		int cpt = 0;
-		while(!this._team[cpt].equals(null)){
-			++cpt;
-		}
-		return cpt;
+		return _team.length;
 	}
 	
-	public Pokemon[] _team = new Pokemon[]{null,null,null,null,null,null};
+	public Equipe clone(){
+		PokemonEnCombat[] _team2 = new PokemonEnCombat[this._team.length];
+		for(int i = 0 ; i < this._team.length ; ++i){
+			_team2[i] = this._team[i].clone();
+		}
+		Equipe e = new Equipe(_team2, this._joueur);
+		return e;
+	}
+	
+	public PokemonEnCombat getPokemon(int i){
+		if (_team.length >= i && i >= 0){
+			return _team[i];
+		}
+		return null;
+	}
+	
+	public int getJoueur(){
+		return _joueur;
+	}
+	
+	public void printEquipe(){
+		System.out.println("l'Equipe du joueur "+_joueur +" est composée de ");
+		for(int i = 0 ; i < _team.length ; ++i){
+			System.out.print(_team[i]._p.getFrenchNom());
+			if(i < _team.length-1){
+				System.out.print(", ");
+			}
+		}
+		System.out.println();
+	}
+	
+	public PokemonEnCombat[] _team = new PokemonEnCombat[]{null,null,null,null,null,null};
 	public int _joueur;
 }
