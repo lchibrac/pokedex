@@ -77,7 +77,7 @@ public class Pokemon {
 	}
 	
 	public String toString(){
-		return new String(this._numero +" "+this._nom.toString()+" "+this._type.toString()+" "+this._stats.toString()+" "+this._nbevolution+" "+this._estuneevolution+" "+this._talents.toString());		
+		return new String(this._numero +" "+this._nom+" "+this._type+" "+this._stats+" "+this._nbevolution+" "+this._estuneevolution+" "+this._talents);		
 	}
 	
 	public String numeroToString(){
