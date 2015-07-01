@@ -2,6 +2,7 @@
 public class PokemonEnCombat extends Pokemon{
 
 	public PokemonEnCombat(Pokemon p, Attaque[] listeDesAttaques, int talentChoisi, int[] stats,int niveau, int pvs){
+		_p = p;
 		_numero = p._numero;
 		_nom[0] = p.getFrenchNom();
 		_nom[1] = p.getEnglishNom();
@@ -32,7 +33,8 @@ public class PokemonEnCombat extends Pokemon{
 		peutChanger = true;
 	}
 	
-	public PokemonEnCombat(Pokemon p, Attaque[] listeDesAttaques, int talentChoisi, int[] stats,int niveau){
+	public PokemonEnCombat(Pokemon p, Attaque[] listeDesAttaques, int talentChoisi, int[] stats,int niveau){	
+		_p = p;
 		_numero = p._numero;
 		_nom[0] = p.getFrenchNom();
 		_nom[1] = p.getEnglishNom();
@@ -63,6 +65,8 @@ public class PokemonEnCombat extends Pokemon{
 		peutChanger = true;
 	}
 	
+	
+	
 	public PokemonEnCombat clone(){
 		return new PokemonEnCombat(this._p.clone(), this._listeDesAttaques.clone(), this._talentChoisi, this._choosedStats, this._niveau, this._pvActuels);
 	}
@@ -71,9 +75,9 @@ public class PokemonEnCombat extends Pokemon{
 	public Attaque[] _listeDesAttaques = new Attaque[] {null,null,null,null};
 	public int _talentChoisi;
 	public int _pvActuels;
+	public int[] _changementDesStats = new int[] {0,0,0,0,0,0};
 	public int[] _choosedStats = new int[] {0,0,0,0,0,0};
 	public int _statut; 
-	public int[] _changementDesStats = new int[] {0,0,0,0,0,0};
 	public int _precision;
 	public int _esquive;
 	public int _niveau;
@@ -130,7 +134,7 @@ public class PokemonEnCombat extends Pokemon{
 	}
 	
 	public static void attaque(Attaque a, PokemonEnCombat lanceur, PokemonEnCombat cible){
-		if(cible._p.getSensibilites()[a._t._nb] != 0){
+		if(cible.getSensibilites()[a._t._nb] != 0){
 			a.effet(lanceur, cible);
 			if(a instanceof AttaqueDegat){
 				int degats = Probabilite.degats((AttaqueDegat)a, lanceur, cible);
