@@ -1,31 +1,57 @@
 public class Combat {
 
-	public Combat(Equipe j1, Equipe j2){
+	public Combat(Equipe j1, Equipe j2, boolean vsdresseur){
+		_gagnant = 0;
 		_j1 = j1.clone();
 		_j2 = j2.clone();
 		nb_tours = 0;
+		joueurActuel = 1;
+		_vs_dresseur = vsdresseur;
+		_mega_evolution = false;
 	}
 	
-//	public boolean fin(){
-//		boolean fin = true;
-//		int min = Math.min(_j1.length(),_j2.length());
-//		for (int i = 0 ; i < min ; ++i ){
-//			
-//		}
-//	}
+	//pq boolean ?
+	/*
+	public boolean fin(){
+		int min = Math.min(_j1.length(),_j2.length());
+		for (int i = 0 ; i < min ; ++i ){
+			
+		}
+	}*/
+	
+	public int fin(){
+		//cas de fuite, abandon autre prévu plus tard...
+		if(_gagnant != 0){
+			return _gagnant;
+		}
+		int tmp = 0;
+		for(int i = 0; i < _j1.length() ; i++){
+			if (!_j1.getPokemon(i).estKO()){
+				return 1;
+			}
+		}
+		return 2;
+	}
 	
 	public static void initialisation(){
 		
 	}
 	
+	//données générales => interessantes a conserver après ? 
+	public boolean _vs_dresseur; //vs dresseur(true) != vs pokemon sauvage
 	public Equipe _j1;
 	public Equipe _j2;
 	public int climat;
 	public int nb_tours;
+	public int _gagnant;
+	public boolean _mega_evolution;
+	
+	//donnees durant combat
+	public int joueurActuel;
 	
 	Equipe getEquipe(int i){
 		if(i < 1 || i > 2){
-			System.out.println("Vous avez demandé l'équipe "+i+" qui n'existe pas. Veuillez prendre contact avec le createur du jeu pour lui indiquer cete erreur.");
+			System.out.println("Vous avez demandé l'équipe "+i+" qui n'existe pas. Veuillez prendre contact avec le createur du jeu pour lui indiquer cette erreur.");
 			return null;
 		}
 		if(i == 1){

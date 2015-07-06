@@ -3,6 +3,7 @@ import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,6 +29,7 @@ public class PanCombat extends JPanel{
 	public PokemonEnCombat _e1_p; //a decaller ds combat
 	public PokemonEnCombat _e2_p; //a decaller ds combat
 	public Image pokeball;
+	final JLabel message = new JLabel();
 	
 	/**
 	 * inverse l'image du pokemon de la première équipe verticalement
@@ -132,7 +134,13 @@ public class PanCombat extends JPanel{
 		Image _pokeball = null;
 		Image _pokeball_ko = null;
 		Image _pokeball_affected = null;
-		int nb_pokemon = _c._j1.length();
+		int nb_pokemon;
+		if(left){
+			nb_pokemon = _c._j1.length();
+		}
+		else{
+			nb_pokemon = _c._j2.length();
+		}
 		
 		try {
 			_pokeball_affected = ImageIO.read(new File("images/pokeball_affected.png"));
@@ -171,18 +179,10 @@ public class PanCombat extends JPanel{
 		
 		
 	}
-
-	public PanCombat(Combat c, final JFrame f) throws IOException{
-				
-		//init combat
+	
+	public void match(JPanel match){
 		
-		_e1_p = c.getEquipe(1).getPokemon(0);
-		_e2_p = c.getEquipe(2).getPokemon(0);
 		
-		//init affichage
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		
-		final JPanel match = new JPanel();
 		match.setMaximumSize(new Dimension(900, 450));
 		match.setLayout(new BoxLayout(match, BoxLayout.X_AXIS));
 		
@@ -241,7 +241,7 @@ public class PanCombat extends JPanel{
 		
 				//milieu
 		
-		JLabel nb_tours = new JLabel(Integer.toString(c.getnbTours()));
+		JLabel nb_tours = new JLabel(Integer.toString(_c.getnbTours()));
 		match_middle.add(nb_tours);
 		
 		
@@ -279,6 +279,188 @@ public class PanCombat extends JPanel{
 		
 		BarrePokeballs (match_right,_c._j2, false);
 		
+		
+	}
+
+	public void menu(JPanel menu){
+		
+		menu.setLayout(new GridLayout(2, 4));
+		
+		//ensemble des boutons, affichés ou non
+		
+		Button atq1 = new Button();
+		Button atq2 = new Button();
+		Button atq3 = new Button();
+		Button atq4 = new Button();
+		
+		if(_c.joueurActuel == 1){
+			atq1.setLabel(_e1_p._listeDesAttaques[0]._nom);
+			atq2.setLabel(_e1_p._listeDesAttaques[1]._nom);
+			atq3.setLabel(_e1_p._listeDesAttaques[2]._nom);
+			atq4.setLabel(_e1_p._listeDesAttaques[3]._nom);
+		}
+		else{
+			atq1.setLabel(_e2_p._listeDesAttaques[0]._nom);
+			atq2.setLabel(_e2_p._listeDesAttaques[1]._nom);
+			atq3.setLabel(_e2_p._listeDesAttaques[2]._nom);
+			atq4.setLabel(_e2_p._listeDesAttaques[3]._nom);	
+		}
+		
+		Button inventaire = new Button("Inventaire");
+		Button chg_pkm = new Button("Changer de Pokemon");
+		Button mega_evo = new Button("Mega-evolution");
+		Button fuite = new Button("Fuite");
+		
+		//ligne 1
+		menu.add(atq1);
+		menu.add(atq2);
+		menu.add(inventaire);
+		menu.add(chg_pkm);
+		//ligne 2
+		menu.add(atq3);
+		menu.add(atq4);
+		menu.add(mega_evo);
+		if(!_c._vs_dresseur){
+			menu.add(fuite);
+		}
+		
+		//actions des boutons
+		
+		class MegaEvolution implements ActionListener{
+			public void actionPerformed(ActionEvent e){
+				_c._mega_evolution = true;
+				//va appliquer la modif du pokemon lors de l'attaque
+				if(_c.joueurActuel == 1){
+					
+					_e1_p._mega_evolution = true;
+					// WARNING ! ON DOIT AJOUTER LE CHANGEMENT DE STATS ET TOUT!
+				}
+				else{
+					_e2_p._mega_evolution = true;
+					// WARNING ! ON DOIT AJOUTER LE CHANGEMENT DE STATS ET TOUT!
+				}
+
+			}
+		}
+		mega_evo.addActionListener(new MegaEvolution());
+		
+		class Fuite implements ActionListener{
+			public void actionPerformed(ActionEvent e){
+				if(_c.joueurActuel == 1){
+					_c._gagnant = 2;
+				}
+				else{
+					_c._gagnant = 1;
+				}
+			}
+		}
+		fuite.addActionListener(new Fuite());
+		
+		class ListePokemon implements ActionListener{
+			public void actionPerformed(ActionEvent e){
+				//ouvrir la liste des pokemons dans une nouvelle page. 
+				//lorsqu'il a selectionné, changer le pokemon actil de la bonne equipe
+			}
+		}
+		chg_pkm.addActionListener(new ListePokemon());
+		
+		class Inventaire implements ActionListener{
+			public void actionPerformed(ActionEvent e){
+				//ouvre le panneau de l'inventaire, a créer :D
+			}
+		}
+		inventaire.addActionListener(new Inventaire());
+		
+			//attaques
+		class Atq1 implements ActionListener{
+
+				public void actionPerformed(ActionEvent e) {
+					if(_c.joueurActuel == 1){
+						_e1_p._listeDesAttaques[0].effet(_e1_p, _e2_p);
+					}
+					else{
+						_e2_p._listeDesAttaques[0].effet(_e2_p, _e1_p);
+					}
+				}
+		}
+		atq1.addActionListener(new Atq1());
+		
+		class Atq2 implements ActionListener{
+
+			public void actionPerformed(ActionEvent e) {
+				if(_c.joueurActuel == 1){
+					_e1_p._listeDesAttaques[1].effet(_e1_p, _e2_p);
+				}
+				else{
+					_e2_p._listeDesAttaques[1].effet(_e2_p, _e1_p);
+				}
+			}
+		}
+		atq2.addActionListener(new Atq2());
+		
+		class Atq3 implements ActionListener{
+
+			public void actionPerformed(ActionEvent e) {
+				if(_c.joueurActuel == 1){
+					_e1_p._listeDesAttaques[2].effet(_e1_p, _e2_p);
+				}
+				else{
+					_e2_p._listeDesAttaques[2].effet(_e2_p, _e1_p);
+				}
+			}
+		}
+		atq3.addActionListener(new Atq3());
+		
+		class Atq4 implements ActionListener{
+
+			public void actionPerformed(ActionEvent e) {
+				if(_c.joueurActuel == 1){
+					_e1_p._listeDesAttaques[3].effet(_e1_p, _e2_p);
+				}
+				else{
+					_e2_p._listeDesAttaques[3].effet(_e2_p, _e1_p);
+				}				
+			}
+		}
+		atq4.addActionListener(new Atq4());
+		
+		//b.setToolTipText("Help text for the button");
+		
+		
+		
+		
+		
+		
+		/*
+		 * Pour les boutons d'attaque, je pense pas faire une classe ici, mais que l'on fasse une classe Attaques 
+		 * qui regroupera les actions des différentes attaques
+		*/
+		
+		/*
+		Button b = new Button();
+		class Bouton implements ActionListener{
+			public void actionPerformed(ActionEvent e){
+				message.setText("ce fut un match passionnant, merci pour ce combat !");
+			}
+		}
+		b.addActionListener(new Bouton());
+		menu.add(b);
+		*/
+	}
+	
+	public PanCombat(final JFrame f) throws IOException{
+				
+		//init combat
+		
+		_e1_p = _c.getEquipe(1).getPokemon(0);
+		_e2_p = _c.getEquipe(2).getPokemon(0);
+		
+		//init affichage
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+		final JPanel match = new JPanel();
+		match(match);
+		
 		//MESSAGE
 
 		final JPanel messages = new JPanel();
@@ -292,20 +474,14 @@ public class PanCombat extends JPanel{
 		
 		final JPanel menu = new JPanel();
 		menu.setMaximumSize(new Dimension(900, 250));
-		menu.setBackground(new Color(150,170,182));
+		menu.setBackground(new Color(211,211,211));//(255,235,205));
+		
+		menu(menu);
 		
 		
-		Button b = new Button();
-		class Bouton implements ActionListener{
-			public void actionPerformed(ActionEvent e){
-				message.setText("ce fut un match passionnant, merci pour ce combat !");
-			}
-		}
-		b.addActionListener(new Bouton());
-		menu.add(b);
 		
 		//Assemblage des différentes catégories.
-		this.add(match);	
+		this.add(match);
 		this.add(menu);
 		this.add(messages);
 		 
@@ -315,17 +491,17 @@ public class PanCombat extends JPanel{
 	public static void main(String[] argv) throws IOException{
 		
 		//TMP
-		Equipe e1 = new Equipe(new PokemonEnCombat[]{new PokemonEnCombat(Pokemon1G.papilusion, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.abo, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.goupix, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),new PokemonEnCombat(Pokemon1G.amanox, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.dardargnan, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.dodrio, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20)}, 1);
-		Equipe e2 = new Equipe(new PokemonEnCombat[]{new PokemonEnCombat(Pokemon1G.aeromite, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.grotadmorv, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.lamantine, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),new PokemonEnCombat(Pokemon1G.kabuto, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.caninos, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.machopeur, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20)}, 1);
+		Equipe e1 = new Equipe(new PokemonEnCombat[]{new PokemonEnCombat(Pokemon1G.papilusion, new Attaque[]{ListeDesAttaques.abime, ListeDesAttaques.racines, ListeDesAttaques.halloween,ListeDesAttaques.lanceboue},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.abo, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.goupix, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),new PokemonEnCombat(Pokemon1G.amanox, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.dardargnan, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.dodrio, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20)}, 1);
+		Equipe e2 = new Equipe(new PokemonEnCombat[]{new PokemonEnCombat(Pokemon1G.aeromite, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.lamantine, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),new PokemonEnCombat(Pokemon1G.kabuto, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.caninos, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.machopeur, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20)}, 1);
 
-		_c =  new Combat(e1,e2);
+		_c =  new Combat(e1,e2, true);
 		_c._j1.getPokemon(0)._pvActuels = 50;
 		_c._j1.getPokemon(2)._pvActuels = 0;
 		_c._j1.getPokemon(3)._pvActuels = 0;
 		_c._j2.getPokemon(0)._statut = 2;
 		
 		JFrame f = new JFrame();
-		PanCombat pgs = new PanCombat(_c, f);
+		PanCombat pgs = new PanCombat(f);
 		f.setContentPane(pgs);
 		f.setSize(900, 750);
 		f.setVisible(true);

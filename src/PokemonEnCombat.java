@@ -1,40 +1,9 @@
 
 public class PokemonEnCombat extends Pokemon{
 
-	public PokemonEnCombat(Pokemon p, Attaque[] listeDesAttaques, int talentChoisi, int[] stats,int niveau, int pvs){
-		_p = p;
-		_numero = p._numero;
-		_nom[0] = p.getFrenchNom();
-		_nom[1] = p.getEnglishNom();
-		_type[0] = p.getType()[0];
-		_type[1] = p.getType()[1];
-		_stats = p.getStat().clone();		
-		_image = p._image;
-		_nbevolution = p._nbevolution;
-		_estuneevolution = p._estuneevolution;
-		_talents = p.getTalent().clone();
-		_famille = new int[p._famille.length];
-		for ( int i = 0 ; i < p._famille.length ; ++i ){
-			_famille[i] = p._famille[i];
-		}
-		for (int i = 0 ; i < 4 ; ++i){
-			_listeDesAttaques[i] = listeDesAttaques[i];
-		}		
-		_talentChoisi = talentChoisi;
-		_pvActuels = pvs;
-		for (int j = 0 ; j < 6 ; ++j){
-			_choosedStats[j] = stats[j];
-		}
-		_statut = 0;
-		_precision = 0;
-		_esquive = 0;
-		_niveau = niveau;
-		peutAttaquer = true;
-		peutChanger = true;
-	}
-	
 	public PokemonEnCombat(Pokemon p, Attaque[] listeDesAttaques, int talentChoisi, int[] stats,int niveau){	
 		_p = p;
+		_pME = null;
 		_numero = p._numero;
 		_nom[0] = p.getFrenchNom();
 		_nom[1] = p.getEnglishNom();
@@ -63,15 +32,30 @@ public class PokemonEnCombat extends Pokemon{
 		_niveau = niveau;
 		peutAttaquer = true;
 		peutChanger = true;
+		_mega_evolution = false;
 	}
 	
+	public PokemonEnCombat(Pokemon p, Attaque[] listeDesAttaques, int talentChoisi, int[] stats,int niveau, int pvs){
+		this(p,listeDesAttaques,talentChoisi,stats,niveau);
+		this._pvActuels = pvs;
+	}
 	
+	public PokemonEnCombat(Pokemon p, Attaque[] listeDesAttaques, int talentChoisi, int[] stats,int niveau, PokemonEnCombat pme){
+		this(p,listeDesAttaques,talentChoisi,stats,niveau);
+		this._pME = pme;
+	}
+	
+	public PokemonEnCombat(Pokemon p, Attaque[] listeDesAttaques, int talentChoisi, int[] stats,int niveau, int pvs, PokemonEnCombat pme){
+		this(p,listeDesAttaques,talentChoisi,stats,niveau, pvs);
+		this._pME = pme;
+	}
 	
 	public PokemonEnCombat clone(){
 		return new PokemonEnCombat(this._p.clone(), this._listeDesAttaques.clone(), this._talentChoisi, this._choosedStats, this._niveau, this._pvActuels);
 	}
 	
 	public Pokemon _p;
+	public PokemonEnCombat _pME;
 	public Attaque[] _listeDesAttaques = new Attaque[] {null,null,null,null};
 	public int _talentChoisi;
 	public int _pvActuels;
@@ -83,6 +67,7 @@ public class PokemonEnCombat extends Pokemon{
 	public int _niveau;
 	public boolean peutAttaquer;
 	public boolean peutChanger;
+	public boolean _mega_evolution;
 	
 	public boolean estKO(){
 		return _pvActuels == 0;
