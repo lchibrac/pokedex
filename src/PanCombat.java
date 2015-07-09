@@ -3,6 +3,8 @@ import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -54,7 +56,7 @@ public class PanCombat extends JPanel{
 		public Color _c;
 		public Color _fore_c;
 		
-		public FormComponentsRect(int fore_width, Color c){
+		public FormComponentsRect(int fore_width, Color fore_c){
 			_left = true;
 			_x = 0;
 			_y = 0;
@@ -62,30 +64,25 @@ public class PanCombat extends JPanel{
 			_width = 350;
 			_height = 15;
 			_c = Color.BLACK;
-			_fore_c = c;
+			_fore_c = fore_c;
 			setSize(new Dimension(_width,_height));
 		}
 		
 		public FormComponentsRect(int fore_width, int height, Color fore_c, Color c){
-			_x = 0;
-			_y = 0;
-			_fore_width = fore_width;
-			_width = 350;
+			this(fore_width,fore_c);
 			_height = height;
 			_c = c;
-			_fore_c = fore_c;
 			setSize(new Dimension(_width,_height));
 		}
 		
 		public FormComponentsRect(int x, int y, int fore_width, int width, int height, Color fore_c , Color c, boolean left){
-			_left = left;
+			
+			this(fore_width,height,fore_c,c);
 			_x = x;
 			_y = y;
-			_fore_width = fore_width;
+			
+			_left = left;
 			_width = width;
-			_height = height;
-			_c = c;
-			_fore_c = fore_c;
 			setSize(new Dimension(_width,_height));
 		}
 		
@@ -113,14 +110,20 @@ public class PanCombat extends JPanel{
 		
 		
 		public void paintComponent(Graphics g){
+			//tmp
+			System.out.println("1 "+_width+" "+_c);
+			System.out.println("2 "+_fore_width+" "+_fore_c);
+			//tmp
+			
+			
 			g.setColor(_c);
 			g.fillRect(_x, _y, _width, _height);
 			g.setColor(_fore_c);
-			if(_left){
+			//if(_left){
 				g.fillRect(_x, _y, _fore_width, _height);
-			}else{
-				g.fillRect(_x+(_width-_fore_width), _y, _fore_width, _height);
-			}
+			//}else{
+			//	g.fillRect(_x+(_width-_fore_width), _y, _fore_width, _height);
+			//}
 			
 		}
 		
@@ -181,6 +184,27 @@ public class PanCombat extends JPanel{
 	}
 	
 	public void match(JPanel match){
+		/*
+		match.setMaximumSize(new Dimension(900, 450));
+		match.setLayout(new GridBagLayout());
+		
+		GridBagConstraints gbc = new GridBagConstraints();
+		
+		//nb colonnes et lignes
+		gbc.gridheight = 5;
+		gbc.gridwidth = 3;
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		
+		gbc.ipadx = 1;
+		gbc.ipady = 1;
+		
+		gbc.anchor = GridBagConstraints.LINE_START;
+		*/
+		//gauche
+		
+		
+		
 		
 		
 		match.setMaximumSize(new Dimension(900, 450));
@@ -261,7 +285,7 @@ public class PanCombat extends JPanel{
 		match_right_top_name.add(nom_pokemon_e2, BorderLayout.LINE_END);
 		
 						//barre de vie et effets
-		FormComponentsRect fc2 = new FormComponentsRect(5,5,_e2_p._pvActuels, _e2_p._choosedStats[0], 20,new Color(0,102,0), new Color(51,204,51), false);
+		FormComponentsRect fc2 = new FormComponentsRect(5,5, _e2_p._pvActuels, _e2_p._choosedStats[0], 20,new Color(0,102,0), new Color(51,204,51), false);
 		match_right_top.add(fc2, BorderLayout.WEST);
 		
 		JLabel effet_pokemon_e2 = new JLabel(); // on doit ajoute l'effet (dodo, empoisonne...) sur l'occurence du pokemon
@@ -498,7 +522,10 @@ public class PanCombat extends JPanel{
 		_c._j1.getPokemon(0)._pvActuels = 50;
 		_c._j1.getPokemon(2)._pvActuels = 0;
 		_c._j1.getPokemon(3)._pvActuels = 0;
+		
 		_c._j2.getPokemon(0)._statut = 2;
+		_c._j2.getPokemon(0)._choosedStats[0] = 254;
+		_c._j2.getPokemon(0)._pvActuels = 25;
 		
 		JFrame f = new JFrame();
 		PanCombat pgs = new PanCombat(f);
