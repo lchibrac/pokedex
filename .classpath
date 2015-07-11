@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="/net/cremi/bfaltrep/L3/pokedex/db-derby-10.11.1.1-bin/lib/derby.jar"/>
-	<classpathentry kind="lib" path="/net/cremi/bfaltrep/L3/pokedex/db-derby-10.11.1.1-bin/lib/derbyclient.jar"/>
-	<classpathentry kind="lib" path="/net/cremi/bfaltrep/L3/pokedex/db-derby-10.11.1.1-bin/lib/derbyLocale_fr.jar"/>
-	<classpathentry kind="lib" path="/net/cremi/bfaltrep/L3/pokedex/db-derby-10.11.1.1-bin/lib/derbynet.jar"/>
-	<classpathentry kind="lib" path="/net/cremi/bfaltrep/L3/pokedex/db-derby-10.11.1.1-bin/lib/derbyoptionaltools.jar"/>
-	<classpathentry kind="lib" path="/net/cremi/bfaltrep/L3/pokedex/db-derby-10.11.1.1-bin/lib/derbyrun.jar"/>
-	<classpathentry kind="lib" path="/net/cremi/bfaltrep/L3/pokedex/db-derby-10.11.1.1-bin/lib/derbytools.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
