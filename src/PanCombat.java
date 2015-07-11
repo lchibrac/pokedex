@@ -273,20 +273,20 @@ public class PanCombat extends JPanel{
 					//haut		
 		final JPanel match_right_top = new JPanel();
 		
-		match_right_top.setLayout(new BorderLayout());
+		match_right_top.setLayout(new BoxLayout(match_left_top, BoxLayout.Y_AXIS));
 		match_right.add(match_right_top, BorderLayout.PAGE_START);
 		
 						//nom
 		final JPanel match_right_top_name = new JPanel();
 		match_right_top_name.setLayout(new BorderLayout());
-		match_right_top.add(match_right_top_name, BorderLayout.NORTH);
+		match_right_top.add(match_right_top_name);
 		
 		JLabel nom_pokemon_e2 = new JLabel(_e2_p._p.getFrenchNom());
 		match_right_top_name.add(nom_pokemon_e2, BorderLayout.LINE_END);
 		
 						//barre de vie et effets
 		FormComponentsRect fc2 = new FormComponentsRect(5,5, _e2_p._pvActuels, _e2_p._choosedStats[0], 20,new Color(0,102,0), new Color(51,204,51), false);
-		match_right_top.add(fc2, BorderLayout.WEST);
+		match_right_top.add(fc2);
 		
 		JLabel effet_pokemon_e2 = new JLabel(); // on doit ajoute l'effet (dodo, empoisonne...) sur l'occurence du pokemon
 		tmp = Integer.toString(_e2_p._pvActuels);
@@ -295,7 +295,7 @@ public class PanCombat extends JPanel{
 		}
 		effet_pokemon_e2.setText(tmp);
 		
-		match_right_top.add(effet_pokemon_e2, BorderLayout.SOUTH);
+		match_right_top.add(effet_pokemon_e2);
 		
 					//image
 		JLabel _e2_p_img = new JLabel(new ImageIcon(_e2_p._p._image));
