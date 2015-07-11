@@ -64,6 +64,8 @@ public class Test {
 			System.out.println("a la creation 2 : "+_fore_width+" "+_width+"  "+_height);
 			
 			setSize(new Dimension(500,500));
+			this.setMinimumSize(new Dimension(500,500));
+			this.setPreferredSize(new Dimension(500,500));
 		}
 		
 		public Color getColor(){
@@ -90,9 +92,8 @@ public class Test {
 		
 		
 		public void paintComponent(Graphics g){
-			this.getMinimumSize();
 			//tmp
-			System.out.println("1 "+_width+" "+_height);
+			System.out.println("1 "+_width+" "+_height+" "+this.getMinimumSize());
 			//tmp
 			
 			
