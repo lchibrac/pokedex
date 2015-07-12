@@ -1,4 +1,4 @@
-import java.awt.BorderLayout;
+
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -7,6 +7,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.AffineTransform;
@@ -103,12 +104,7 @@ public class PanCombat extends JPanel{
 		
 		
 		public void paintComponent(Graphics g){
-			//tmp
-			System.out.println("1 "+_width+" "+_c);
-			System.out.println("2 "+_fore_width+" "+_fore_c);
-			//tmp
-			
-			
+
 			g.setColor(_c);
 			g.fillRect(_x, _y, _width, _height);
 			g.setColor(_fore_c);
@@ -122,85 +118,186 @@ public class PanCombat extends JPanel{
 		
 	}
 	
-	public void BarrePokeballs (JPanel m, Equipe eq, boolean left){
-		JPanel barre = new JPanel();
-		barre.setLayout(new BoxLayout(barre, BoxLayout.X_AXIS));
-		m.add(barre, BorderLayout.SOUTH);
+	public class PokeballBar extends JPanel{
 		
-		Image _pokeball = null;
-		Image _pokeball_ko = null;
-		Image _pokeball_affected = null;
-		int nb_pokemon;
-		if(left){
-			nb_pokemon = _c._j1.length();
-		}
-		else{
-			nb_pokemon = _c._j2.length();
-		}
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		
-		try {
-			_pokeball_affected = ImageIO.read(new File("images/pokeball_affected.png"));
-			_pokeball_ko = ImageIO.read(new File("images/pokeball_ko.png"));
-			_pokeball = ImageIO.read(new File("images/pokeball.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
+		public Equipe _e;
+		public boolean _left;
+		
+		public PokeballBar(Equipe e, boolean left){
+			_e = e;
+			_left = left;
 		}
 		
-		for(int i = 0; i < nb_pokemon ; i++){
+		public void paintComponent(Graphics g){
+			Image _pokeball = null;
+			Image _pokeball_ko = null;
+			Image _pokeball_affected = null;
+			int nb_pokemon = _e._team.length;
+			
+			try {
+				_pokeball_affected = ImageIO.read(new File("images/pokeball_affected.png"));
+				_pokeball_ko = ImageIO.read(new File("images/pokeball_ko.png"));
+				_pokeball = ImageIO.read(new File("images/pokeball.png"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			ImageIcon tmp = new ImageIcon(_pokeball.getScaledInstance(20, 20, Image.SCALE_DEFAULT));
 			ImageIcon tmp_ko = new ImageIcon(_pokeball_ko.getScaledInstance(20, 20, Image.SCALE_DEFAULT));
 			ImageIcon tmp_affected = new ImageIcon(_pokeball_affected.getScaledInstance(20, 20, Image.SCALE_DEFAULT));
-			if(left){
-				if(_c._j1.getPokemon(i).estKO()){
-					barre.add(new JLabel(tmp_ko));
+			
+			for(int i = 0; i < nb_pokemon ; i++){
+	
+				if(_e.getPokemon(i).estKO()){
+					add(new JLabel(tmp_ko));
 				}
-				else if(_c._j1.getPokemon(i)._statut > 0){
-					barre.add(new JLabel(tmp_affected));
-				}
-				else{
-					barre.add(new JLabel(tmp));
-				}
-			}else{
-				if(_c._j2.getPokemon(i).estKO()){
-					barre.add(new JLabel(tmp_ko));
-				}
-				else if(_c._j2.getPokemon(i)._statut > 0){
-					barre.add(new JLabel(tmp_affected));
+				else if(_e.getPokemon(i)._statut > 0){
+					add(new JLabel(tmp_affected));
 				}
 				else{
-					barre.add(new JLabel(tmp));
+					add(new JLabel(tmp));
 				}
 			}
 		}
-		
-		
 	}
 	
 	public void match(JPanel match){
-		/*
+		
 		match.setMaximumSize(new Dimension(900, 450));
 		match.setLayout(new GridBagLayout());
 		
-		GridBagConstraints gbc = new GridBagConstraints();
-		
-		//nb colonnes et lignes 
-		
-		gbc.gridheight = 5;
-		gbc.gridwidth = 3;
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		
-		gbc.ipadx = 1;
-		gbc.ipady = 1;
-		
-		gbc.anchor = GridBagConstraints.LINE_START;
-		
-		//gauche
-		
+		// 3 * 5
+		/*
+		 *  nom        | nb tours | nom
+		 *  barre vie  |          | barre vie
+		 *  infos vie  |          | infos vie
+		 *  
+		 *  image      |          | image
+		 *  
+		 *  pokeballs  |          | pokeballs
+
 		*/
 		
 		
+		//gridheight,gridwidth => nb colonnes et lignes occupés par un composant
+		//fill => redimensionne si on lui donne trop d'espace : none, horizontal, vertical both 
+		//insets => marges en pixels autour du composant
+		//weightx weighty => utilisation de l'espace supplémentaire
+		//gridx, gridy => a redefinir avant de placer chaque element. Dit où le placer.
+		//ipadx, ipady => marges internes du composant
+		//anchor =>point d'ancrage du composant dans sa/ses cellule(s)
 		
+		
+			//gauche
+				//nom
+		JLabel e1_name = new JLabel(_c._j1._team[_c._e1_p]._p.getFrenchNom());
+		GridBagConstraints e1_name_gbc = new GridBagConstraints();
+		e1_name_gbc.gridx = 0;
+		e1_name_gbc.gridy = 0;
+		e1_name_gbc.insets = new Insets(10,0,0,0);
+		e1_name_gbc.anchor = GridBagConstraints.PAGE_START;
+		e1_name_gbc.weightx = 1;
+		match.add(e1_name, e1_name_gbc);
+				//barre de vie
+		//PROBLEME DE TAILLE ... LA BARRE EST RESTRAINTE ! TMP
+		FormComponentsRect e1_lifebar = new FormComponentsRect(5,5,_c._j1._team[_c._e1_p]._pvActuels, _c._j1._team[_c._e1_p]._choosedStats[0] , 20,new Color(0,102,0), new Color(51,204,51), true);
+		e1_lifebar.setPreferredSize(new Dimension(450,30));
+		e1_lifebar.setMinimumSize(new Dimension(450,30));
+		GridBagConstraints e1_lifebar_gbc = new GridBagConstraints();
+		e1_lifebar_gbc.gridx = 0;
+		e1_lifebar_gbc.gridy = 1;
+		e1_lifebar_gbc.insets = new Insets(0,5,0,0);
+		e1_lifebar_gbc.anchor = GridBagConstraints.LINE_START;
+		match.add(e1_lifebar,e1_lifebar_gbc);
+				//effets
+		JLabel effet_pokemon_e1 = new JLabel(); 
+		String tmp = Integer.toString(_c._j1._team[_c._e1_p]._pvActuels);
+		if(_c._j1._team[_c._e1_p]._statut != 0){
+			tmp = tmp.concat(" - "+_c._j1._team[_c._e1_p].getStatut());
+		}
+		effet_pokemon_e1.setText(tmp);
+		GridBagConstraints e1_effet_gbc = new GridBagConstraints();
+		e1_effet_gbc.gridx = 0;
+		e1_effet_gbc.gridy = 2;
+		e1_effet_gbc.insets = new Insets(0,10,0,0);
+		e1_effet_gbc.anchor = GridBagConstraints.LINE_START;
+		match.add(effet_pokemon_e1, e1_effet_gbc);
+		
+			//image
+		
+		
+		inverserPokemonVerticalement();
+		JLabel e1_img = new JLabel(new ImageIcon(_c._j1._team[_c._e1_p]._p._image));
+		GridBagConstraints e1_img_gbc = new GridBagConstraints();
+		e1_img_gbc.gridx = 0;
+		e1_img_gbc.gridy = 3;
+		e1_img_gbc.weighty = 1;
+		e1_img_gbc.anchor = GridBagConstraints.CENTER;
+		match.add(e1_img, e1_img_gbc);
+		
+			//barre pokeballs
+		PokeballBar e1_pb= new PokeballBar(_c._j1, true);
+		GridBagConstraints e1_pb_gbc = new GridBagConstraints();
+		e1_pb_gbc.gridx = 0;
+		e1_pb_gbc.gridy = 4;
+		e1_pb_gbc.anchor = GridBagConstraints.LAST_LINE_START;
+		match.add(e1_pb,e1_pb_gbc);
+		
+			//milieu
+		JLabel nb_tours = new JLabel(Integer.toString(_c.getnbTours()));
+		GridBagConstraints nb_tours_gbc = new GridBagConstraints();
+		nb_tours_gbc.gridx = 1;
+		nb_tours_gbc.gridy = 0;
+		nb_tours_gbc.anchor = GridBagConstraints.CENTER;
+		match.add(nb_tours, nb_tours_gbc);
+		
+			//droite
+				//name
+		JLabel e2_name = new JLabel(_c._j2._team[_c._e2_p]._p.getFrenchNom());
+		GridBagConstraints e2_name_gbc = new GridBagConstraints();
+		e2_name_gbc.gridx = 2;
+		e2_name_gbc.gridy = 0;
+		e2_name_gbc.insets = new Insets(10,0,0,0);
+		e2_name_gbc.anchor = GridBagConstraints.PAGE_START;
+		e2_name_gbc.weightx = 1;
+		match.add(e2_name, e2_name_gbc);
+		
+		//effets
+		JLabel effet_pokemon_e2 = new JLabel(); 
+		tmp = Integer.toString(_c._j2._team[_c._e2_p]._pvActuels);
+		if(_c._j2._team[_c._e2_p]._statut != 0){
+			tmp = tmp.concat(" - "+_c._j2._team[_c._e2_p].getStatut());
+		}
+		effet_pokemon_e2.setText(tmp);
+		GridBagConstraints e2_effet_gbc = new GridBagConstraints();
+		e2_effet_gbc.gridx = 2;
+		e2_effet_gbc.gridy = 2;
+		e2_effet_gbc.insets = new Insets(0,0,0,10);
+		e2_effet_gbc.anchor = GridBagConstraints.LINE_END;
+		match.add(effet_pokemon_e2, e2_effet_gbc);
+		
+			//image
+		JLabel e2_img = new JLabel(new ImageIcon(_c._j2._team[_c._e2_p]._p._image));
+		GridBagConstraints e2_img_gbc = new GridBagConstraints();
+		e2_img_gbc.gridx = 2;
+		e2_img_gbc.gridy = 3;
+		e2_img_gbc.weighty = 1;
+		e2_img_gbc.anchor = GridBagConstraints.CENTER;
+		match.add(e2_img, e2_img_gbc);
+		
+			//barre pokeballs
+		PokeballBar e2_pb= new PokeballBar(_c._j2, true);
+		GridBagConstraints e2_pb_gbc = new GridBagConstraints();
+		e2_pb_gbc.gridx = 2;
+		e2_pb_gbc.gridy = 4;
+		e2_pb_gbc.anchor = GridBagConstraints.LAST_LINE_END;
+		match.add(e2_pb,e2_pb_gbc);
+		
+		/*
 		match.setMaximumSize(new Dimension(900, 450));
 		match.setLayout(new BoxLayout(match, BoxLayout.X_AXIS));
 		
@@ -296,7 +393,7 @@ public class PanCombat extends JPanel{
 		match_right.add(_e2_p_img, BorderLayout.CENTER);
 		
 		BarrePokeballs (match_right,_c._j2, false);
-		
+		*/
 		
 	}
 
