@@ -4,6 +4,8 @@ public class Combat {
 		_gagnant = 0;
 		_j1 = j1.clone();
 		_j2 = j2.clone();
+		_e1_p = 0;
+		_e2_p = 0;
 		nb_tours = 0;
 		joueurActuel = 1;
 		_vs_dresseur = vsdresseur;
@@ -20,7 +22,7 @@ public class Combat {
 	}*/
 	
 	public int fin(){
-		//cas de fuite, abandon autre prévu plus tard...
+		//cas de fuite, abandon autre prevu plus tard...
 		if(_gagnant != 0){
 			return _gagnant;
 		}
@@ -37,10 +39,11 @@ public class Combat {
 		
 	}
 	
-	//données générales => interessantes a conserver après ? 
+	//donnees generales => interessantes a conserver apres pour un historique des parties? 
 	public boolean _vs_dresseur; //vs dresseur(true) != vs pokemon sauvage
 	public Equipe _j1;
 	public Equipe _j2;
+
 	public int climat;
 	public int nb_tours;
 	public int _gagnant;
@@ -48,10 +51,12 @@ public class Combat {
 	
 	//donnees durant combat
 	public int joueurActuel;
+	public int _e1_p; //pokemon de l'equipe 1 qui combat actuellement
+	public int _e2_p; //pokemon de l'equipe 2 qui combat actuellement
 	
 	Equipe getEquipe(int i){
 		if(i < 1 || i > 2){
-			System.out.println("Vous avez demandé l'équipe "+i+" qui n'existe pas. Veuillez prendre contact avec le createur du jeu pour lui indiquer cette erreur.");
+			System.out.println("Vous avez demande l'equipe "+i+" qui n'existe pas. Veuillez prendre contact avec le createur du jeu pour lui indiquer cette erreur.");
 			return null;
 		}
 		if(i == 1){

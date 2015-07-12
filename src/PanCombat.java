@@ -3,6 +3,8 @@ import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -26,19 +28,18 @@ public class PanCombat extends JPanel{
 	private static final long serialVersionUID = 1L;
 
 	public static Combat _c;
-	public PokemonEnCombat _e1_p; //a decaller ds combat
-	public PokemonEnCombat _e2_p; //a decaller ds combat
+
 	public Image pokeball;
 	final JLabel message = new JLabel();
 	
 	/**
-	 * inverse l'image du pokemon de la première équipe verticalement
+	 * inverse l'image du pokemon de la premiere equipe verticalement
 	*/
 	public void inverserPokemonVerticalement(){
 		AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);
-		tx.translate(-_e1_p._p._image.getWidth(null), 0);
+		tx.translate(-_c._j1._team[_c._e1_p]._p._image.getWidth(null), 0);
 		AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
-		_e1_p._p._image = op.filter((BufferedImage) _e1_p._p._image, null);
+		_c._j1._team[_c._e1_p]._p._image = op.filter((BufferedImage) _c._j1._team[_c._e1_p]._p._image, null);
 	}
 	
 	public class FormComponentsRect extends JPanel{
@@ -182,7 +183,8 @@ public class PanCombat extends JPanel{
 		
 		GridBagConstraints gbc = new GridBagConstraints();
 		
-		//nb colonnes et lignes
+		//nb colonnes et lignes 
+		
 		gbc.gridheight = 5;
 		gbc.gridwidth = 3;
 		gbc.gridx = 0;
@@ -192,10 +194,10 @@ public class PanCombat extends JPanel{
 		gbc.ipady = 1;
 		
 		gbc.anchor = GridBagConstraints.LINE_START;
-		*/
+		
 		//gauche
 		
-		
+		*/
 		
 		
 		
@@ -233,24 +235,24 @@ public class PanCombat extends JPanel{
 		match_left_top_name.setLayout(new BorderLayout());
 		match_left_top.add(match_left_top_name);
 		
-		JLabel nom_pokemon_e1 = new JLabel(_e1_p._p.getFrenchNom());
+		JLabel nom_pokemon_e1 = new JLabel(_c._j1._team[_c._e1_p]._p.getFrenchNom());
 		match_left_top_name.add(nom_pokemon_e1, BorderLayout.LINE_START);
 		
 						//barre de vie et effets
-		FormComponentsRect fc = new FormComponentsRect(5,5,_e1_p._pvActuels, _e1_p._choosedStats[0] , 20,new Color(0,102,0), new Color(51,204,51), true);
+		FormComponentsRect fc = new FormComponentsRect(5,5,_c._j1._team[_c._e1_p]._pvActuels, _c._j1._team[_c._e1_p]._choosedStats[0] , 20,new Color(0,102,0), new Color(51,204,51), true);
 		match_left_top.add(fc);
 		
 		JLabel effet_pokemon_e1 = new JLabel(); 
-		String tmp = Integer.toString(_e1_p._pvActuels);
-		if(_e1_p._statut != 0){
-			tmp = tmp.concat(" - "+_e1_p.getStatut());
+		String tmp = Integer.toString(_c._j1._team[_c._e1_p]._pvActuels);
+		if(_c._j1._team[_c._e1_p]._statut != 0){
+			tmp = tmp.concat(" - "+_c._j1._team[_c._e1_p].getStatut());
 		}
 		effet_pokemon_e1.setText(tmp);
 		match_left_top.add(effet_pokemon_e1);
 		
 					//image
 		inverserPokemonVerticalement();
-		JLabel _e1_p_img = new JLabel(new ImageIcon(_e1_p._p._image));
+		JLabel _e1_p_img = new JLabel(new ImageIcon(_c._j1._team[_c._e1_p]._p._image));
 		match_left.add(_e1_p_img, BorderLayout.CENTER);
 		
 		BarrePokeballs (match_left,_c._j1, true);
@@ -273,24 +275,24 @@ public class PanCombat extends JPanel{
 		match_right_top_name.setLayout(new BorderLayout());
 		match_right_top.add(match_right_top_name, BorderLayout.NORTH);
 		
-		JLabel nom_pokemon_e2 = new JLabel(_e2_p._p.getFrenchNom());
+		JLabel nom_pokemon_e2 = new JLabel(_c._j2._team[_c._e2_p]._p.getFrenchNom());
 		match_right_top_name.add(nom_pokemon_e2, BorderLayout.LINE_END);
 		
 						//barre de vie et effets
-		FormComponentsRect fc2 = new FormComponentsRect(5,5, _e2_p._pvActuels, _e2_p._choosedStats[0], 20,new Color(0,102,0), new Color(51,204,51), false);
+		FormComponentsRect fc2 = new FormComponentsRect(5,5, _c._j2._team[_c._e2_p]._pvActuels, _c._j2._team[_c._e2_p]._choosedStats[0], 20,new Color(0,102,0), new Color(51,204,51), false);
 		match_right_top.add(fc2,BorderLayout.CENTER );
 		
 		JLabel effet_pokemon_e2 = new JLabel(); // on doit ajoute l'effet (dodo, empoisonne...) sur l'occurence du pokemon
-		tmp = Integer.toString(_e2_p._pvActuels);
-		if(_e2_p._statut != 0){
-			tmp = tmp.concat(" - "+_e2_p.getStatut());
+		tmp = Integer.toString(_c._j2._team[_c._e2_p]._pvActuels);
+		if(_c._j2._team[_c._e2_p]._statut != 0){
+			tmp = tmp.concat(" - "+_c._j2._team[_c._e2_p].getStatut());
 		}
 		effet_pokemon_e2.setText(tmp);
 		
 		match_right_top.add(effet_pokemon_e2, BorderLayout.SOUTH);
 		
 					//image
-		JLabel _e2_p_img = new JLabel(new ImageIcon(_e2_p._p._image));
+		JLabel _e2_p_img = new JLabel(new ImageIcon(_c._j2._team[_c._e2_p]._p._image));
 		match_right.add(_e2_p_img, BorderLayout.CENTER);
 		
 		BarrePokeballs (match_right,_c._j2, false);
@@ -310,16 +312,16 @@ public class PanCombat extends JPanel{
 		Button atq4 = new Button();
 		
 		if(_c.joueurActuel == 1){
-			atq1.setLabel(_e1_p._listeDesAttaques[0]._nom);
-			atq2.setLabel(_e1_p._listeDesAttaques[1]._nom);
-			atq3.setLabel(_e1_p._listeDesAttaques[2]._nom);
-			atq4.setLabel(_e1_p._listeDesAttaques[3]._nom);
+			atq1.setLabel(_c._j1._team[_c._e1_p]._listeDesAttaques[0]._nom);
+			atq2.setLabel(_c._j1._team[_c._e1_p]._listeDesAttaques[1]._nom);
+			atq3.setLabel(_c._j1._team[_c._e1_p]._listeDesAttaques[2]._nom);
+			atq4.setLabel(_c._j1._team[_c._e1_p]._listeDesAttaques[3]._nom);
 		}
 		else{
-			atq1.setLabel(_e2_p._listeDesAttaques[0]._nom);
-			atq2.setLabel(_e2_p._listeDesAttaques[1]._nom);
-			atq3.setLabel(_e2_p._listeDesAttaques[2]._nom);
-			atq4.setLabel(_e2_p._listeDesAttaques[3]._nom);	
+			atq1.setLabel(_c._j2._team[_c._e2_p]._listeDesAttaques[0]._nom);
+			atq2.setLabel(_c._j2._team[_c._e2_p]._listeDesAttaques[1]._nom);
+			atq3.setLabel(_c._j2._team[_c._e2_p]._listeDesAttaques[2]._nom);
+			atq4.setLabel(_c._j2._team[_c._e2_p]._listeDesAttaques[3]._nom);	
 		}
 		
 		Button inventaire = new Button("Inventaire");
@@ -348,11 +350,11 @@ public class PanCombat extends JPanel{
 				//va appliquer la modif du pokemon lors de l'attaque
 				if(_c.joueurActuel == 1){
 					
-					_e1_p._mega_evolution = true;
+					_c._j1._team[_c._e1_p]._mega_evolution = true;
 					// WARNING ! ON DOIT AJOUTER LE CHANGEMENT DE STATS ET TOUT!
 				}
 				else{
-					_e2_p._mega_evolution = true;
+					_c._j2._team[_c._e2_p]._mega_evolution = true;
 					// WARNING ! ON DOIT AJOUTER LE CHANGEMENT DE STATS ET TOUT!
 				}
 
@@ -392,10 +394,10 @@ public class PanCombat extends JPanel{
 
 				public void actionPerformed(ActionEvent e) {
 					if(_c.joueurActuel == 1){
-						_e1_p._listeDesAttaques[0].effet(_e1_p, _e2_p);
+						_c._j1._team[_c._e1_p]._listeDesAttaques[0].effet(_c._j1._team[_c._e1_p], _c._j2._team[_c._e2_p]);
 					}
 					else{
-						_e2_p._listeDesAttaques[0].effet(_e2_p, _e1_p);
+						_c._j2._team[_c._e2_p]._listeDesAttaques[0].effet(_c._j2._team[_c._e2_p], _c._j1._team[_c._e1_p]);
 					}
 				}
 		}
@@ -405,10 +407,10 @@ public class PanCombat extends JPanel{
 
 			public void actionPerformed(ActionEvent e) {
 				if(_c.joueurActuel == 1){
-					_e1_p._listeDesAttaques[1].effet(_e1_p, _e2_p);
+					_c._j1._team[_c._e1_p]._listeDesAttaques[1].effet(_c._j1._team[_c._e1_p], _c._j2._team[_c._e2_p]);
 				}
 				else{
-					_e2_p._listeDesAttaques[1].effet(_e2_p, _e1_p);
+					_c._j2._team[_c._e2_p]._listeDesAttaques[1].effet(_c._j2._team[_c._e2_p], _c._j1._team[_c._e1_p]);
 				}
 			}
 		}
@@ -418,10 +420,10 @@ public class PanCombat extends JPanel{
 
 			public void actionPerformed(ActionEvent e) {
 				if(_c.joueurActuel == 1){
-					_e1_p._listeDesAttaques[2].effet(_e1_p, _e2_p);
+					_c._j1._team[_c._e1_p]._listeDesAttaques[2].effet(_c._j1._team[_c._e1_p], _c._j2._team[_c._e2_p]);
 				}
 				else{
-					_e2_p._listeDesAttaques[2].effet(_e2_p, _e1_p);
+					_c._j2._team[_c._e2_p]._listeDesAttaques[2].effet(_c._j2._team[_c._e2_p], _c._j1._team[_c._e1_p]);
 				}
 			}
 		}
@@ -431,10 +433,10 @@ public class PanCombat extends JPanel{
 
 			public void actionPerformed(ActionEvent e) {
 				if(_c.joueurActuel == 1){
-					_e1_p._listeDesAttaques[3].effet(_e1_p, _e2_p);
+					_c._j1._team[_c._e1_p]._listeDesAttaques[3].effet(_c._j1._team[_c._e1_p], _c._j2._team[_c._e2_p]);
 				}
 				else{
-					_e2_p._listeDesAttaques[3].effet(_e2_p, _e1_p);
+					_c._j2._team[_c._e2_p]._listeDesAttaques[3].effet(_c._j2._team[_c._e2_p], _c._j1._team[_c._e1_p]);
 				}				
 			}
 		}
@@ -449,7 +451,7 @@ public class PanCombat extends JPanel{
 		
 		/*
 		 * Pour les boutons d'attaque, je pense pas faire une classe ici, mais que l'on fasse une classe Attaques 
-		 * qui regroupera les actions des différentes attaques
+		 * qui regroupera les actions des differentes attaques
 		*/
 		
 		/*
@@ -465,12 +467,7 @@ public class PanCombat extends JPanel{
 	}
 	
 	public PanCombat(final JFrame f) throws IOException{
-				
-		//init combat
-		
-		_e1_p = _c.getEquipe(1).getPokemon(0);
-		_e2_p = _c.getEquipe(2).getPokemon(0);
-		
+
 		//init affichage
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
@@ -496,12 +493,10 @@ public class PanCombat extends JPanel{
 		
 		
 		
-		//Assemblage des différentes catégories.
+		//Assemblage des differentes categories.
 		this.add(match);
 		this.add(menu);
 		this.add(messages);
-		 
-		
 	}
 	
 	public static void main(String[] argv) throws IOException{
@@ -518,6 +513,7 @@ public class PanCombat extends JPanel{
 		_c._j2.getPokemon(0)._statut = 2;
 		_c._j2.getPokemon(0)._choosedStats[0] = 254;
 		_c._j2.getPokemon(0)._pvActuels = 25;
+		//TMP fin
 		
 		JFrame f = new JFrame();
 		PanCombat pgs = new PanCombat(f);
