@@ -43,7 +43,7 @@ public class PanCombat extends JPanel{
 		_c._j1._team[_c._e1_p]._p._image = op.filter((BufferedImage) _c._j1._team[_c._e1_p]._p._image, null);
 	}
 	
-	public class FormComponentsRect extends JPanel{
+	public class LifeBar extends JPanel{
 		
 		private static final long serialVersionUID = 1L;
 		
@@ -56,7 +56,7 @@ public class PanCombat extends JPanel{
 		public Color _c;
 		public Color _fore_c;
 		
-		public FormComponentsRect(int fore_width, Color fore_c){
+		public LifeBar(int fore_width, Color fore_c){
 			_left = true;
 			_x = 0;
 			_y = 0;
@@ -65,17 +65,22 @@ public class PanCombat extends JPanel{
 			_height = 15;
 			_c = Color.BLACK;
 			_fore_c = fore_c;
-			setPreferredSize(new Dimension(_width,_height));
+			
+			//System.out.println("1 "+_fore_width+" "+_width+" "+_height); //TMP
+			
+			//setPreferredSize(new Dimension(_width,_height));
+			//setMinimumSize(new Dimension(_width,_height));
 		}
 		
-		public FormComponentsRect(int fore_width, int height, Color fore_c, Color c){
+		public LifeBar(int fore_width, int height, Color fore_c, Color c){
 			this(fore_width,fore_c);
 			_height = height;
 			_c = c;
-			setPreferredSize(new Dimension(_width,_height));
+			
+			this.setSize(new Dimension(_width,_height));
 		}
 		
-		public FormComponentsRect(int x, int y, int fore_width, int width, int height, Color fore_c , Color c, boolean left){
+		public LifeBar(int x, int y, int fore_width, int width, int height, Color fore_c , Color c, boolean left){
 			
 			this(fore_width,height,fore_c,c);
 			_x = x;
@@ -83,7 +88,8 @@ public class PanCombat extends JPanel{
 			
 			_left = left;
 			_width = width;
-			setPreferredSize(new Dimension(_width,_height));
+		
+			this.setSize(new Dimension(_width,_height));
 		}
 		
 		public Color getColor(){
@@ -105,6 +111,9 @@ public class PanCombat extends JPanel{
 		
 		public void paintComponent(Graphics g){
 
+			this.setSize(new Dimension(_width,_height));
+			
+			super.paintComponent(g);
 			g.setColor(_c);
 			g.fillRect(_x, _y, _width, _height);
 			g.setColor(_fore_c);
@@ -120,9 +129,6 @@ public class PanCombat extends JPanel{
 	
 	public class PokeballBar extends JPanel{
 		
-		/**
-		 * 
-		 */
 		private static final long serialVersionUID = 1L;
 		
 		public Equipe _e;
@@ -134,6 +140,8 @@ public class PanCombat extends JPanel{
 		}
 		
 		public void paintComponent(Graphics g){
+			super.paintComponent(g);
+			
 			Image _pokeball = null;
 			Image _pokeball_ko = null;
 			Image _pokeball_affected = null;
@@ -204,15 +212,15 @@ public class PanCombat extends JPanel{
 		match.add(e1_name, e1_name_gbc);
 				//barre de vie
 		//PROBLEME DE TAILLE ... LA BARRE EST RESTRAINTE ! TMP
-		FormComponentsRect e1_lifebar = new FormComponentsRect(5,5,_c._j1._team[_c._e1_p]._pvActuels, _c._j1._team[_c._e1_p]._choosedStats[0] , 20,new Color(0,102,0), new Color(51,204,51), true);
-		e1_lifebar.setPreferredSize(new Dimension(450,30));
-		e1_lifebar.setMinimumSize(new Dimension(450,30));
+		LifeBar e1_lifebar = new LifeBar(0,0,_c._j1._team[_c._e1_p]._pvActuels, _c._j1._team[_c._e1_p]._choosedStats[0] , 15,new Color(0,102,0), new Color(51,204,51), true);
+
 		GridBagConstraints e1_lifebar_gbc = new GridBagConstraints();
 		e1_lifebar_gbc.gridx = 0;
 		e1_lifebar_gbc.gridy = 1;
 		e1_lifebar_gbc.insets = new Insets(0,5,0,0);
 		e1_lifebar_gbc.anchor = GridBagConstraints.LINE_START;
 		match.add(e1_lifebar,e1_lifebar_gbc);
+		
 				//effets
 		JLabel effet_pokemon_e1 = new JLabel(); 
 		String tmp = Integer.toString(_c._j1._team[_c._e1_p]._pvActuels);
@@ -266,7 +274,17 @@ public class PanCombat extends JPanel{
 		e2_name_gbc.weightx = 1;
 		match.add(e2_name, e2_name_gbc);
 		
-		//effets
+		LifeBar e2_lifebar = new LifeBar(0,0,_c._j2._team[_c._e2_p]._pvActuels, _c._j2._team[_c._e2_p]._choosedStats[0] , 15,new Color(0,102,0), new Color(51,204,51), false);
+		
+		
+		GridBagConstraints e2_lifebar_gbc = new GridBagConstraints();
+		e2_lifebar_gbc.gridx = 2;
+		e2_lifebar_gbc.gridy = 1;
+		e2_lifebar_gbc.insets = new Insets(0,0,0,5);
+		e2_lifebar_gbc.anchor = GridBagConstraints.LINE_START;
+		match.add(e2_lifebar,e2_lifebar_gbc);
+		
+			//effets
 		JLabel effet_pokemon_e2 = new JLabel(); 
 		tmp = Integer.toString(_c._j2._team[_c._e2_p]._pvActuels);
 		if(_c._j2._team[_c._e2_p]._statut != 0){
@@ -296,104 +314,6 @@ public class PanCombat extends JPanel{
 		e2_pb_gbc.gridy = 4;
 		e2_pb_gbc.anchor = GridBagConstraints.LAST_LINE_END;
 		match.add(e2_pb,e2_pb_gbc);
-		
-		/*
-		match.setMaximumSize(new Dimension(900, 450));
-		match.setLayout(new BoxLayout(match, BoxLayout.X_AXIS));
-		
-		
-			//division verticale
-		final JPanel match_left = new JPanel();
-		match_left.setLayout(new BorderLayout(0,0));
-		
-		final JPanel match_middle = new JPanel();
-		final JPanel match_right = new JPanel();
-		match_right.setLayout(new BorderLayout(0,0));
-		
-		match_left.setPreferredSize(new Dimension(420,450));
-		match_middle.setPreferredSize(new Dimension(60,450));
-		match_right.setPreferredSize(new Dimension(420,450));
-
-		
-		match.add(match_left);
-		match.add(match_middle);
-		match.add(match_right);
-		
-			//composants
-				//gauche
-					//haut
-		final JPanel match_left_top = new JPanel();
-		match_left_top.setLayout(new BoxLayout(match_left_top, BoxLayout.Y_AXIS));
-		match_left.add(match_left_top, BorderLayout.PAGE_START);
-		
-						//nom
-		
-		final JPanel match_left_top_name = new JPanel();
-		match_left_top_name.setLayout(new BorderLayout());
-		match_left_top.add(match_left_top_name);
-		
-		JLabel nom_pokemon_e1 = new JLabel(_c._j1._team[_c._e1_p]._p.getFrenchNom());
-		match_left_top_name.add(nom_pokemon_e1, BorderLayout.LINE_START);
-		
-						//barre de vie et effets
-		FormComponentsRect fc = new FormComponentsRect(5,5,_c._j1._team[_c._e1_p]._pvActuels, _c._j1._team[_c._e1_p]._choosedStats[0] , 20,new Color(0,102,0), new Color(51,204,51), true);
-		match_left_top.add(fc);
-		
-		JLabel effet_pokemon_e1 = new JLabel(); 
-		String tmp = Integer.toString(_c._j1._team[_c._e1_p]._pvActuels);
-		if(_c._j1._team[_c._e1_p]._statut != 0){
-			tmp = tmp.concat(" - "+_c._j1._team[_c._e1_p].getStatut());
-		}
-		effet_pokemon_e1.setText(tmp);
-		match_left_top.add(effet_pokemon_e1);
-		
-					//image
-		inverserPokemonVerticalement();
-		JLabel _e1_p_img = new JLabel(new ImageIcon(_c._j1._team[_c._e1_p]._p._image));
-		match_left.add(_e1_p_img, BorderLayout.CENTER);
-		
-		BarrePokeballs (match_left,_c._j1, true);
-		
-				//milieu
-		
-		JLabel nb_tours = new JLabel(Integer.toString(_c.getnbTours()));
-		match_middle.add(nb_tours);
-		
-		
-				//droite
-					//haut		
-		final JPanel match_right_top = new JPanel();
-		
-		match_right_top.setLayout(new BorderLayout());
-		match_right.add(match_right_top, BorderLayout.PAGE_START);
-		
-						//nom
-		final JPanel match_right_top_name = new JPanel();
-		match_right_top_name.setLayout(new BorderLayout());
-		match_right_top.add(match_right_top_name, BorderLayout.NORTH);
-		
-		JLabel nom_pokemon_e2 = new JLabel(_c._j2._team[_c._e2_p]._p.getFrenchNom());
-		match_right_top_name.add(nom_pokemon_e2, BorderLayout.LINE_END);
-		
-						//barre de vie et effets
-		FormComponentsRect fc2 = new FormComponentsRect(5,5, _c._j2._team[_c._e2_p]._pvActuels, _c._j2._team[_c._e2_p]._choosedStats[0], 20,new Color(0,102,0), new Color(51,204,51), false);
-		match_right_top.add(fc2,BorderLayout.CENTER );
-		
-		JLabel effet_pokemon_e2 = new JLabel(); // on doit ajoute l'effet (dodo, empoisonne...) sur l'occurence du pokemon
-		tmp = Integer.toString(_c._j2._team[_c._e2_p]._pvActuels);
-		if(_c._j2._team[_c._e2_p]._statut != 0){
-			tmp = tmp.concat(" - "+_c._j2._team[_c._e2_p].getStatut());
-		}
-		effet_pokemon_e2.setText(tmp);
-		
-		match_right_top.add(effet_pokemon_e2, BorderLayout.SOUTH);
-		
-					//image
-		JLabel _e2_p_img = new JLabel(new ImageIcon(_c._j2._team[_c._e2_p]._p._image));
-		match_right.add(_e2_p_img, BorderLayout.CENTER);
-		
-		BarrePokeballs (match_right,_c._j2, false);
-		*/
 		
 	}
 
