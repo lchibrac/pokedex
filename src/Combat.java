@@ -1,6 +1,7 @@
 public class Combat {
 
 	public Combat(Equipe j1, Equipe j2, boolean vsdresseur){
+		
 		_gagnant = 0;
 		_j1 = j1.clone();
 		_j2 = j2.clone();
