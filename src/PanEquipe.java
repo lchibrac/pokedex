@@ -2,8 +2,11 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.io.IOException;
 
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,19 +20,31 @@ public class PanEquipe extends JPanel {
 	
 	public PanEquipe (final JFrame f){
 		setPreferredSize(new Dimension(900, _equipe._team.length*100));
-		add(new JLabel("tatata"));
-		
+		//add(new JLabel("tatata"));
+		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		for(int i = 0 ; i < _equipe._team.length ; i++){
 			JPanel pokemon = new JPanel ();
 			pokemon.setLayout(new GridBagLayout());
+			//image
+			ImageIcon img = new ImageIcon(_equipe._team[i]._image.getScaledInstance(60, 60, Image.SCALE_DEFAULT));
+			GridBagConstraints img_gbc = new GridBagConstraints();
+			img_gbc.gridx = 0;
+			img_gbc.gridy = 0;
 			
-			JLabel _name = new JLabel(_equipe._team[i]._p.getFrenchNom());
-			GridBagConstraints _name_gbc = new GridBagConstraints();
-			//_name_gbc.gridx = 
+			pokemon.add(new JLabel(img));
+			//objet possédé
 			
-			//pokemon.add(_name,_name_gbc);
-			//add(pokemon);
+			
+			
+			
+			/*
+			JLabel name = new JLabel(_equipe._team[i]._p.getFrenchNom());
+			GridBagConstraints name_gbc = new GridBagConstraints();
+			name_gbc.gridx = 
+			
+			pokemon.add(name, name_gbc);*/
+			add(pokemon);
 		}
 		
 	}
