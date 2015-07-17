@@ -68,6 +68,7 @@ public class PokemonEnCombat extends Pokemon{
 	public boolean peutAttaquer;
 	public boolean peutChanger;
 	public boolean _mega_evolution;
+	public Objet _objet_equipe;
 	
 	public boolean estKO(){
 		return _pvActuels == 0;

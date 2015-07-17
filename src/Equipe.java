@@ -3,7 +3,7 @@ public class Equipe {
 	
 	public PokemonEnCombat[] _team = new PokemonEnCombat[]{};
 	public int _joueur;
-//	public Objet[] _inventaire;
+	public Objet[] _inventaire;
 	
 	
 	public Equipe(PokemonEnCombat[] team, int joueur){

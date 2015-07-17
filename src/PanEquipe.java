@@ -1,3 +1,5 @@
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.io.IOException;
@@ -8,23 +10,26 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 public class PanEquipe extends JPanel {
+
+	private static final long serialVersionUID = 1L;
 	public static Combat _c;
 	public static Equipe _equipe;
 	
 	public PanEquipe (final JFrame f){
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		add(scrollPane);
-
+		setPreferredSize(new Dimension(900, _equipe._team.length*100));
+		add(new JLabel("tatata"));
+		
+		
 		for(int i = 0 ; i < _equipe._team.length ; i++){
 			JPanel pokemon = new JPanel ();
+			pokemon.setLayout(new GridBagLayout());
 			
 			JLabel _name = new JLabel(_equipe._team[i]._p.getFrenchNom());
-			GridBagConstraints e1_name_gbc = new GridBagConstraints();
+			GridBagConstraints _name_gbc = new GridBagConstraints();
+			//_name_gbc.gridx = 
 			
-			
-			pokemon.add(_name,e1_name_gbc);
-			scrollPane.add(pokemon);
+			//pokemon.add(_name,_name_gbc);
+			//add(pokemon);
 		}
 		
 	}
@@ -43,22 +48,37 @@ public class PanEquipe extends JPanel {
 		_c._j2.getPokemon(0)._pvActuels = 25;
 		//TMP fin
 
-		JFrame f = new JFrame();
+		
+		
 		if(_c.joueurActuel == 1){
 			_equipe = _c._j1;
 		}else{
 			_equipe = _c._j2;
 		}
-		f.setSize(900, _equipe._team.length*100);
 
+		JFrame f = new JFrame();
+		
+			//contenu
+		PanEquipe pe = new PanEquipe(f);
+
+			//barre de défilement
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setViewportView(pe);
+		f.getContentPane().add(scrollPane, BorderLayout.CENTER);
+		
+		
+		//si nb pokemons <= 9 , on adapte la taille de la fenêtre et la barre de defilement n'apparaitra pas. Sinon, elle se mettra en place :)
+		if(_equipe._team.length <= 9){
+			f.setSize(900, _equipe._team.length*100);
+		}else{
+			f.setSize(900, 900);
+		}
 		f.setVisible(true);
 		f.setTitle("Pokemon - Equipe");
 		f.setLocationRelativeTo(null);
 		f.setResizable(false);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		PanEquipe pe = new PanEquipe(f);
-		f.setContentPane(pe);
+
 	}
 	
 }
