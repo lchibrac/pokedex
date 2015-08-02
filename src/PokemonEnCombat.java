@@ -33,6 +33,7 @@ public class PokemonEnCombat extends Pokemon{
 		peutAttaquer = true;
 		peutChanger = true;
 		_mega_evolution = false;
+		_sexe = true;
 	}
 	
 	public PokemonEnCombat(Pokemon p, Attaque[] listeDesAttaques, int talentChoisi, int[] stats,int niveau, int pvs){
@@ -45,8 +46,9 @@ public class PokemonEnCombat extends Pokemon{
 		this._pME = pme;
 	}
 	
-	public PokemonEnCombat(Pokemon p, Attaque[] listeDesAttaques, int talentChoisi, int[] stats,int niveau, int pvs, PokemonEnCombat pme){
+	public PokemonEnCombat(Pokemon p, Attaque[] listeDesAttaques, int talentChoisi, int[] stats,int niveau, int pvs, PokemonEnCombat pme, boolean sexe){
 		this(p,listeDesAttaques,talentChoisi,stats,niveau, pvs);
+		this._sexe = sexe;
 		this._pME = pme;
 	}
 	
@@ -69,6 +71,7 @@ public class PokemonEnCombat extends Pokemon{
 	public boolean peutChanger;
 	public boolean _mega_evolution;
 	public Objet _objet_equipe;
+	public boolean _sexe; //true = male ; false = female
 	
 	public boolean estKO(){
 		return _pvActuels == 0;

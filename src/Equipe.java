@@ -2,11 +2,13 @@
 public class Equipe {
 	
 	public PokemonEnCombat[] _team = new PokemonEnCombat[]{};
+	public int _pokemon_en_combat;
 	public int _joueur;
 	public Objet[] _inventaire;
 	
 	
 	public Equipe(PokemonEnCombat[] team, int joueur){
+		_pokemon_en_combat = 0;
 		_team = new PokemonEnCombat[team.length];
 		for(int i = 0 ; i < team.length ; ++i){
 			_team[i] = team[i].clone();
@@ -24,6 +26,7 @@ public class Equipe {
 			_team2[i] = _team[i].clone();
 		}
 		Equipe e = new Equipe(_team2, this._joueur);
+		e._pokemon_en_combat = _pokemon_en_combat;
 		return e;
 	}
 	

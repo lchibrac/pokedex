@@ -1,4 +1,3 @@
-import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -43,89 +42,7 @@ public class PanCombat extends JPanel{
 		AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
 		_e1_p._p._image = op.filter((BufferedImage) _e1_p._p._image, null);
 	}
-	
-	public class LifeBar extends JPanel{
- 		
- 		private static final long serialVersionUID = 1L;
- 		
- 		public boolean _left;
- 		public int _x;
- 		public int _y;
- 		public int _height;
- 		public int _width;
- 		public int _fore_width;
- 		public Color _c;
- 		public Color _fore_c;
- 		
-		public LifeBar(int fore_width, Color fore_c){
- 			_left = true;
- 			_x = 0;
- 			_y = 0;
- 			_fore_width = fore_width;
- 			_width = 350;
- 			_height = 15;
- 			_c = Color.BLACK;
- 			_fore_c = fore_c;
 
-			this.setSize(new Dimension(_width,_height));
-			
- 		}
-	
-		public LifeBar(int fore_width, int height, Color fore_c, Color c){
-			this(fore_width,fore_c);
-			_height = height;
-			_c = c;
-			
-			this.setSize(new Dimension(_width,_height));
-		}
-		
-		public LifeBar(int x, int y, int fore_width, int width, int height, Color fore_c , Color c, boolean left){
-			
-			this(fore_width,height,fore_c,c);
-			_x = x;
-			_y = y;
-			
-			_left = left;
-			_width = width;
-		
-			this.setSize(new Dimension(_width,_height));
-		}
-		
-		public Color getColor(){
-			return _c;
-		} 
-		
-		public Color getForeColor(){
-			return _fore_c;
-		} 
-		
-		public Dimension getPreferredSize(){
-			return new Dimension(_fore_width,_height);
-		}
-		
-		public Dimension getMinimumSize(){
-			return new Dimension(_fore_width,_height);
-		}
-		
-		
-		public void paintComponent(Graphics g){
-
-			this.setSize(new Dimension(_width,_height));
-			
-			super.paintComponent(g);
-			g.setColor(_c);
-			g.fillRect(_x, _y, _width, _height);
-			g.setColor(_fore_c);
-			if(_left){
-				g.fillRect(_x, _y, _fore_width, _height);
-			}else{
-				g.fillRect(_x+(_width-_fore_width), _y, _fore_width, _height);
-			}
-			
-		}
-		
-	}
-	
 	public class PokeballBar extends JPanel{
 
 		private static final long serialVersionUID = 1L;
@@ -194,7 +111,7 @@ public class PanCombat extends JPanel{
  		//fill => redimensionne si on lui donne trop d'espace : none, horizontal, vertical both 
  		//insets => marges en pixels autour du composant
  		//weightx weighty => utilisation de l'espace supplémentaire
- 		//gridx, gridy => a redefinir avant de placer chaque element. Dit où le placer.
+ 		//gridx, gridy => a redefinir avant de placer chaque element. Dit où le placer sur la grille.
  		//ipadx, ipady => marges internes du composant
  		//anchor =>point d'ancrage du composant dans sa/ses cellule(s)
  		
@@ -277,12 +194,12 @@ public class PanCombat extends JPanel{
 		
 		//effets
 		LifeBar e2_lifebar = new LifeBar(0,0,_c._j2._team[_c._e2_p]._pvActuels, _c._j2._team[_c._e2_p]._choosedStats[0] , 15,new Color(0,102,0), new Color(51,204,51), false);
-		
+				
 		GridBagConstraints e2_lifebar_gbc = new GridBagConstraints();
 		e2_lifebar_gbc.gridx = 2;
 		e2_lifebar_gbc.gridy = 1;
 		e2_lifebar_gbc.insets = new Insets(0,0,0,5);
-		e2_lifebar_gbc.anchor = GridBagConstraints.LINE_START;
+		e2_lifebar_gbc.anchor = GridBagConstraints.CENTER;
 		match.add(e2_lifebar,e2_lifebar_gbc);
 		
 			//effets
