@@ -126,11 +126,8 @@ public class PanCombat extends JPanel{
 		e1_name_gbc.weightx = 1;
 		match.add(e1_name, e1_name_gbc);
 				//barre de vie
-		LifeBar e1_lifebar = new LifeBar(0,0,_c._j1._team[_c._e1_p]._pvActuels, _c._j1._team[_c._e1_p]._choosedStats[0] , 15,new Color(0,102,0), new Color(51,204,51), true);
-		
-		e1_lifebar.setPreferredSize(new Dimension(450,30));
-		e1_lifebar.setMinimumSize(new Dimension(450,30));
-		
+		LifeBar e1_lifebar = new LifeBar(0,0,_c._j1._team[_c._e1_p]._pvActuels, _c._j1._team[_c._e1_p]._choosedStats[0] , 350, 15,new Color(0,102,0), new Color(51,204,51), true);
+
 		GridBagConstraints e1_lifebar_gbc = new GridBagConstraints();
 		e1_lifebar_gbc.gridx = 0;
 		e1_lifebar_gbc.gridy = 1;
@@ -190,7 +187,7 @@ public class PanCombat extends JPanel{
 		match.add(e2_name, e2_name_gbc);
 		
 		//barre de vie
-		LifeBar e2_lifebar = new LifeBar(0,0,_c._j2._team[_c._e2_p]._pvActuels, _c._j2._team[_c._e2_p]._choosedStats[0], 15,new Color(0,102,0), new Color(51,204,51), false);
+		LifeBar e2_lifebar = new LifeBar(0,0,_c._j2._team[_c._e2_p]._pvActuels, _c._j2._team[_c._e2_p]._choosedStats[0], 350, 15,new Color(0,102,0), new Color(51,204,51), false);
 		GridBagConstraints e2_lifebar_gbc = new GridBagConstraints();
 		e2_lifebar_gbc.gridx = 2;
 		e2_lifebar_gbc.gridy = 1;
@@ -202,7 +199,6 @@ public class PanCombat extends JPanel{
 		}else{
 			e2_lifebar_gbc.insets = new Insets(0,0,0,5+ (int)Math.round(_c._j2._team[_c._e2_p]._choosedStats[0]/1.655));
 		}
-		
 		e2_lifebar_gbc.anchor = GridBagConstraints.LINE_END;
 		match.add(e2_lifebar,e2_lifebar_gbc);
 		
@@ -244,7 +240,7 @@ public class PanCombat extends JPanel{
 		
 		menu.setLayout(new GridLayout(2, 4));
 		
-		//ensemble des boutons, affichés ou non
+		//ensemble des boutons, affiches ou non
 		
 		Button atq1 = new Button();
 		Button atq2 = new Button();
@@ -458,8 +454,8 @@ public class PanCombat extends JPanel{
 		_c._j1.getPokemon(3)._pvActuels = 0;
 		
 		_c._j2.getPokemon(0)._statut = 2;
-		//_c._j2.getPokemon(0)._choosedStats[0] = 50;
-		//_c._j2.getPokemon(0)._pvActuels = 20;
+		_c._j2.getPokemon(0)._choosedStats[0] = 50;
+		_c._j2.getPokemon(0)._pvActuels = 20;
 		
 		JFrame f = new JFrame();
 		PanCombat pgs = new PanCombat(f);

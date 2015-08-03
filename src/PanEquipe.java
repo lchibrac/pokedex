@@ -113,7 +113,7 @@ public class PanEquipe extends JPanel {
 		
 		//PV
 			//barre
-		LifeBar lb = new LifeBar(0,0,_equipe._team[i]._pvActuels, _equipe._team[i]._choosedStats[0] , 15,new Color(0,102,0), new Color(51,204,51), true);
+		LifeBar lb = new LifeBar(0,0,_equipe._team[i]._pvActuels, _equipe._team[i]._choosedStats[0], 350, 15,new Color(0,102,0), new Color(51,204,51), true);
 		GridBagConstraints lb_gbc = new GridBagConstraints();
 		lb_gbc.gridx = 5;
 		lb_gbc.gridy = 0;
