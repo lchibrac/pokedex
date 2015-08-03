@@ -90,6 +90,7 @@ public class PanCombat extends JPanel{
 
 	public void match(JPanel match) throws IOException{
 
+		match.setPreferredSize(new Dimension(900, 450));
  		match.setMaximumSize(new Dimension(900, 450));
  		match.setLayout(new GridBagLayout());
 
@@ -139,7 +140,7 @@ public class PanCombat extends JPanel{
 		
 				//effets
 		JLabel effet_pokemon_e1 = new JLabel(); 
-		String tmp = Integer.toString(_c._j1._team[_c._e1_p]._pvActuels);
+		String tmp = Integer.toString(_c._j1._team[_c._e1_p]._pvActuels)+"/"+_c._j1._team[_c._e1_p]._choosedStats[0];
 		if(_c._j1._team[_c._e1_p]._statut != 0){
 			tmp = tmp.concat(" - "+_c._j1._team[_c._e1_p].getStatut());
 		}
@@ -189,13 +190,20 @@ public class PanCombat extends JPanel{
 		match.add(e2_name, e2_name_gbc);
 		
 		//barre de vie
-		LifeBar e2_lifebar = new LifeBar(0,0,_c._j2._team[_c._e2_p]._pvActuels, _c._j2._team[_c._e2_p]._choosedStats[0] , 15,new Color(0,102,0), new Color(51,204,51), false);
-		
+		LifeBar e2_lifebar = new LifeBar(0,0,_c._j2._team[_c._e2_p]._pvActuels, _c._j2._team[_c._e2_p]._choosedStats[0], 15,new Color(0,102,0), new Color(51,204,51), false);
 		GridBagConstraints e2_lifebar_gbc = new GridBagConstraints();
 		e2_lifebar_gbc.gridx = 2;
 		e2_lifebar_gbc.gridy = 1;
-		e2_lifebar_gbc.insets = new Insets(0,0,0,5);
-		e2_lifebar_gbc.anchor = GridBagConstraints.PAGE_END;
+		
+		//PUNAISE DE CALCUL A LA ... SI PB POSITION HORIZONTALE DE LA BARRE, PEUT VENIR DE LA
+		//pourquoi je dois faire ca pour qu'il se mette en place ? =='
+		if(_c._j2._team[_c._e2_p]._choosedStats[0] == _c._j2._team[_c._e2_p]._pvActuels){
+			e2_lifebar_gbc.insets = new Insets(0,0,0,5);
+		}else{
+			e2_lifebar_gbc.insets = new Insets(0,0,0,5+ (int)Math.round(_c._j2._team[_c._e2_p]._choosedStats[0]/1.655));
+		}
+		
+		e2_lifebar_gbc.anchor = GridBagConstraints.LINE_END;
 		match.add(e2_lifebar,e2_lifebar_gbc);
 		
 			//effets
@@ -204,7 +212,7 @@ public class PanCombat extends JPanel{
 		if(_c._j2._team[_c._e2_p]._statut != 0){
 			tmp = _c._j2._team[_c._e2_p].getStatut()+" - ";
 		}
-		tmp = tmp.concat(Integer.toString(_c._j2._team[_c._e2_p]._pvActuels));
+		tmp = tmp.concat(Integer.toString(_c._j2._team[_c._e2_p]._pvActuels)+"/"+_c._j2._team[_c._e2_p]._choosedStats[0]);
 		effet_pokemon_e2.setText(tmp);
 		GridBagConstraints e2_effet_gbc = new GridBagConstraints();
 		e2_effet_gbc.gridx = 2;
@@ -442,7 +450,7 @@ public class PanCombat extends JPanel{
 		
 		//TMP
 		Equipe e1 = new Equipe(new PokemonEnCombat[]{new PokemonEnCombat(Pokemon1G.papilusion, new Attaque[]{ListeDesAttaques.abime, ListeDesAttaques.racines, ListeDesAttaques.halloween,ListeDesAttaques.lanceboue},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.abo, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.goupix, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),new PokemonEnCombat(Pokemon1G.amanox, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.dardargnan, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.dodrio, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20)}, 1);
-		Equipe e2 = new Equipe(new PokemonEnCombat[]{new PokemonEnCombat(Pokemon1G.aeromite, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.lamantine, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),new PokemonEnCombat(Pokemon1G.kabuto, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.caninos, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.machopeur, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20)}, 1);
+		Equipe e2 = new Equipe(new PokemonEnCombat[]{new PokemonEnCombat(Pokemon1G.aeromite, new Attaque[]{null, null, null,null},0,new int[]{370,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.lamantine, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),new PokemonEnCombat(Pokemon1G.kabuto, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.caninos, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.machopeur, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20)}, 1);
 
 		_c =  new Combat(e1,e2, true);
 		_c._j1.getPokemon(0)._pvActuels = 50;
@@ -450,8 +458,8 @@ public class PanCombat extends JPanel{
 		_c._j1.getPokemon(3)._pvActuels = 0;
 		
 		_c._j2.getPokemon(0)._statut = 2;
-		_c._j2.getPokemon(0)._choosedStats[0] = 254;
-		_c._j2.getPokemon(0)._pvActuels = 25;
+		//_c._j2.getPokemon(0)._choosedStats[0] = 50;
+		//_c._j2.getPokemon(0)._pvActuels = 20;
 		
 		JFrame f = new JFrame();
 		PanCombat pgs = new PanCombat(f);

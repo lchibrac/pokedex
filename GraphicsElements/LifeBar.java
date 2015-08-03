@@ -47,11 +47,6 @@ public class LifeBar extends JPanel{
 		
 		_left = left;
 		_width = width;
-	
-		Dimension d = new Dimension(_width,_height);
-		/*this.setSize(d);
-		this.setMinimumSize(d);
-		this.setPreferredSize(d);*/
 	}
 	
 	public Color getColor(){
