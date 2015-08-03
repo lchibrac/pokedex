@@ -26,7 +26,7 @@ import javax.swing.JPanel;
 public class PanCombat extends JPanel{
 
 	private static final long serialVersionUID = 1L;
-
+	
 	public static Combat _c;
 	public PokemonEnCombat _e1_p; //a decaller ds combat
 	public PokemonEnCombat _e2_p; //a decaller ds combat
@@ -34,7 +34,7 @@ public class PanCombat extends JPanel{
 	final JLabel message = new JLabel();
 	
 	/**
-	 * inverse l'image du pokemon de la première équipe verticalement
+	 * inverse l'image du pokemon de la premiere equipe verticalement
 	*/
 	public void inverserPokemonVerticalement(){
 		AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);
@@ -49,52 +49,50 @@ public class PanCombat extends JPanel{
  		
  		public Equipe _e;
  		public boolean _left;
- 		
- 		public PokeballBar(Equipe e, boolean left){
- 			_e = e;
+ 		public Image _pokeball;
+ 		public Image _pokeball_ko;
+ 		public Image _pokeball_affected;
+
+ 		public PokeballBar(Equipe eq, boolean left){
+ 			_e = eq;
  			_left = left;
- 		}
- 		
- 		public void paintComponent(Graphics g){
-			super.paintComponent(g);
-			
- 			Image _pokeball = null;
- 			Image _pokeball_ko = null;
- 			Image _pokeball_affected = null;
- 			int nb_pokemon = _e._team.length;
  			
- 			try {
+ 			 _pokeball = null;
+  			_pokeball_ko = null;
+  			_pokeball_affected = null;
+  			try {
  				_pokeball_affected = ImageIO.read(new File("images/pokeball_affected.png"));
  				_pokeball_ko = ImageIO.read(new File("images/pokeball_ko.png"));
  				_pokeball = ImageIO.read(new File("images/pokeball.png"));
  			} catch (IOException e) {
  				e.printStackTrace();
  			}
- 			ImageIcon tmp = new ImageIcon(_pokeball.getScaledInstance(20, 20, Image.SCALE_DEFAULT));
- 			ImageIcon tmp_ko = new ImageIcon(_pokeball_ko.getScaledInstance(20, 20, Image.SCALE_DEFAULT));
- 			ImageIcon tmp_affected = new ImageIcon(_pokeball_affected.getScaledInstance(20, 20, Image.SCALE_DEFAULT));
+  			
+  			this.setPreferredSize(new Dimension(_e._team.length*25,40));
+ 		}
+ 		
+ 		public void paintComponent(Graphics g){
+ 			int nb_pokemon = _e._team.length;
  			
  			for(int i = 0; i < nb_pokemon ; i++){
- 	
  				if(_e.getPokemon(i).estKO()){
- 					add(new JLabel(tmp_ko));
+ 					g.drawImage(_pokeball_ko, i*25, 0, 20,20, null);
  				}
  				else if(_e.getPokemon(i)._statut > 0){
- 					add(new JLabel(tmp_affected));
+ 					g.drawImage(_pokeball_affected, i*25, 0, 20,20, null);
  				}
  				else{
- 					add(new JLabel(tmp));
+ 					g.drawImage(_pokeball, i*25, 0, 20,20, null);
  				}
  			}
  		}
  	}	
 
-	
-	public void match(JPanel match){
+	public void match(JPanel match) throws IOException{
 
  		match.setMaximumSize(new Dimension(900, 450));
  		match.setLayout(new GridBagLayout());
- 		
+
  		// 3 * 5
  		/*
  		 *  nom        | nb tours | nom
@@ -128,7 +126,7 @@ public class PanCombat extends JPanel{
 		match.add(e1_name, e1_name_gbc);
 				//barre de vie
 		LifeBar e1_lifebar = new LifeBar(0,0,_c._j1._team[_c._e1_p]._pvActuels, _c._j1._team[_c._e1_p]._choosedStats[0] , 15,new Color(0,102,0), new Color(51,204,51), true);
-
+		
 		e1_lifebar.setPreferredSize(new Dimension(450,30));
 		e1_lifebar.setMinimumSize(new Dimension(450,30));
 		
@@ -154,8 +152,6 @@ public class PanCombat extends JPanel{
 		match.add(effet_pokemon_e1, e1_effet_gbc);
 		
 			//image
-		
-		
 		inverserPokemonVerticalement();
 		JLabel e1_img = new JLabel(new ImageIcon(_c._j1._team[_c._e1_p]._p._image));
 		GridBagConstraints e1_img_gbc = new GridBagConstraints();
@@ -192,22 +188,23 @@ public class PanCombat extends JPanel{
 		e2_name_gbc.weightx = 1;
 		match.add(e2_name, e2_name_gbc);
 		
-		//effets
+		//barre de vie
 		LifeBar e2_lifebar = new LifeBar(0,0,_c._j2._team[_c._e2_p]._pvActuels, _c._j2._team[_c._e2_p]._choosedStats[0] , 15,new Color(0,102,0), new Color(51,204,51), false);
-				
+		
 		GridBagConstraints e2_lifebar_gbc = new GridBagConstraints();
 		e2_lifebar_gbc.gridx = 2;
 		e2_lifebar_gbc.gridy = 1;
 		e2_lifebar_gbc.insets = new Insets(0,0,0,5);
-		e2_lifebar_gbc.anchor = GridBagConstraints.CENTER;
+		e2_lifebar_gbc.anchor = GridBagConstraints.PAGE_END;
 		match.add(e2_lifebar,e2_lifebar_gbc);
 		
 			//effets
 		JLabel effet_pokemon_e2 = new JLabel(); 
-		tmp = Integer.toString(_c._j2._team[_c._e2_p]._pvActuels);
+		tmp = "";
 		if(_c._j2._team[_c._e2_p]._statut != 0){
-			tmp = tmp.concat(" - "+_c._j2._team[_c._e2_p].getStatut());
+			tmp = _c._j2._team[_c._e2_p].getStatut()+" - ";
 		}
+		tmp = tmp.concat(Integer.toString(_c._j2._team[_c._e2_p]._pvActuels));
 		effet_pokemon_e2.setText(tmp);
 		GridBagConstraints e2_effet_gbc = new GridBagConstraints();
 		e2_effet_gbc.gridx = 2;
@@ -233,7 +230,6 @@ public class PanCombat extends JPanel{
 		e2_pb_gbc.anchor = GridBagConstraints.LAST_LINE_END;
 		match.add(e2_pb,e2_pb_gbc);
 		
- 		
 	}
 
 	public void menu(JPanel menu){
@@ -412,7 +408,7 @@ public class PanCombat extends JPanel{
 		//init affichage
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-		final JPanel match = new JPanel();
+		final JPanel match = new BackgroundImage(ImageIO.read(new File("images/fond_05.jpg")),900,450);
 		match(match);
 		
 		//MESSAGE
@@ -428,7 +424,7 @@ public class PanCombat extends JPanel{
 		
 		final JPanel menu = new JPanel();
 		menu.setMaximumSize(new Dimension(900, 250));
-		menu.setBackground(new Color(211,211,211));//(255,235,205));
+		menu.setBackground(new Color(211,211,211));
 		
 		menu(menu);
 		
@@ -441,7 +437,7 @@ public class PanCombat extends JPanel{
 		 
 		
 	}
-	
+		
 	public static void main(String[] argv) throws IOException{
 		
 		//TMP
@@ -459,6 +455,7 @@ public class PanCombat extends JPanel{
 		
 		JFrame f = new JFrame();
 		PanCombat pgs = new PanCombat(f);
+		
 		f.setContentPane(pgs);
 		f.setSize(900, 750);
 		f.setVisible(true);

@@ -27,7 +27,7 @@ public class LifeBar extends JPanel{
 		_c = Color.BLACK;
 		_fore_c = fore_c;
 
-		this.setSize(new Dimension(_width,_height));
+		this.setPreferredSize(new Dimension(_width,_height));
 		
 	}
 
@@ -36,7 +36,7 @@ public class LifeBar extends JPanel{
 		_height = height;
 		_c = c;
 		
-		this.setSize(new Dimension(_width,_height));
+		this.setPreferredSize(new Dimension(_width,_height));
 	}
 	
 	public LifeBar(int x, int y, int fore_width, int width, int height, Color fore_c , Color c, boolean left){
@@ -49,7 +49,9 @@ public class LifeBar extends JPanel{
 		_width = width;
 	
 		Dimension d = new Dimension(_width,_height);
-		this.setSize(d);
+		/*this.setSize(d);
+		this.setMinimumSize(d);
+		this.setPreferredSize(d);*/
 	}
 	
 	public Color getColor(){
@@ -72,8 +74,9 @@ public class LifeBar extends JPanel{
 	public void paintComponent(Graphics g){
 
 		this.setSize(new Dimension(_width,_height));
+		//this.setPreferredSize(new Dimension(_width,_height));
 		
-		super.paintComponent(g);
+		//super.paintComponent(g);
 		g.setColor(_c);
 		g.fillRect(_x, _y, _width, _height);
 		g.setColor(_fore_c);

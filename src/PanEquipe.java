@@ -206,7 +206,7 @@ public class PanEquipe extends JPanel {
 		
 		
 		//si nb pokemons <= 9 , on adapte la taille de la fenetre et la barre de defilement n'apparaitra pas. Sinon, elle se mettra en place :)
-		if(_equipe._team.length <= 9){
+		if(_equipe._team.length <= 4){
 			f.setSize(1000, _equipe._team.length*150);
 		}else{
 			f.setSize(900, 900);
