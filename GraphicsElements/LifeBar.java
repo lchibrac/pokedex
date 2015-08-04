@@ -74,8 +74,8 @@ public class LifeBar extends JPanel{
 		
 		
 		//barre sombre = nbPVActuels * nbPVdeBase / TailleTotale
-		System.out.println("tailles : "+_total_life+" "+_height); //TMP
-		System.out.println("dimension : "+this.getSize()+" "+this.getPreferredSize()); //TMP
+		//System.out.println("tailles : "+_total_life+" "+_height); //TMP
+		//System.out.println("dimension : "+this.getSize()+" "+this.getPreferredSize()); //TMP
 		
 		//super.paintComponent(g);
 		g.setColor(_c);

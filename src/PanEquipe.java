@@ -27,8 +27,8 @@ public class PanEquipe extends JPanel {
 	private JPanel create_pkm(JPanel pe, int i){
 		JPanel pokemon = new JPanel ();
 		pokemon.setLayout(new GridBagLayout());
-
-		pokemon.setForeground(Color.black); 
+		//pokemon.setForeground(Color.black); inutilisé, va savoir pourquoi...
+		
 		
 		if(i == _equipe._pokemon_en_combat){
 			pokemon.setBackground(new Color (87,105,138));
@@ -79,6 +79,7 @@ public class PanEquipe extends JPanel {
 		name_gbc.gridx = 2;
 		name_gbc.gridy = 0;
 		name_gbc.gridwidth = 3;
+		name_gbc.insets = new Insets(7,0,0,0);
 		name_gbc.fill = GridBagConstraints.BOTH;
 		
 		pokemon.add(name, name_gbc);
@@ -126,60 +127,99 @@ public class PanEquipe extends JPanel {
 		life_values_gbc.gridy = 1;
 		life_values_gbc.anchor = GridBagConstraints.CENTER;
 		pokemon.add(life_values, life_values_gbc);
-		
+
+		pokemon.setMaximumSize(new Dimension((int)Math.round(pokemon.getMaximumSize().getWidth()), 100));
 		return pokemon;
-		
 	}
 	
 	private void create_menu(JPanel menu){
+		menu.setLayout(new GridBagLayout());
+		menu.setOpaque(false);
+		
+		GridBagConstraints gbc = new GridBagConstraints();
+		
 		JButton undo = new JButton("retour");
 		JButton select = new JButton("selectionner");
 		JButton detail = new JButton("details");
+
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.insets = new Insets(5,0,5,0);
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		menu.add(undo, gbc);
 		
-		menu.add(undo);
-		menu.add(select);
-		menu.add(detail);
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		menu.add(select,gbc);
+		
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.weighty = 1;
+		gbc.anchor = GridBagConstraints.PAGE_START;
+		menu.add(detail,gbc);
+		
 	}
 	
-	public PanEquipe (final JFrame f){
-		//setPreferredSize(new Dimension(900, _equipe._team.length*100));
+	public PanEquipe (){
+		
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-		this.setBackground(new Color (64,81,115));
+		setBackground(new Color (210,210,220));
 		
 		JPanel menu = new JPanel();
 		JPanel list_pkm = new JPanel();
 		
 		//menu
-		menu.setLayout(new BoxLayout(menu, BoxLayout.Y_AXIS));
 		create_menu(menu);
 		
 		//liste
 		list_pkm.setLayout(new BoxLayout(list_pkm, BoxLayout.Y_AXIS));
+		list_pkm.setOpaque(false);
 		
 		list_pkm.add(Box.createRigidArea(new Dimension(0,5)));
 		for(int i = 0 ; i < _equipe._team.length ; i++){
 			list_pkm.add(create_pkm(list_pkm,i));
 			list_pkm.add(Box.createRigidArea(new Dimension(0,5)));
 		}
+		list_pkm.add(Box.createVerticalGlue());
+/*
+		System.out.println(list_pkm.getPreferredSize()+" "+list_pkm.getMaximumSize()+" "+list_pkm.getMinimumSize());
+		//list_pkm.setPreferredSize(new Dimension(533,105*_equipe._team.length+5));
+		System.out.println(list_pkm.getPreferredSize()+" "+list_pkm.getMaximumSize()+" "+list_pkm.getMinimumSize());
+		//list_pkm.setPreferredSize(preferredSize);*/
 		
 		add(menu);
 		add(list_pkm);
+		add(Box.createRigidArea(new Dimension(5,0)));
 	}
 	
 	public static void main(String[] argv) throws IOException{
-		Equipe e1 = new Equipe(new PokemonEnCombat[]{new PokemonEnCombat(Pokemon1G.papilusion, new Attaque[]{ListeDesAttaques.abime, ListeDesAttaques.racines, ListeDesAttaques.halloween,ListeDesAttaques.lanceboue},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.abo, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.goupix, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),new PokemonEnCombat(Pokemon1G.amanox, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.dardargnan, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.dodrio, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20)}, 1);
+		
+		Equipe e1 = new Equipe(new PokemonEnCombat[]{
+				new PokemonEnCombat(Pokemon1G.papilusion, new Attaque[]{ListeDesAttaques.abime, ListeDesAttaques.racines, ListeDesAttaques.halloween,ListeDesAttaques.lanceboue},0,new int[]{261,113,136,279,196,262},20), 
+				new PokemonEnCombat(Pokemon1G.abo, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , 
+				new PokemonEnCombat(Pokemon1G.goupix, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),
+				new PokemonEnCombat(Pokemon1G.amanox, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , 
+				new PokemonEnCombat(Pokemon1G.dardargnan, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), 
+				new PokemonEnCombat(Pokemon1G.dodrio, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),
+				new PokemonEnCombat(Pokemon1G.dracaufeu, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),
+				new PokemonEnCombat(Pokemon1G.kokiyas, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),
+				new PokemonEnCombat(Pokemon1G.abra, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20)
+				}
+		, 1);
+
+		
 		Equipe e2 = new Equipe(new PokemonEnCombat[]{new PokemonEnCombat(Pokemon1G.aeromite, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.lamantine, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),new PokemonEnCombat(Pokemon1G.kabuto, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.caninos, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.machopeur, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20)}, 1);
 
 		_c =  new Combat(e1,e2, true);
-		_c._j1.getPokemon(0)._pvActuels = 50;
+		_c._j1.getPokemon(0)._pvActuels = 50;/*
 		_c._j1.getPokemon(2)._pvActuels = 20;
 		_c._j1.getPokemon(3)._pvActuels = 37;
 		_c._j1.getPokemon(1)._objet_equipe = new Objet();
 		_c._j1.getPokemon(1)._sexe = false;
 		_c._j1.getPokemon(2)._sexe = false;
 		_c._j1.getPokemon(3)._niveau = 25;
-		_c._j1.getPokemon(1)._niveau = 17;
-		_c._j1.getPokemon(5)._niveau = 42;
+		_c._j1.getPokemon(1)._niveau = 17;*/
+//		_c._j1.getPokemon(5)._niveau = 42;
 		
 		_c._j2.getPokemon(0)._statut = 2;
 		_c._j2.getPokemon(0)._choosedStats[0] = 254;
@@ -197,24 +237,29 @@ public class PanEquipe extends JPanel {
 		JFrame f = new JFrame();
 		
 			//contenu
-		PanEquipe pe = new PanEquipe(f);
+		PanEquipe pe = new PanEquipe();
 
-			//barre de dÃ©filement
-		JScrollPane scrollPane = new JScrollPane();
+			//barre de defilement
+		JScrollPane scrollPane = new JScrollPane(pe);
 		scrollPane.setViewportView(pe);
+		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setWheelScrollingEnabled(true); //défilement vertical avec molette de la souris
 		f.getContentPane().add(scrollPane, BorderLayout.CENTER);
 		
-		
-		//si nb pokemons <= 9 , on adapte la taille de la fenetre et la barre de defilement n'apparaitra pas. Sinon, elle se mettra en place :)
-		if(_equipe._team.length <= 4){
-			f.setSize(1000, _equipe._team.length*150);
-		}else{
-			f.setSize(900, 900);
+		//si nb pokemons < 6, on adapte la taille de la fenetre et la barre de defilement n'apparaitra pas. Sinon, elle se mettra en place :)
+		if(_equipe._team.length <= 6){
+			f.setSize(800, Math.max( (int)Math.round(pe.getPreferredSize().getHeight()+37),160));
+		}else{	
+		f.setSize(800, 750);
 		}
+		/*
+		System.out.println("pe : "+pe.getPreferredSize()+" "+pe.getSize()); //TMP
+		System.out.println("f : "+f.getSize()); //TMP
+		*/
 		f.setVisible(true);
 		f.setTitle("Pokemon - Equipe");
 		f.setLocationRelativeTo(null);
-		f.setResizable(true);
+		f.setResizable(false);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
