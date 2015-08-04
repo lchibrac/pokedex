@@ -27,10 +27,9 @@ import GraphicsElements.LifeBar;
 import Listes.ListeDesAttaques;
 import Listes.Pokemon1G;
 
-public class PanEquipe extends JPanel {
+public class PanEquipe extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	public static Combat _c;
 	public static Equipe _equipe;
 	
 	private JPanel create_pkm(JPanel pe, int i){
@@ -169,10 +168,11 @@ public class PanEquipe extends JPanel {
 		
 	}
 	
-	public PanEquipe (){
+	public JPanel creerPage (){
+		JPanel contenu = new JPanel();
 		
-		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-		setBackground(new Color (210,210,220));
+		contenu.setLayout(new BoxLayout(contenu, BoxLayout.X_AXIS));
+		contenu.setBackground(new Color (210,210,220));
 		
 		JPanel menu = new JPanel();
 		JPanel list_pkm = new JPanel();
@@ -196,13 +196,47 @@ public class PanEquipe extends JPanel {
 		System.out.println(list_pkm.getPreferredSize()+" "+list_pkm.getMaximumSize()+" "+list_pkm.getMinimumSize());
 		//list_pkm.setPreferredSize(preferredSize);*/
 		
-		add(menu);
-		add(list_pkm);
-		add(Box.createRigidArea(new Dimension(5,0)));
+		contenu.add(menu);
+		contenu.add(list_pkm);
+		contenu.add(Box.createRigidArea(new Dimension(5,0)));
+		return contenu;
+	}
+	
+	public PanEquipe (Combat c){
+		
+		if(c.joueurActuel == 1){
+			_equipe = c._j1;
+		}else{
+			_equipe = c._j2;
+		}
+
+		JPanel contenu = creerPage();
+		
+			//barre de defilement
+		JScrollPane scrollPane = new JScrollPane(contenu);
+		scrollPane.setViewportView(contenu);
+		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setWheelScrollingEnabled(true); //défilement vertical avec molette de la souris
+		getContentPane().add(scrollPane, BorderLayout.CENTER);
+		
+		//si nb pokemons < 6, on adapte la taille de la fenetre et la barre de defilement n'apparaitra pas. Sinon, elle se mettra en place :)
+		if(_equipe._team.length <= 6){
+			setSize(800, Math.max( (int)Math.round(contenu.getPreferredSize().getHeight()+37),160));
+		}else{	
+			setSize(800, 750);
+		}
+
+		setVisible(true);
+		setTitle("Pokemon - Equipe");
+		setLocationRelativeTo(null);
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 	}
 	
 	public static void main(String[] argv) throws IOException{
 		
+		//TMP
 		Equipe e1 = new Equipe(new PokemonEnCombat[]{
 				new PokemonEnCombat(Pokemon1G.papilusion, new Attaque[]{ListeDesAttaques.abime, ListeDesAttaques.racines, ListeDesAttaques.halloween,ListeDesAttaques.lanceboue},0,new int[]{261,113,136,279,196,262},20), 
 				new PokemonEnCombat(Pokemon1G.abo, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , 
@@ -219,57 +253,23 @@ public class PanEquipe extends JPanel {
 		
 		Equipe e2 = new Equipe(new PokemonEnCombat[]{new PokemonEnCombat(Pokemon1G.aeromite, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.lamantine, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),new PokemonEnCombat(Pokemon1G.kabuto, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.caninos, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.machopeur, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20)}, 1);
 
-		_c =  new Combat(e1,e2, true);
-		_c._j1.getPokemon(0)._pvActuels = 50;/*
-		_c._j1.getPokemon(2)._pvActuels = 20;
-		_c._j1.getPokemon(3)._pvActuels = 37;
-		_c._j1.getPokemon(1)._objet_equipe = new Objet();
-		_c._j1.getPokemon(1)._sexe = false;
-		_c._j1.getPokemon(2)._sexe = false;
-		_c._j1.getPokemon(3)._niveau = 25;
-		_c._j1.getPokemon(1)._niveau = 17;*/
-//		_c._j1.getPokemon(5)._niveau = 42;
+		Combat c =  new Combat(e1,e2, true);
+		c._j1.getPokemon(0)._pvActuels = 50;/*
+		c._j1.getPokemon(2)._pvActuels = 20;
+		c._j1.getPokemon(3)._pvActuels = 37;
+		c._j1.getPokemon(1)._objet_equipe = new Objet();
+		c._j1.getPokemon(1)._sexe = false;
+		c._j1.getPokemon(2)._sexe = false;
+		c._j1.getPokemon(3)._niveau = 25;
+		c._j1.getPokemon(1)._niveau = 17;*/
+//		c._j1.getPokemon(5)._niveau = 42;
 		
-		_c._j2.getPokemon(0)._statut = 2;
-		_c._j2.getPokemon(0)._choosedStats[0] = 254;
-		_c._j2.getPokemon(0)._pvActuels = 25;
+		c._j2.getPokemon(0)._statut = 2;
+		c._j2.getPokemon(0)._choosedStats[0] = 254;
+		c._j2.getPokemon(0)._pvActuels = 25;
 		//TMP fin
-
 		
-		
-		if(_c.joueurActuel == 1){
-			_equipe = _c._j1;
-		}else{
-			_equipe = _c._j2;
-		}
-
-		JFrame f = new JFrame();
-		
-			//contenu
-		PanEquipe pe = new PanEquipe();
-
-			//barre de defilement
-		JScrollPane scrollPane = new JScrollPane(pe);
-		scrollPane.setViewportView(pe);
-		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setWheelScrollingEnabled(true); //défilement vertical avec molette de la souris
-		f.getContentPane().add(scrollPane, BorderLayout.CENTER);
-		
-		//si nb pokemons < 6, on adapte la taille de la fenetre et la barre de defilement n'apparaitra pas. Sinon, elle se mettra en place :)
-		if(_equipe._team.length <= 6){
-			f.setSize(800, Math.max( (int)Math.round(pe.getPreferredSize().getHeight()+37),160));
-		}else{	
-		f.setSize(800, 750);
-		}
-		/*
-		System.out.println("pe : "+pe.getPreferredSize()+" "+pe.getSize()); //TMP
-		System.out.println("f : "+f.getSize()); //TMP
-		*/
-		f.setVisible(true);
-		f.setTitle("Pokemon - Equipe");
-		f.setLocationRelativeTo(null);
-		f.setResizable(false);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		new PanEquipe(c);
 
 	}
 	

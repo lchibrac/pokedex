@@ -66,7 +66,7 @@ public class PokemonEnCombat extends Pokemon{
 	public int _pvActuels;
 	public int[] _changementDesStats = new int[] {0,0,0,0,0,0};
 	public int[] _choosedStats = new int[] {0,0,0,0,0,0};
-	public int _statut; 
+	public int _statut; //etat du pokemon : paralyse, normal, empoisonne...
 	public int _precision;
 	public int _esquive;
 	public int _niveau;
@@ -121,7 +121,7 @@ public class PokemonEnCombat extends Pokemon{
 			case 3: return new String("Poison");
 			case 4: return new String("Gel");
 			case 5: return new String("Sommeil");
-			default:return new String("None");
+			default:return new String("Normal");
 		}
 	}
 	
@@ -143,8 +143,7 @@ public class PokemonEnCombat extends Pokemon{
 		System.out.println("-----------------------");
 		System.out.println(lanceur);
 	}
-	
-	
+		
 	public static float getAccuracy(PokemonEnCombat lanceur, PokemonEnCombat cible){
 		int accuracy = lanceur._precision - cible._esquive;
 		switch(accuracy){
@@ -178,9 +177,7 @@ public class PokemonEnCombat extends Pokemon{
 			return 1;
 		}
 	}
-	
-	
-	
+		
 	public String toString(){
 		return new String (getFrenchNom()+"   "+_pvActuels+" / "+_choosedStats[0]+"   "+getStatut());
 	}

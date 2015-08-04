@@ -34,7 +34,7 @@ import Listes.ListeDesAttaques;
 import Listes.Pokemon1G;
 
 
-public class PanCombat extends JPanel{
+public class PanCombat extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -413,15 +413,17 @@ public class PanCombat extends JPanel{
 		*/
 	}
 	
-	public PanCombat(final JFrame f) throws IOException{
-				
+	public JPanel page() throws IOException{
+		
+		JPanel contenu = new JPanel();
+		
 		//init combat
 		
 		_e1_p = _c.getEquipe(1).getPokemon(0);
 		_e2_p = _c.getEquipe(2).getPokemon(0);
 		
 		//init affichage
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		contenu.setLayout(new BoxLayout(contenu, BoxLayout.Y_AXIS));
 
 		final JPanel match = new BackgroundImage(ImageIO.read(new File("images/fond_05.jpg")),900,450);
 		match(match);
@@ -446,38 +448,43 @@ public class PanCombat extends JPanel{
 		
 		
 		//Assemblage des différentes catégories.
-		this.add(match);
-		this.add(menu);
-		this.add(messages);
+		contenu.add(match);
+		contenu.add(menu);
+		contenu.add(messages);
 		 
-		
+		return contenu;
 	}
-		
+
+	public PanCombat(Combat c) throws IOException{
+		_c = c;
+
+		setContentPane(page());
+		setSize(900, 750);
+		setVisible(true);
+		setTitle("Pokemon - Combat");
+		setLocationRelativeTo(null);
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
 	public static void main(String[] argv) throws IOException{
 		
 		//TMP
 		Equipe e1 = new Equipe(new PokemonEnCombat[]{new PokemonEnCombat(Pokemon1G.papilusion, new Attaque[]{ListeDesAttaques.abime, ListeDesAttaques.racines, ListeDesAttaques.halloween,ListeDesAttaques.lanceboue},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.abo, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.goupix, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),new PokemonEnCombat(Pokemon1G.amanox, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.dardargnan, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.dodrio, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20)}, 1);
 		Equipe e2 = new Equipe(new PokemonEnCombat[]{new PokemonEnCombat(Pokemon1G.aeromite, new Attaque[]{null, null, null,null},0,new int[]{370,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.lamantine, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),new PokemonEnCombat(Pokemon1G.kabuto, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.caninos, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.machopeur, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20)}, 1);
 
-		_c =  new Combat(e1,e2, true);
-		_c._j1.getPokemon(0)._pvActuels = 50;
-		_c._j1.getPokemon(2)._pvActuels = 0;
-		_c._j1.getPokemon(3)._pvActuels = 0;
+		Combat c =  new Combat(e1,e2, true);
+		c._j1.getPokemon(0)._pvActuels = 50;
+		c._j1.getPokemon(2)._pvActuels = 0;
+		c._j1.getPokemon(3)._pvActuels = 0;
 		
-		_c._j2.getPokemon(0)._statut = 2;
-		_c._j2.getPokemon(0)._choosedStats[0] = 50;
-		_c._j2.getPokemon(0)._pvActuels = 20;
+		c._j2.getPokemon(0)._statut = 2;
+		c._j2.getPokemon(0)._choosedStats[0] = 50;
+		c._j2.getPokemon(0)._pvActuels = 20;
+		//fin tmp
 		
-		JFrame f = new JFrame();
-		PanCombat pgs = new PanCombat(f);
+		new PanCombat(c);
 		
-		f.setContentPane(pgs);
-		f.setSize(900, 750);
-		f.setVisible(true);
-		f.setTitle("Pokemon - Combat");
-		f.setLocationRelativeTo(null);
-		f.setResizable(false);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
 }
