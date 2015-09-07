@@ -74,19 +74,15 @@ public class LifeBar extends JPanel{
 		this.setPreferredSize(new Dimension(_width,_height));
 		
 		
-		//barre sombre = nbPVActuels * nbPVdeBase / TailleTotale
-		//System.out.println("tailles : "+_total_life+" "+_height); //TMP
-		//System.out.println("dimension : "+this.getSize()+" "+this.getPreferredSize()); //TMP
-		
 		//super.paintComponent(g);
 		g.setColor(_c);
 		g.fillRect(_x, _y, _width, _height);
 		
 		g.setColor(_fore_c);
 		if(_left){
-			g.fillRect(_x, _y, (_actual_life*_total_life)/_width, _height);
+			g.fillRect(_x, _y, (_actual_life*_width)/_total_life, _height);
 		}else{
-			g.fillRect(_x+(_width-((_actual_life*_total_life)/_width)), _y, (_actual_life*_total_life)/_width, _height);
+			g.fillRect(_x+(_width-((_actual_life*_width)/_total_life)), _y, (_actual_life*_width)/_total_life, _height);
 		}
 		
 	}

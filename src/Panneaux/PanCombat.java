@@ -175,6 +175,7 @@ public class PanCombat extends JFrame{
 		GridBagConstraints e1_pb_gbc = new GridBagConstraints();
 		e1_pb_gbc.gridx = 0;
 		e1_pb_gbc.gridy = 4;
+		e1_pb_gbc.insets = new Insets(0,5,0,0);
 		e1_pb_gbc.anchor = GridBagConstraints.LAST_LINE_START;
 		match.add(e1_pb,e1_pb_gbc);
 		
@@ -202,14 +203,7 @@ public class PanCombat extends JFrame{
 		GridBagConstraints e2_lifebar_gbc = new GridBagConstraints();
 		e2_lifebar_gbc.gridx = 2;
 		e2_lifebar_gbc.gridy = 1;
-		
-		//PUNAISE DE CALCUL A LA ... SI PB POSITION HORIZONTALE DE LA BARRE, PEUT VENIR DE LA
-		//pourquoi je dois faire ca pour qu'il se mette en place ? =='
-		if(_c._j2._team[_c._e2_p]._choosedStats[0] == _c._j2._team[_c._e2_p]._pvActuels){
-			e2_lifebar_gbc.insets = new Insets(0,0,0,5);
-		}else{
-			e2_lifebar_gbc.insets = new Insets(0,0,0,5+ (int)Math.round(_c._j2._team[_c._e2_p]._choosedStats[0]/1.655));
-		}
+		e2_lifebar_gbc.insets = new Insets(0,0,0,5);
 		e2_lifebar_gbc.anchor = GridBagConstraints.LINE_END;
 		match.add(e2_lifebar,e2_lifebar_gbc);
 		
@@ -317,14 +311,19 @@ public class PanCombat extends JFrame{
 				else{
 					_c._gagnant = 1;
 				}
+				//TMP ajout de fermeture du combat
 			}
 		}
 		fuite.addActionListener(new Fuite());
 		
 		class ListePokemon implements ActionListener{
 			public void actionPerformed(ActionEvent e){
-				//ouvrir la liste des pokemons dans une nouvelle page. 
-				//lorsqu'il a selectionnÃ©, changer le pokemon actil de la bonne equipe
+				PanEquipe pe = new PanEquipe(_c);
+				
+				//si le pkm a changé, on doit recharger la page
+				if (pe._changed == true){
+					repaint(); // TMP
+				}
 			}
 		}
 		chg_pkm.addActionListener(new ListePokemon());
@@ -470,17 +469,17 @@ public class PanCombat extends JFrame{
 	public static void main(String[] argv) throws IOException{
 		
 		//TMP
-		Equipe e1 = new Equipe(new PokemonEnCombat[]{new PokemonEnCombat(Pokemon1G.papilusion, new Attaque[]{ListeDesAttaques.abime, ListeDesAttaques.racines, ListeDesAttaques.halloween,ListeDesAttaques.lanceboue},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.abo, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.goupix, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),new PokemonEnCombat(Pokemon1G.amanox, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.dardargnan, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.dodrio, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20)}, 1);
+		Equipe e1 = new Equipe(new PokemonEnCombat[]{new PokemonEnCombat(Pokemon1G.papilusion, new Attaque[]{ListeDesAttaques.abime, ListeDesAttaques.racines, ListeDesAttaques.halloween,ListeDesAttaques.lanceboue},0,new int[]{50,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.abo, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.goupix, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),new PokemonEnCombat(Pokemon1G.amanox, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.dardargnan, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.dodrio, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20)}, 1);
 		Equipe e2 = new Equipe(new PokemonEnCombat[]{new PokemonEnCombat(Pokemon1G.aeromite, new Attaque[]{null, null, null,null},0,new int[]{370,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.lamantine, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20),new PokemonEnCombat(Pokemon1G.kabuto, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20) , new PokemonEnCombat(Pokemon1G.caninos, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20), new PokemonEnCombat(Pokemon1G.machopeur, new Attaque[]{null, null, null,null},0,new int[]{261,113,136,279,196,262},20)}, 1);
 
 		Combat c =  new Combat(e1,e2, true);
-		c._j1.getPokemon(0)._pvActuels = 50;
+		c._j1.getPokemon(0)._pvActuels = 25;
 		c._j1.getPokemon(2)._pvActuels = 0;
 		c._j1.getPokemon(3)._pvActuels = 0;
 		
 		c._j2.getPokemon(0)._statut = 2;
 		c._j2.getPokemon(0)._choosedStats[0] = 50;
-		c._j2.getPokemon(0)._pvActuels = 20;
+		c._j2.getPokemon(0)._pvActuels = 48;
 		//fin tmp
 		
 		new PanCombat(c);

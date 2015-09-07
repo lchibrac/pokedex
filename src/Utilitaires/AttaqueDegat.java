@@ -26,7 +26,6 @@ public class AttaqueDegat extends Attaque{
 	public String getCategorie(){
 		if (_categorie > 1 || _categorie < 0){
 			return new String("The int _categorie must be 0 or 1");
-			
 		}
 		if (_categorie == 0){
 			return new String("Physique");

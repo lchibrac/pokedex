@@ -1,11 +1,17 @@
 package Panneaux;
+import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 
@@ -31,6 +37,38 @@ public class PanEquipe extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	public static Equipe _equipe;
+	public static boolean _changed;
+	public static int _buttonActived; // 0 : aucun ; 1 : select ; 2 : detail
+
+	public class AppletMouse extends Applet implements MouseListener {
+		
+		private static final long serialVersionUID = 1L;
+		int nbClick = 0;
+
+		public void init() {
+			super.init();
+			addMouseListener(this);
+		}
+
+		public void mouseClicked(MouseEvent e) {
+			nbClick++;
+			repaint();
+		}
+
+		public void mouseEntered(MouseEvent e) {}
+
+		public void mouseExited(MouseEvent e) {}
+
+		public void mousePressed(MouseEvent e) {}
+
+		public void mouseReleased(MouseEvent e) {}
+
+		public void paint(Graphics g) {
+			super.paint(g);
+			g.drawString("Nombre de clics : "+nbClick,10,10);
+		}
+
+	}
 	
 	private JPanel create_pkm(JPanel pe, int i){
 		JPanel pokemon = new JPanel ();
@@ -166,6 +204,28 @@ public class PanEquipe extends JFrame {
 		gbc.anchor = GridBagConstraints.PAGE_START;
 		menu.add(detail,gbc);
 		
+		class Undo implements ActionListener{
+			public void actionPerformed(ActionEvent e){
+				_changed = false;
+				dispose(); 
+			}
+		}
+		undo.addActionListener(new Undo());
+		
+		class Select implements ActionListener{
+			public void actionPerformed(ActionEvent e){
+				_changed = true;
+				_buttonActived = 1;
+			}
+		}
+		select.addActionListener(new Select());
+		
+		class Detail implements ActionListener{
+			public void actionPerformed(ActionEvent e){
+				_buttonActived = 2;
+			}
+		}
+		detail.addActionListener(new Detail());
 	}
 	
 	public JPanel creerPage (){
@@ -203,6 +263,7 @@ public class PanEquipe extends JFrame {
 	}
 	
 	public PanEquipe (Combat c){
+		_buttonActived = 0;
 		
 		if(c.joueurActuel == 1){
 			_equipe = c._j1;
