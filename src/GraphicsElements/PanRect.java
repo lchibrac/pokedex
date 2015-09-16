@@ -1,4 +1,4 @@
-package Panneaux;
+package GraphicsElements;
 import java.awt.Dimension;
 import java.awt.Graphics;
 

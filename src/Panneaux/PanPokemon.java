@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import ClassesObjets.Pokemon;
 import GraphicsElements.Line;
+import GraphicsElements.PanTableDesTypes;
 import Listes.Pokemon2G;
 
 
@@ -38,6 +39,7 @@ public class PanPokemon extends JPanel{
 		add(pt1);
 		
 		PanTableDesTypes ptdt = new PanTableDesTypes(p);
+		System.out.println(f.getWidth());
 		ptdt.setPreferredSize(new Dimension(f.getWidth(),150));
 		add(ptdt);
 				

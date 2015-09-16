@@ -1,14 +1,13 @@
 package Panneaux;
 
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 
 import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
@@ -16,11 +15,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 
 import ClassesObjets.Attaque;
 import ClassesObjets.PokemonEnCombat;
 import GraphicsElements.LifeBar;
+import GraphicsElements.Line;
+import GraphicsElements.PanTableDesTypes;
 import Listes.ListeDesAttaques;
 import Listes.Pokemon1G;
 
@@ -28,29 +28,6 @@ public class PanPokemonEnCombat  extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	public PokemonEnCombat _p;
-	
-	
-	public class Line extends JPanel{
-
-		public int _x1, _y1, _x2, _y2;
-		private static final long serialVersionUID = 1L;
-
-		public Line(int x1, int y1, int x2, int y2){
-			_x1 = x1;
-			_y1 = y1;
-			_x2 = x2;
-			_y2 = y2;
-		}
-		
- 		public void paintComponent(Graphics g){ 
- 			/*
- 			this.setPreferredSize(new Dimension(Math.max(_x2 - _x1, 2), Math.max(_y2 - _y1, 2)));
- 			this.setSize(new Dimension(Math.max(_x2 - _x1, 2), Math.max(_y2 - _y1, 2)));
- 			*/
- 			//System.out.println();
- 			g.drawLine(_x1, _y1, _x2, _y2);
- 		}
-	}
 	
 	public JPanel segment1(){
 		JPanel contenu = new JPanel();
@@ -63,7 +40,7 @@ public class PanPokemonEnCombat  extends JFrame {
 		img_gbc.gridy = 0;
 		img_gbc.gridheight = 3;
 		img_gbc.insets = new Insets(5,5,5,5);
-		img_gbc.anchor = GridBagConstraints.LINE_START;
+		//img_gbc.anchor = GridBagConstraints.CENTER;
 		contenu.add(img, img_gbc);
 		
 		//nom
@@ -71,8 +48,8 @@ public class PanPokemonEnCombat  extends JFrame {
 		GridBagConstraints name_gbc = new GridBagConstraints();
 		name_gbc.gridx = 1;
 		name_gbc.gridy = 0;
-		//name_gbc.insets = new Insets(10,0,0,0);
-		name_gbc.anchor = GridBagConstraints.LINE_START;
+		//name_gbc.insets = new Insets(0,15,0,0);
+		//name_gbc.anchor = GridBagConstraints.LINE_START;
 		contenu.add(name, name_gbc);
 		
 		//sexe
@@ -90,9 +67,9 @@ public class PanPokemonEnCombat  extends JFrame {
 		GridBagConstraints sex_gbc = new GridBagConstraints();
 		sex_gbc.gridx = 2;
 		sex_gbc.gridy = 0;
-		sex_gbc.insets = new Insets(0,5,0,5);
+		//sex_gbc.insets = new Insets(0,5,0,5);
 		sex_gbc.weightx = 1;
-		sex_gbc.anchor = GridBagConstraints.CENTER;
+		//sex_gbc.anchor = GridBagConstraints.CENTER;
 		contenu.add(sex, sex_gbc);
 		
 		//level
@@ -100,24 +77,25 @@ public class PanPokemonEnCombat  extends JFrame {
 		GridBagConstraints level_gbc = new GridBagConstraints();
 		level_gbc.gridx = 3;
 		level_gbc.gridy = 0;
-		level_gbc.insets = new Insets(0,0,0,5);
+		//level_gbc.insets = new Insets(0,0,0,15);
 		contenu.add(level, level_gbc);
 		
 		//talent
-		JLabel talent = new JLabel("Talent : "+Listes.Talent.listeTalents[_p._talentChoisi]._fr);
+		JLabel talent = new JLabel("Talent  :  "+Listes.Talent.listeTalents[_p._talentChoisi]._fr);
 		GridBagConstraints talent_gbc = new GridBagConstraints();
 		talent_gbc.gridx = 1;
 		talent_gbc.gridy = 1;
-		talent_gbc.anchor =  GridBagConstraints.LINE_START;
+		//talent_gbc.insets = new Insets(0,15,0,0);
+		//talent_gbc.anchor =  GridBagConstraints.LINE_START;
 		contenu.add(talent, talent_gbc);
 		
 		//Statut
-		JLabel statut = new JLabel("Situation : "+_p.getStatut());
+		JLabel statut = new JLabel("Situation  :  "+_p.getStatut());
 		GridBagConstraints statut_gbc = new GridBagConstraints();
 		statut_gbc.gridx = 2;
 		statut_gbc.gridy = 1;
 		statut_gbc.gridwidth = 2;
-		statut_gbc.anchor = GridBagConstraints.CENTER;
+		//statut_gbc.anchor = GridBagConstraints.CENTER;
 		contenu.add(statut, statut_gbc);
 		
 		//barre de vie
@@ -126,8 +104,7 @@ public class PanPokemonEnCombat  extends JFrame {
 		lifebar_gbc.gridx = 1;
 		lifebar_gbc.gridy = 2;
 		lifebar_gbc.gridwidth = 3;
-//		lifebar_gbc.insets = new Insets(0,5,0,5);
-		lifebar_gbc.anchor = GridBagConstraints.CENTER;
+		//lifebar_gbc.anchor = GridBagConstraints.CENTER;
 		contenu.add(lifebar,lifebar_gbc);
 		
 		//donnees vie
@@ -136,9 +113,17 @@ public class PanPokemonEnCombat  extends JFrame {
 		life_gbc.gridx = 1;
 		life_gbc.gridy = 3;
 		life_gbc.gridwidth = 3;
-//		life_gbc.insets = new Insets(0,0,0,0);
-		life_gbc.anchor = GridBagConstraints.CENTER;
+		//life_gbc.anchor = GridBagConstraints.CENTER;
 		contenu.add(life,life_gbc);
+		
+		//barre de séparation
+		Line line = new Line(750);
+		line.setPreferredSize(new Dimension(750,13));
+		GridBagConstraints line_gbc = new GridBagConstraints();
+		line_gbc.gridx = 0;
+		line_gbc.gridy = 4;
+		line_gbc.gridwidth = 4;
+		contenu.add(line, line_gbc);
 		
 		return contenu;
 	}
@@ -147,12 +132,22 @@ public class PanPokemonEnCombat  extends JFrame {
 		JPanel contenu = new JPanel();
 		
 		//attaques
-		Object tmp[][] = {(Object [])_p._listeDesAttaques};
+		//Object tmp[] = {(Object [])_p._listeDesAttaques};
 		
 		
+		PanTableDesTypes ptdt = new PanTableDesTypes(_p);
+		ptdt.setPreferredSize(new Dimension(600,150));
+		contenu.add(ptdt);
 		
-		JLabel esquive = new JLabel();
+		//JLabel esquive = new JLabel();
 		
+		Line line = new Line(750);
+		line.setPreferredSize(new Dimension(750,13));
+		GridBagConstraints line_gbc = new GridBagConstraints();
+		line_gbc.gridx = 0;
+		line_gbc.gridy = 4;
+		line_gbc.gridwidth = 2;
+		contenu.add(line);
 		
 		return contenu;
 	}
@@ -166,7 +161,6 @@ public class PanPokemonEnCombat  extends JFrame {
 		JPanel objet = new JPanel();
 		
 		page.add(segment1);
-		//page.add(new Line(30, (int)Math.round(segment1.getPreferredSize().getHeight()+1), (int)Math.round(page.getPreferredSize().getWidth()) -30 , (int)Math.round(segment1.getPreferredSize().getHeight()+1)));
 		page.add(segment2);
 		page.add(objet);
 		return page;
@@ -189,6 +183,8 @@ public class PanPokemonEnCombat  extends JFrame {
 	public static void main(String[] args) {
 		//TMP
 		PokemonEnCombat exemple = new PokemonEnCombat(Pokemon1G.papilusion, new Attaque[]{ListeDesAttaques.abime, ListeDesAttaques.racines, ListeDesAttaques.halloween,ListeDesAttaques.lanceboue},0,new int[]{261,113,136,279,196,262},20); 
+		
+		exemple._pvActuels = 5;
 		//FIN TMP
 
 		new PanPokemonEnCombat(exemple);

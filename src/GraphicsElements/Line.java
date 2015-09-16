@@ -10,6 +10,7 @@ public class Line extends JPanel{
 	private static final long serialVersionUID = 1L;
 	
 	public int _w;
+	
 	public Line(int w){
 		_w = w;
 	}
